@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>SQL - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">SQL</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1637749538982"
+                  >2021-11-24 11:25</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1641154553317"
+                  >2022-01-02 21:15</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">ddl</span>
+              
+              <span class="keyword">ap</span>
+              
+              <span class="keyword">datenbank</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">bs</span>
+              
+              <span class="keyword">sql</span>
+              
+              <span class="keyword">dql</span>
+              
+              <span class="keyword">dml</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="sql">SQL</h1>
+<ol>
+<li><a title="#was-ist-sql" href="#was-ist-sql">Was ist SQL?</a></li>
+<li><a title="#sql-untersprachen" href="#sql-untersprachen">SQL Untersprachen</a>
+<ol start="3">
+<li><a title="#ddl" href="#ddl">DDL</a>
+<ol>
+<li><a title="#ddl-befehle" href="#ddl-befehle">DDL-Befehle</a></li>
+</ol>
+</li>
+<li><a title="#dml" href="#dml">DML</a>
+<ol>
+<li><a title="#dml-befehle" href="#dml-befehle">DML-Befehle</a></li>
+</ol>
+</li>
+<li><a title="#dql" href="#dql">DQL</a>
+<ol>
+<li><a title="#dql-befehle" href="#dql-befehle">DQL-Befehle</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a title="#unabh%C3%A4ngige-befehle" href="#unabh%C3%A4ngige-befehle">Unabhängige Befehle</a></li>
+<li><a title="#ansi-sparc-model" href="#ansi-sparc-model">ANSI-SPARC Model</a></li>
+<li><a title="#weitere-fachbegriffe" href="#weitere-fachbegriffe">Weitere Fachbegriffe</a>
+<ol>
+<li><a title="#rdbms" href="#rdbms">RDBMS</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-sql">Was ist SQL?</h2>
+<p>SQL (Structured Query Language) ist eine Datenbank Sprache, mit der man Datanbanken erstellen, verwalten und auslesen kann.
+SQL hat drei Untersprachen DDL, DML, DQL.</p>
+<h2 id="sql-untersprachen">SQL Untersprachen</h2>
+<h3 id="ddl">DDL</h3>
+<p>DDL steht für <strong>D</strong>ata <strong>D</strong>efinition <strong>L</strong>anguage. Mit DDL kann man Datenbanken und Tabellen erstellen/löschen. Wenn man eine Datenbank mit einem Haus vergleicht, dann ist DDL für den Rohbau, also die Wände und das Dach zuständig.</p>
+<h4 id="ddl-befehle">DDL-Befehle</h4>
+<table>
+<thead>
+<tr>
+<th>Befehl</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE [TABLE][DATABASE]</td>
+<td>Erstellt eine Tabelle oder Datenbank</td>
+<td>CREATE DATABASE Mitabeiter;</td>
+</tr>
+<tr>
+<td>DROP [TABLE][DATABASE]</td>
+<td>Lösche eine Datenbank oder Tabelle endgültig</td>
+<td>DROP DATABASE Mitarbeiter;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dml">DML</h3>
+<p>DML  steht für <strong>D</strong>ata <strong>M</strong>anipulation <strong>L</strong>anguage. Mit DDL kann man Datensätze in einer Tabelle bearbeiten, löschen und Einfügen. In einem Haus, wäre die DML für die Einrichtung zuständig.</p>
+<h4 id="dml-befehle">DML-Befehle</h4>
+<table>
+<thead>
+<tr>
+<th>Befehl</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INSERT</td>
+<td>Fügt einen Datensatz ein</td>
+<td>INSERT INTO mitarbeiter VALUES (1, “Peter”, “Maier”)</td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td>Updatet den Inhalt eines oder mehrerer Datensätze</td>
+<td>UPDATE mitarbeiter SET name=“Mayer” WHERE ID = 1;</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Löscht einen oder meherer Datensätze aus einer Tabelle</td>
+<td>DELETE FROM mitarbeiter WHERE ID = 1;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dql">DQL</h3>
+<p>DQL steht für <strong>D</strong>ata <strong>Q</strong>uery <strong>L</strong>anguage. Mit DQL werden Datensätze aus Tabellen ausgelesen und sortiert.</p>
+<h4 id="dql-befehle">DQL-Befehle</h4>
+<table>
+<thead>
+<tr>
+<th>Befehl</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>Auslesen einer oder mehrer Datensätze</td>
+<td>SELECT * FROM mitarbeiter;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unabhängige-befehle">Unabhängige Befehle</h2>
+<p>Neben den Untersprachen von SQL gibt es noch weiter Befehle, die keiner Untersprache angehören.</p>
+<table>
+<thead>
+<tr>
+<th>Befehl</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHOW [TABLES][DATABASES]</td>
+<td>Listet alle Datenbanken oder Tabellen auf</td>
+<td>SHOW DATABASES; SHOW TABLES;</td>
+</tr>
+<tr>
+<td>USE</td>
+<td>Wechsel in eine Datenbank um mit dessen Tabellen zu arbeiten</td>
+<td>USE mitarbeiter;</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>List eine .sql Datei ein</td>
+<td>SOURCE test-user.sql</td>
+</tr>
+<tr>
+<td>EXPLAIN / DESC</td>
+<td>Zeigt den Aufbau einer Tabelle</td>
+<td>SHOW kunden;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ansi-sparc-model">ANSI-SPARC Model</h2>
+<p>Das ANSI-SPARC Model zeigt, den Aufbau einer Datenbank.</p>
+<table>
+<thead>
+<tr>
+<th>Ebene</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Externe Ebene</td>
+<td>Hier werden die Rechte auf die Datenbank vergeben. Zudem wird darüber auf die Datenbank vom End-User zugegriffen</td>
+</tr>
+<tr>
+<td>Konzeptionelle Ebene</td>
+<td>Hier wird der Theoretische Aufbau (Konzept) der Datenbank erstellt, also welche Tabellen mit welchen Attributen.</td>
+</tr>
+<tr>
+<td>Physische Ebene</td>
+<td>Hier werden die Daten Physikalisch auf einer Festplatte abgelegt und gespeichert, darum kümmert sich das <a title="#rdbms" href="#rdbms">RDBMS</a> (Datenbank Management System)</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/_resources/cdb8e407d73442b2890a2b2dde048c5f.jpg" /></p>
+<h2 id="weitere-fachbegriffe">Weitere Fachbegriffe</h2>
+<h3 id="rdbms">RDBMS</h3>
+<p>Ein RDBMS ist ein <strong>R</strong>elationales <strong>D</strong>aten<strong>b</strong>ank <strong>M</strong>anagement <strong>S</strong>ystem. Es kümmert sich um die Verwaltung und Strukturierung der Daten in einer Datenbank. Darin werden die Tabellen erstellt, Datensätze eingefügt und Daten abgerufen.</p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

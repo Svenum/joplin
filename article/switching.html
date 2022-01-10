@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Switching - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Switching</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1638421236257"
+                  >2021-12-02 06:00</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1641813412612"
+                  >2022-01-10 12:16</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">netzwerk</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">switching</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">bs</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li><a title="#was-ist-switching" href="#was-ist-switching">Was ist Switching?</a></li>
+<li><a title="#vorgehensweise-eines-switch" href="#vorgehensweise-eines-switch">Vorgehensweise eines Switch</a>
+<ol>
+<li><a title="#schritt-1-lernen" href="#schritt-1-lernen">Schritt 1 - Lernen</a></li>
+<li><a title="#schritt-2-forward" href="#schritt-2-forward">Schritt 2 - Forward</a></li>
+</ol>
+</li>
+<li><a title="#beispiele" href="#beispiele">Beispiele</a></li>
+</ol>
+<h1 id="was-ist-switching">Was ist Switching?</h1>
+<p>Beim Switching werden Mehrer Geräte an Switche angeschlossen. Diese leiten sogenannte Frames oder Pakete weiter an andere Geräte. Ein Frame hat folgenden Aufbau:
+<img src="/_resources/d0a16d6e4c9541c08c733e5fa74cdabd.png" /></p>
+<p>Das Switching findet im <a href="/article/osi-model">OSI-Modell</a> auf Schicht zwei statt.</p>
+<h1 id="vorgehensweise-eines-switch">Vorgehensweise eines Switch</h1>
+<p>Ein Switch hat immer zwei Schritte, die er durchgeht um das Frame oder Paket zum richtigen Ziel weiter zu leiten.</p>
+<h2 id="schritt-1-lernen">Schritt 1 - Lernen</h2>
+<p>Beim Schritt eins wird die Source MAC-Adresse überprüft, ob sie bereits in der MAC-Adressenliste des Switches steht. Wenn die MAC-Adresse noch nicht vorhanden ist, wird die Adresse zusammen mit dem Port in der Liste gespeichert. Ist die Adresse schon vorhanden, so wird geschaut ob der Port noch übereinstimmt und gegebenen Falls angepasst. Zudem wird (wenn Adresse in der Liste vorhanden) der Aktualisierungstimer aktualisiert, da ein Ethernet-Switch alle 5 min einen Eintrag bei nicht aktualisieren löscht.</p>
+<h2 id="schritt-2-forward">Schritt 2 - Forward</h2>
+<p>Beim Forward schaut sich der Switch erst an, ob die Adresse eine Unicast Adresse ist oder nicht. Wenn sie eine ist überprüft der Switch, ob die Destination MAC-Adresse in der Liste vorhanden ist. Wenn die Adresse …</p>
+<ul>
+<li>… vorhanden ist schickt der Switch die Daten nur an den Gekannten Port.</li>
+<li>… nicht vorhanden ist werden die Daten an jeden Port, außer an nicht verwendete und den Source-Port geschickt.</li>
+</ul>
+<p>Ist der Port ein Broad- oder Multicast, so wird der Frame bzw. das Paket ebenfalls an alle Ports außer an nicht verwendete und den Source-Port weitergeleitet.</p>
+<h1 id="beispiele">Beispiele</h1>
+<p>Hier ist ein Beispiel, indem die Ziel-MAC-Adresse nicht bekannt ist.
+<img src="/_resources/5e984b875a5e4f759cfb46dc69c22e49.png" /></p>
+<hr />
+<p>Beim Folgendem Beispiel ist die Ziel-MAC-Adresse bekannt.
+<img src="/_resources/5b083fc517d74f9ab26fac3bb730652a.png" /></p>
+<hr />
+</div>
+      </article>
+    </div>
+  </body>
+</html>

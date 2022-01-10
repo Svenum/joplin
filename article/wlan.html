@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>WLAN - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">WLAN</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1641803072649"
+                  >2022-01-10 09:24</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1641811843568"
+                  >2022-01-10 11:50</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">netzwerk</span>
+              
+              <span class="keyword">wlan</span>
+              
+              <span class="keyword">bs</span>
+              
+              <span class="keyword">10.klasse</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="wlan">WLAN</h1>
+<ol>
+<li><a title="#was-ist-wlan" href="#was-ist-wlan">Was ist WLAN?</a></li>
+<li><a title="#betriebsarten" href="#betriebsarten">Betriebsarten</a>
+<ol>
+<li><a title="#infrastruktur" href="#infrastruktur">Infrastruktur</a>
+<ol>
+<li><a title="#mesh" href="#mesh">Mesh</a></li>
+</ol>
+</li>
+<li><a title="#adhoc" href="#adhoc">Ad-Hoc</a></li>
+</ol>
+</li>
+<li><a title="#standarts" href="#standarts">Standards</a></li>
+<li><a title="#optimierung-von-wlan" href="#optimierung-von-wlan">Optimierung von WLAN</a>
+<ol>
+<li><a title="#beispiel-an-unterschiedlichen-standards" href="#beispiel-an-unterschiedlichen-standards">Beispiel an unterschiedlichen Standards</a></li>
+</ol>
+</li>
+<li><a title="#vor-und-nachteile" href="#vor-und-nachteile">Vor- und Nachteile</a></li>
+<li><a title="#sicherheitsma%C3%9Fnahmen" href="#sicherheitsma%C3%9Fnahmen">Sicherheitsmaßnahmen</a></li>
+</ol>
+<h2 id="was-ist-wlan">Was ist WLAN?</h2>
+<p><strong>WLAN</strong> <em>(oder in den USA auch Wi-Fi genannt)</em> steht für <strong>W</strong>ireless <strong>L</strong>ocal <strong>A</strong>rea <strong>N</strong>etwork. Es ist ein lokales Netzwerk bei dem die Teilnehmer über Funk Kommunizieren. Im <a href="/article/osi-model">OSI-Modell</a> würde WLAN auf der Schickt 2 liegen, da hier mittels MAC-Adressen gearbeitet werden.</p>
+<h2 id="betriebsarten">Betriebsarten</h2>
+<p>WLAN hat zwei verschiedene Betriebsarten, Infrastruktur und Ad-Hoc.</p>
+<h3 id="infrastruktur">Infrastruktur</h3>
+<p>Im Modus Infrastruktur wird eine zentrale Netzwerk-Komponente (<strong>AP</strong> oder auch <em><strong>A</strong>cess-<strong>P</strong>oint</em>) benötigt. Ein WLAN hat immer einen eindeutigen Namen, den <strong>SSID</strong> (<strong>S</strong>ervifce <strong>S</strong>et <strong>Id</strong>entifier). Dieser ist immer Case-Sensitive und kann über den SSID-Broadcast bekannt gemacht werden.
+<img src="/_resources/cf55ab50ec354c4e9da544aef2ae7382.png" /></p>
+<h4 id="mesh">Mesh</h4>
+<p>Bei einem Mesh-WLAN teilen sich mehrere APs das selbe WLAN mit der selben SSID. die Einstellungen werden dann von einem WLAN-Controller zentral verwaltet. Dadurch kann die Reichweite und die Geschwindigkeit optimiert werden. Die Verwaltung wird ebenfalls vereinfacht.
+Oft sind Meshs herstellerspezifisch, dass heißt die APs und der WLAN-Controller müssen vom selben Hersteller sein.</p>
+<h3 id="ad-hoc">Ad-Hoc</h3>
+<p>Im Ad-Hoc-Modus gibt es keine zentrale Netzwerk-Komponente. Die Geräte kommunizieren untereinender.
+<img src="/_resources/8c9a7dda979e4b0aa4249ccdd7d9ab99.png" /></p>
+<h2 id="standards">Standards</h2>
+<p>Die WLAN-Standards werden von der <a title="https://de.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers" href="https://de.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers">IEEE</a> festgelegt.</p>
+<p><img src="/_resources/9de238ff4a2248208556a1b9b8a037d3.png" /></p>
+<h2 id="optimierung-von-wlan">Optimierung von WLAN</h2>
+<ul>
+<li>breitere Kanäle (20/40/80/160 MHz) bzw. mehrere Frequenzbereiche gleichzeitig nutzen (2,4/5 GHz)</li>
+<li>leistungsfähigere Verfahren (=&gt; bessere Standards) verwenden
+<ul>
+<li>802.11n: QAM64</li>
+<li>802.11ac: QAM256</li>
+<li>802.11ax: QAM1024</li>
+</ul>
+</li>
+<li>mehrere Datenströme für Up-und Download verwenden (<strong>MIMO</strong> oder auch <strong>m</strong>ultiple <strong>i</strong>nput <strong>m</strong>ultiple <strong>o</strong>utput)</li>
+<li>mehrere Datenströme für Up-und Download mit dynamischer Anzahl pro Gerät (<strong>Multi-User-MIMO</strong>)</li>
+<li>Richtwirkung der Antenne dynamisch Anpassen</li>
+<li>Lastverteilung, wählen für Dual-Band fähige Clients den günstigsten Frequenzbereich wählen (<strong>Band-Steering</strong>)</li>
+</ul>
+<h3 id="beispiel-an-unterschiedlichen-standards">Beispiel an unterschiedlichen Standards</h3>
+<p><img src="/_resources/f5605aad62dc4c06934217a18c5156b8.png" /></p>
+<h2 id="vor-und-nachteile">Vor- und Nachteile</h2>
+<table>
+<thead>
+<tr>
+<th>Nachteile</th>
+<th>Vorteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schnelle Auslastung bei Vielen Teilnehmern</td>
+<td>Große Mobilität</td>
+</tr>
+<tr>
+<td>Störung durch andere Elektrische Geräte (z. B. Mikrowelle)</td>
+<td>keine starke Bindung an Infrastruktur</td>
+</tr>
+<tr>
+<td>unstabil (Verbindungsabbrüche, Leistungsschwankungen, Reichweitenreduktion, Ausleuchtung)</td>
+<td>günstiger als viele Kabel zu verlegen</td>
+</tr>
+<tr>
+<td colspan="2">schwierig zu verwalten</td>
+</tr>
+<tr>
+<td colspan="2">Viele Fehlermöglichkeiten bei Konfiguration (z. B. Falsche Frequenz Wahl)</td>
+</tr>
+<tr>
+<td colspan="2">Leichtere Lauschangriffe (<strong>Brute Force Attacken</strong>)</td>
+</tr>
+<tr>
+<td colspan="2">nicht autorisierte APs (<strong>Rogue AP</strong>)</td>
+</tr>
+<tr>
+<td colspan="2">abfangen, löschen oder einschleusen von Daten</td>
+</tr>
+<tr></tr>
+</tbody>
+</table>
+<h2 id="sicherheitsmaßnahmen">Sicherheitsmaßnahmen</h2>
+<ul>
+<li>Standard-Passwörter ändern</li>
+<li>WPS deaktivieren</li>
+<li>APs nur per LAN konfigurieren</li>
+<li>Verschlüsselung aktivieren (min. WPA2)
+<ul>
+<li>WEP veraltet und <strong>UNSICHER</strong></li>
+<li>WPA veraltet und <strong>NUR TEILS SICHER</strong></li>
+<li>WPA2 aktueller Standard <strong>sicher</strong> kann aber geknackt werden</li>
+<li>WPA3 neuster Standard aktuell noch <strong>sehr sicher</strong></li>
+</ul>
+</li>
+<li>SSID ohne Rückschlussmöglichkeit auf Hardware wählen</li>
+<li>Nur verwendete Geräte einschalten</li>
+<li>Firewalls einsetzen</li>
+<li>Regelmäßig Firmware aktualisieren</li>
+</ul>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

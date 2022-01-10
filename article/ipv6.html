@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>IPv6 - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">IPv6</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1638422611041"
+                  >2021-12-02 06:23</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1638433397754"
+                  >2021-12-02 09:23</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">netzwerk</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">bs</span>
+              
+              <span class="keyword">ipv6</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li><a title="#was-ist-ipv6" href="#was-ist-ipv6">Was ist IPv6?</a></li>
+<li><a title="#ipv6-adressraum" href="#ipv6-adressraum">IPv6 Adressraum</a></li>
+<li><a title="#verk%C3%BCrzungs-regeln" href="#verk%C3%BCrzungs-regeln">Verkürzungs Regeln</a>
+<ol>
+<li><a title="#vornullen" href="#vornullen">Vornullen</a></li>
+<li><a title="#nullerbl%C3%B6cke" href="#nullerbl%C3%B6cke">Nullerblöcke</a></li>
+</ol>
+</li>
+<li><a title="#besondere-adressen" href="#besondere-adressen">Besondere Adressen</a></li>
+<li><a title="#vor-und-nachteile-von-ipv6" href="#vor-und-nachteile-von-ipv6">Vor- und Nachteile von IPv6</a>
+<ol>
+<li><a title="#vorteile" href="#vorteile">Vorteile</a></li>
+<li><a title="#nachteile" href="#nachteile">Nachteile</a></li>
+</ol>
+</li>
+</ol>
+<h1 id="was-ist-ipv6">Was ist IPv6?</h1>
+<p>IPv6 steht für <em><strong>I</strong>nternet <strong>P</strong>rotokoll <strong>V</strong>ersion <strong>6</strong></em>. IPv6 wurde Entwickelt, weil die IPv4 Adressen ausgegangen sind. IPv4 hat 2³² und IPv6 hat 2¹²⁸ mögliche Adressen. Daran sieht man, dass IPv6 einen viel größeren Adressbereich hat als IPv4.
+Beispiele:</p>
+<ul>
+<li>IPv4: 192.169.0.12</li>
+<li>IPv6: fe80:f890::1</li>
+</ul>
+<h1 id="ipv6-adressraum">IPv6 Adressraum</h1>
+<p>IPv6 hat 128 bit, die in Doppelpunkt-Schreibweise in Hexadezimalen Zahlen dargestellt werden, also Zahlen von 0 - f.</p>
+<p><img src="/_resources/c82a60b491364ddca88fa9596acea2a3.png" /></p>
+<h1 id="verkürzungs-regeln">Verkürzungs Regeln</h1>
+<p>Es gibt zwei verschiedene Verkürzungs Regeln, mit denen man IPv6 Adressen abkürzen kann. In den Folgenden Kapiteln, wird jeweils nur eine Regel aus vranschaulichungs Gründen angewandt. Natürlich können die Regeln kombiniert werden.</p>
+<h2 id="vornullen">Vornullen</h2>
+<p>Pro Block können sämtliche Vornullen weggelassen werden z. B.:</p>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td>2001:0db8:0000:08d3:0000:8a2e:0070:7344</td>
+<td>vorher</td>
+</tr>
+<tr>
+<td>2001:db8:0:8d3:0:8a2e:70:7344</td>
+<td>nachher</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nullerblöcke">Nullerblöcke</h2>
+<p>Es können Nuller Blöcke oder Nuller Blöcke Reihen durch “::” ersetzt werden. Diese Regel kann jedoch aus eindeutigkeits Gründen nur einmal angewandt werden. z. B.:</p>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td>2001:0000:0000:1db8:0000:0000:0000:1428</td>
+<td>Vorher</td>
+</tr>
+<tr>
+<td>2001::1db8:0000:0000:0000:1428</td>
+<td>Nachher</td>
+</tr>
+<tr>
+<td>2001:0000:0000:1db8::1428</td>
+<td>Nachher</td>
+</tr>
+</tbody>
+</table>
+<h1 id="besondere-adressen">Besondere Adressen</h1>
+<p><img src="/_resources/e630cea039504f2fad8640d23c9ba6d8.png" />
+<img src="/_resources/604d88fc54ae43e19f01418b5de196fe.png" /></p>
+<ul>
+<li>Unicast: Geht an genau ein Node
+<ul>
+<li>Global Unicast: Globale IP-Adresse (vom Internet Erreichbar)</li>
+<li>Link-Locale IP-Adresse (wird nicht geroutet)</li>
+</ul>
+</li>
+<li>Multicast: Geht an mehrer Nodes</li>
+<li>Anycast: Geht an eine vordefinierte Gruppe an Nodes (es muss nur einer Antworten)</li>
+</ul>
+<p><em><strong>(Bei IPv6 nennt man Geräte Nodes)</strong></em></p>
+<p><img src="/_resources/508d79d2c97a4d42be064bb72902c584.png" /></p>
+<h1 id="vor-und-nachteile-von-ipv6">Vor- und Nachteile von IPv6</h1>
+<h2 id="vorteile">Vorteile</h2>
+<ul>
+<li>Automatische Konfiguration (DHCP evtl. unnötig)</li>
+<li>Multicast durch spezielle Adressen</li>
+<li>schnelleres Routing</li>
+<li>Punkt-zu-Punkt-Verschlüsselung</li>
+<li>Datenpakete bis 4 GByte (Jumbograms)</li>
+<li>einfache Header Erweiterung
+<img src="/_resources/88c6855086ba4dacbb0c56b8d58c876a.png" /></li>
+<li>neue Protokolle
+<ul>
+<li>NPM (Neightbor Discovery Protokoll)</li>
+<li>ICMPv6 (Fehlerbehandlung)</li>
+</ul>
+</li>
+</ul>
+<h2 id="nachteile">Nachteile</h2>
+<ul>
+<li>Nicht alle Geräte und Anwendungen unterstützen IPv6</li>
+<li>Übergangstechnologien verhindern eine schnelle Einführung</li>
+<li>hohe Komplexität (Schulungsbedarf)</li>
+<li>fehlende Anonymität bei SLAAC (Autokonfiguration) wegen Verarbeitung der MAC-Adresse (Behoben durch IPv6 Privacy Extenstion)</li>
+<li>automatische Namensvergabe (über DNS) ist ein IPv6-DHCP-Server nötig</li>
+</ul>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

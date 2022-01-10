@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Cyber Physische Systeme - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Cyber Physische Systeme</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1638190964799"
+                  >2021-11-29 14:02</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1638272579713"
+                  >2021-11-30 12:42</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">sbc</span>
+              
+              <span class="keyword">cps</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">mikrocontroller</span>
+              
+              <span class="keyword">mqtt</span>
+              
+              <span class="keyword">sps</span>
+              
+              <span class="keyword">bs</span>
+              
+              <span class="keyword">itt</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li><a title="#was-ist-ein-cps" href="#was-ist-ein-cps">Was ist ein CPS?</a></li>
+<li><a title="#sbc" href="#sbc">SBC</a>
+<ol>
+<li><a title="#aufbau-eines-sbc" href="#aufbau-eines-sbc">Aufbau eines SBC</a></li>
+</ol>
+</li>
+<li><a title="#%C3%BCbertragung" href="#%C3%BCbertragung">Übertragung</a>
+<ol>
+<li><a title="#arten" href="#arten">Arten</a></li>
+<li><a title="#bridge" href="#bridge">Bridge</a></li>
+<li><a title="#mqtt" href="#mqtt">MQTT</a>
+<ol>
+<li><a title="#aufbau" href="#aufbau">Aufbau</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a title="#node-red" href="#node-red">Node Red</a>
+<ol>
+<li><a title="#vor-und-nachteile" href="#vor-und-nachteile">Vor- und Nachteile</a></li>
+</ol>
+</li>
+<li><a title="#wichtige-zusatzinfos" href="#wichtige-zusatzinfos">Wichtige Zusatzinfos</a>
+<ol>
+<li><a title="#analog-vs-digital" href="#analog-vs-digital">Analog vs Digital</a></li>
+<li><a title="#schnittstelle-vs-bus" href="#schnittstelle-vs-bus">Schnittstelle vs Bus</a></li>
+<li><a title="#mikrocontroller" href="#mikrocontroller">Mikrocontroller</a>
+<ol>
+<li><a title="#schnittstellen-und-busse" href="#schnittstellen-und-busse">Schnittstellen und Busse</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="was-ist-ein-cps">Was ist ein CPS?</h1>
+<p>Ein CPS (<strong>C</strong>yber <strong>P</strong>hysisches <strong>S</strong>ystem)  ist ein Zusammenschluss intelligenter, vernetzter Steuerungssysteme. Es besteht aus einem <strong>Sensor</strong>, einem <strong>Embedded System</strong> / <a title="#sbc" href="#sbc"><strong>SBC</strong></a> und einem <strong>Aktor</strong>.
+Der Sensor überprüft einen Zustand, z. B. die Temperatur eines Raumes. Der SBC verarbeitet dieses Ereignis und gibt dem Aktor eine Aufgabe, die er machen soll, z. B. die Heizung aktivieren.
+Klassische Anwendungsfälle für ein CPS sind z. B. Industrielle-Fertigungs-Hallen oder Smart-Home (IoT).
+Die Sicherheit, dieser Systeme nimmt durch schnelle Zunahme an Angriffen und IoT-Maleware immer mehr ab.</p>
+<h1 id="sbc">SBC</h1>
+<p>Ein SBC ist ein <strong>S</strong>ingle <strong>B</strong>ord <strong>C</strong>omputer, sie werden auch <strong>Embedded System</strong> genannt z. B. eine Raspberry Pi, Arduino. Diese verwenden häufig die Programmiersprachen:</p>
+<ul>
+<li>Python</li>
+<li>Java</li>
+<li>C</li>
+</ul>
+<p>In der Industrie werden häufig <strong>SPS</strong>, also <strong>S</strong>peicher <strong>P</strong>rogrammierbare <strong>S</strong>teuerungen verwendet. Diese verwenden häufig die Programmiersprachen:</p>
+<ul>
+<li>FUP/FBS</li>
+<li>AWL</li>
+<li>KOP</li>
+</ul>
+<p>Ein SBC hat immer einen <a title="#mikrocontroller" href="#mikrocontroller">Mikrocontroller</a>. Ein Betriebssystem für einen solchen Controller ist z. B. <a title="http://www.nodemcu.com/index_en.html" href="http://www.nodemcu.com/index_en.html">NodeMCU</a>.</p>
+<h2 id="aufbau-eines-sbc">Aufbau eines SBC</h2>
+<p><img src="/_resources/38f93ae94e8c4e3eadca08d82df1b0f5.png" />
+<em>Hier ein <a title="https://de.wikipedia.org/wiki/ESP8266" href="https://de.wikipedia.org/wiki/ESP8266">ESP8266</a></em></p>
+<h1 id="übertragung">Übertragung</h1>
+<h2 id="arten">Arten</h2>
+<p>IoT verwendet viele verschiedene Übertragungsmöglichkeiten / Protokolle.</p>
+<ul>
+<li>Drahtlos:
+<ul>
+<li>WLAN</li>
+<li>ZigBee</li>
+<li>Bluetooth</li>
+</ul>
+</li>
+<li>Leitergebunden
+<ul>
+<li>Ethernet</li>
+<li>CAN</li>
+<li>KNX</li>
+</ul>
+</li>
+</ul>
+<h2 id="bridge">Bridge</h2>
+<p>Oft muss zwischen den verschiedenen Protokollen gewechselt werden, z. B. von Ethernet auf WLAN.</p>
+<ul>
+<li>Philips Hue (WLAN zu ZigBee)</li>
+<li>AccessPoint (WLAN zu Ethernet)</li>
+</ul>
+<h2 id="mqtt">MQTT</h2>
+<p>MQTT ist ein Protokoll, das häufig von IoT verwendet wird. Es dient zur schnellen Übertragung von Informationen.</p>
+<h3 id="aufbau">Aufbau</h3>
+<p><img src="/_resources/d2da6b38adc745928b3786a9b7a90537.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Publisher</td>
+<td>Sensor</td>
+<td>Thermometer</td>
+</tr>
+<tr>
+<td>MQTT Broker</td>
+<td>Verarbeiter/<a title="#sbc" href="#sbc">SBC</a></td>
+<td>Raspberry Pi</td>
+</tr>
+<tr>
+<td>Subscriber</td>
+<td>Aktor</td>
+<td>Schalter</td>
+</tr>
+<tr>
+<td>Topic</td>
+<td>Thema, das vom Subscriber aboniert werden kann</td>
+<td>Temperatur, Bewegung, …</td>
+</tr>
+</tbody>
+</table>
+<h1 id="node-red">Node Red</h1>
+<p><a title="https://nodered.org" href="https://nodered.org">Node Red</a> ist eine Entwicklungsumgebung für IoT Programme. Anders als bei normalen IDEs wird kein Code geschrieben, sondern generiert nach dem der Nutzer die einzelnen Teile in die richtige Reihnfolge gezogen hat.</p>
+<h2 id="vor-und-nachteile">Vor- und Nachteile</h2>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Einfach zu Benutzen</td>
+<td>Neu Teile müssen erst Programmiert werden</td>
+</tr>
+<tr>
+<td>keine Vorerfahrung nötig</td>
+<td>schneller Verlust der Übersicht bei großen Programmen</td>
+</tr>
+</tbody>
+</table>
+<h1 id="wichtige-zusatzinformationen">Wichtige Zusatzinformationen</h1>
+<h2 id="analog-vs-digital">Analog vs Digital</h2>
+<p>Ein <strong>Analoge</strong>-Signal ist ein Stufenloses Signal. Ein <strong>Digitales</strong>-Signal kann nur zwei Werte annehmen. Um die Werte von dem einen in das andere umzuwandeln wird ein <strong>D</strong>igital-nach-<strong>A</strong>nalog-Wandler (<strong>D/A-Wandler</strong>) eingesetzt.</p>
+<h2 id="schnittstelle-vs-bus">Schnittstelle vs Bus</h2>
+<p>An eine <strong>Schnittstelle</strong> kann nur <strong>EIN</strong> gerät angeschlossen werden. An einen <strong>Bus</strong> jedoch <strong>MEHRERE</strong>.</p>
+<h2 id="mikrocontroller">Mikrocontroller</h2>
+<p>Ein Mikrocontroller ist ein Halbleiterchips der einen Prozessor und Peripheriefunktionen (spezifische auf eine Aufgabe angepasst Teile) hat, z. B. ein WLAN-Modul.</p>
+<h3 id="schnittstellen-und-busse">Schnittstellen und Busse</h3>
+<p>Mikrocontroller verwenden folgende Schnittstellen und Busse:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Aufgabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UART</td>
+<td>Bereitstellung einer Digitalen Schnittstelle</td>
+</tr>
+<tr>
+<td>I2C</td>
+<td>Datenbus zur Internen Kommunikation eines Chips</td>
+</tr>
+<tr>
+<td>GPIO</td>
+<td>selbst konfigurierbare Inputs und Outputs (Raspberry PI GPIO)</td>
+</tr>
+</tbody>
+</table>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
