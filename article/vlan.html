@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>VLAN - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">VLAN</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1638369105101"
+                  >2021-12-01 15:31</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1641813422457"
+                  >2022-01-10 12:17</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">netzwerk</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">bs</span>
+              
+              <span class="keyword">vlan</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li><a title="#was-ist-vlan" href="#was-ist-vlan">Was ist VLAN?</a></li>
+<li><a title="#arten-von-vlan" href="#arten-von-vlan">Arten von VLAN</a>
+<ol>
+<li><a title="#tagged" href="#tagged">Tagged</a></li>
+<li><a title="#untagged" href="#untagged">Untagged</a></li>
+<li><a title="#statisch" href="#statisch">Statisch</a></li>
+<li><a title="#dynamisch" href="#dynamisch">Dynamisch</a></li>
+</ol>
+</li>
+<li><a title="#trunkport" href="#trunkport">Trunkport</a></li>
+</ol>
+<h1 id="was-ist-vlan">Was ist VLAN</h1>
+<p>VLAN steht für <em><strong>V</strong>irtual <strong>L</strong>ocal <strong>A</strong>rea <strong>N</strong>etwork</em>. Vlans werden benutzt um Bestehende Netzwerke auf <a href="/article/osi-model">OSI-Layer 2</a>  nochmal zu unterteilen. Dafür wird ein Hardware-Switch in mehrere Virtuelle-Switche aufgeteilt.</p>
+<h1 id="arten-von-vlan">Arten von VLAN</h1>
+<h2 id="tagged">Tagged</h2>
+<p>Bei einem Tagged VLAN wird an das IP-Pakete eine VLAN-ID angehängt, mit der dann das Paket einem VLAN zugeordnet werden kann.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weniger Ports</td>
+<td>Langsamer</td>
+</tr>
+<tr>
+<td>Weniger Sicherheit als Untagged</td>
+</tr>
+</tbody>
+</table>
+<h2 id="untagged">Untagged</h2>
+<p>Beim Untagged VLAN werden Ports von einem Switch einem VLAN zugeordnet.
+Z. B. Wird den bei einem 8-Port-Switch Port 1 bis 4 dem VLAN 10 und Port 5 bis 8 dem VLAN 20 zugeteilt.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schneller</td>
+<td>Benötigt mehr Ports</td>
+</tr>
+<tr>
+<td colspan="2">Sicherer</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/_resources/d924f6ffcfb64c5a9e55b228b2441110.png" /></p>
+<h2 id="statisch">Statisch</h2>
+<p>Beim statischen VLAN wird einem Port wie oben erwähnt ein Fixes VLAN zugeordnet.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Einfach zu Konfigurieren</td>
+<td>kann leicht umgangen werden</td>
+</tr>
+<tr>
+<td colspan="2">Geringer Wartungsaufwand</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dynamisch">Dynamisch</h2>
+<p>Beim dynamischen VLAN wird das VLAN MAC-Adressen zugeordnet, dadurch entscheidet das angeschlossene Gerät, welches VLAN verwendet wird.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sicherer</td>
+<td>Schwieriger zu Konfigurieren</td>
+</tr>
+</tbody>
+</table>
+<h1 id="trunkport">Trunkport</h1>
+<p>Beim Switching von VLANs gibt es vorallem bei Untagged VLANs das Problem, dass sehr viele Ports benötigt werden. <em>(siehe Bild 1)</em>
+<img src="/_resources/b83367b0e3904d3fa36f51bfd11c0298.png" /></p>
+<p>Daher wurde der Trunkport erfunden. Dabei wird von dem Switch ein VLAN als Trunk-Port konfiguriert. Dieser Port ist dann Tagged. Überdiesen Port werden dann alle anderen VLANS an einen Anderen Switchweiter gegeben. der dann die Paket wieder dem richtigen VLAN zuordnen kann. <em>(siehe Bild 2)</em>
+<img src="/_resources/353ea2e42cdc4746ae177ec63a346332.png" /></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
