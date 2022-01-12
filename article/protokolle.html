@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1641970976042"
-                  >2022-01-12 08:02</time
+                >Updated At：<time datetime="1641972535729"
+                  >2022-01-12 08:28</time
                 ></span
               >
             </div>
@@ -76,6 +76,10 @@
 <li><a title="#ssh" href="#ssh">SSH</a></li>
 <li><a title="#smb" href="#smb">SMB</a></li>
 <li><a title="#nfs" href="#nfs">NFS</a></li>
+<li><a title="#ftp" href="#ftp">FTP</a></li>
+<li><a title="#tftp" href="#tftp">TFTP</a></li>
+<li><a title="#http" href="#http">HTTP</a></li>
+<li><a title="#https" href="#https">HTTPS</a></li>
 </ol>
 </li>
 <li><a title="#ports" href="#ports">Ports</a>
@@ -198,6 +202,16 @@ Sollte heutzutage <strong>IMMER</strong> deaktiviert werden.</p>
 <p><strong>SMB</strong> oder auch <strong>S</strong>erver <strong>M</strong>essage <strong>B</strong>lock ist ein von Microsoft entwickeltes Protokoll, was zum Datei austausch über ein Netzwerk dient. Es wird z. B. von Windows-Freigaben verwendet.</p>
 <h3 id="nfs">NFS</h3>
 <p><strong>NFS</strong> steht für <strong>N</strong>etwork <strong>F</strong>ile <strong>S</strong>ystem und ist für den selben aufgaben bereich wie <a title="#smb" href="#smb">SMB</a> zuständig. Es wurde jedoch von Linux entwickelt.</p>
+<h3 id="ftp">FTP</h3>
+<p><strong>FTP</strong> oder auch <strong>F</strong>ile <strong>T</strong>ransport <strong>P</strong>rotokoll wurde zur einfachen Datenübertragung über Netzwerke entwickelt. Im Gegensatz zur <a title="#smb" href="#smb">SMB</a> und <a title="#nfs" href="#nfs">NFS</a> wird FTP auch über das Internet und nicht nur im Lokalen-Netzwerk verwendet.</p>
+<h3 id="tftp">TFTP</h3>
+<p>Das <strong>T</strong>rivial <strong>F</strong>ile <strong>T</strong>ransfer <strong>P</strong>rotocol, hat viele ähnlich keiten mit <a title="#ftp" href="#ftp">FTP</a>. Der größte und entscheidende Unterschied ist, dass TFTP ein <strong>nicht</strong> verbindungsorientiertes Protokoll verwendet, also <a title="#udp" href="#udp">UDP</a>.</p>
+<h3 id="http">HTTP</h3>
+<p><strong>HTTP</strong> ist ein Protokoll zur Darstellung von Webseiten, es steht für <strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol. Dieses Protokoll wird standardmäßig von Browsern benutzt</p>
+<h3 id="https">HTTPS</h3>
+<p><strong>HTTPS</strong> ist das selbe wie <a title="#http" href="#http">HTTP</a>, nur das es noch zusätzlich mit SSL verschlüsselt ist. das “S” bei HTTPS steht für <strong>S</strong>ecure.</p>
+<h3 id="dns">DNS</h3>
+<p><strong>DNS</strong> ist ein <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem. Es ist für die Zuordnung der Domain-Namen zur <a>IP-Adressen</a> zuständig.</p>
 <h2 id="ports">Ports</h2>
 <p>In diesem Kapitel werden Ports mit den dazu gehörigen Protokollen/Diensten aufgelistet.</p>
 <h3 id="was-ist-ein-port">Was ist ein Port?</h3>
@@ -249,6 +263,26 @@ Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder 
 <td>TCP</td>
 <td>21</td>
 <td><a title="#ftp" href="#ftp">FTP</a>-Control</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>69</td>
+<td><a title="#tftp" href="#tftp">TFTP</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>80</td>
+<td><a title="#http" href="#http">HTTP</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>443</td>
+<td><a title="#https" href="#https">HTTPS</a></td>
+</tr>
+<tr>
+<td>TCP/UDP</td>
+<td>53</td>
+<td><a title="#dns" href="#dns">DNS</a></td>
 </tr>
 </tbody>
 </table>
