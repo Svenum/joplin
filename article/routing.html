@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1641889189147"
-                  >2022-01-11 09:19</time
+                >Updated At：<time datetime="1641976677772"
+                  >2022-01-12 09:37</time
                 ></span
               >
             </div>
@@ -48,10 +48,21 @@
 <ol>
 <li><a title="#was-ist-routing" href="#was-ist-routing">Was ist Routing?</a></li>
 <li><a title="#warum-muss-man-netze-verbinden" href="#warum-muss-man-netze-verbinden">Warum muss man Netze verbinden?</a></li>
+<li><a title="#wie-funktioniert-routing" href="#wie-funktioniert-routing">Wie Funktioniert Routing?</a>
+<ol>
+<li><a title="#beispiel" href="#beispiel">Beispiel</a></li>
+</ol>
+</li>
+<li><a title="#verschiedene-arten" href="#verschiedene-arten">Verschiedene Arten</a>
+<ol>
+<li><a title="#statisch" href="#statisch">Statisch</a></li>
+<li><a title="#dynamisch" href="#dynamisch">Dynamisch</a></li>
+</ol>
+</li>
 </ol>
 <h2 id="was-ist-routing">Was ist Routing?</h2>
 <p>Beim Routing werden unterschiedliche Netze miteinander verbunden. Für das Routing wird ein Router oder ein Layer-3-Switch benötigt. Der Layer 3 Switch heißt so, weil er im
-<a href="/article/osi-model">OSI-Modell</a> auf der dritten Ebene arbeitet, also mit <a>IP-Adressen</a>.</p>
+<a href="/article/osi-model">OSI-Modell</a> auf der dritten Ebene arbeitet, also mit <a href="/article/ip-adressen">IP-Adressen</a>.</p>
 <h2 id="warum-muss-man-netze-verbinden">Warum muss man Netze verbinden?</h2>
 <p>Um diese Frage klären zu können muss man sich zuerst fragen, warum trenne ich mein Netzwerk in mehrere kleine Netze überhaupt auf?
 Durch das aufteilen der Netze wird eine höhere Sicherheit erreicht. Z. B. wenn ein Angreifer es in ein Netz geschafft hat, hat er es schwerer hat auf die andren Netzwerke zu kommen.</p>
@@ -60,6 +71,33 @@ Durch das aufteilen der Netze wird eine höhere Sicherheit erreicht. Z. B. wenn 
 <img src="/_resources/f55e0a5bafee4212a7b6d9f3fc194e3a.png" />
 schlechter als ein solches.
 <img src="/_resources/09ea72d6d5d54ae786bd5fb67a1ca47e.png" /></p>
+<h2 id="wie-funktioniert-routing">Wie Funktioniert Routing?</h2>
+<p>Damit ein Router richtig routen kann, benötigt er eine Routing Tabelle mit folgendem Aufbau:
+<img src="/_resources/88559b909d5c4c318b2d9bfd30c87318.png" />
+In dieser Tabelle steht an welcher Schnittstelle welches Netzwerk anliegt und welches Gateway verwendet werden soll.</p>
+<h3 id="beispiel">Beispiel</h3>
+<p><img src="/_resources/f9e9ebbb6b164cfca27cbf52bd987589.png" /></p>
+<h2 id="verschiedene-arten">Verschiedene Arten</h2>
+<p>Beim Routing gibt es verschiedene Arten, die Statische und Dynamische.
+<img src="/_resources/ce384b34273544c08e0d5d504ca39ffe.png" /></p>
+<h3 id="statisch">Statisch</h3>
+<p>Beim statischen Routing muss die Routing Tabelle per Hand angelegt werden. Wie man sicher vorstellen kann, ist das bei ein oder zwei Routern noch recht übersichtlich, wenn es aber 10, 20 oder sogar 50 Router sind, kann das sehr mühsam werden.
+Daher gibt es noch die Zweite Variante.</p>
+<h3 id="dynamisch">Dynamisch</h3>
+<p>Im Gegensatz zum statischen Routing wird beim dynamischen Routing die Routing-Tabelle automatisch erstellt. Das passiert indem die Router mit einander kommunizieren und dabei ihre Informationen austauschen.
+Dafür werden zwei Verschiedene Routing-Protokolle verwendet:</p>
+<ul>
+<li>Distance Vector:
+<ul>
+<li>RIP</li>
+</ul>
+</li>
+<li>Link State:
+<ul>
+<li>OSPF</li>
+</ul>
+</li>
+</ul>
 </div>
       </article>
     </div>

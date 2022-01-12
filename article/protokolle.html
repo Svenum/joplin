@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1641972535729"
-                  >2022-01-12 08:28</time
+                >Updated At：<time datetime="1641975672741"
+                  >2022-01-12 09:21</time
                 ></span
               >
             </div>
@@ -80,6 +80,8 @@
 <li><a title="#tftp" href="#tftp">TFTP</a></li>
 <li><a title="#http" href="#http">HTTP</a></li>
 <li><a title="#https" href="#https">HTTPS</a></li>
+<li><a title="#sntp" href="#sntp">SNTP</a></li>
+<li><a title="#snmp" href="#snmp">SNMP</a></li>
 </ol>
 </li>
 <li><a title="#ports" href="#ports">Ports</a>
@@ -94,7 +96,7 @@
 <h3 id="icmp">ICMP</h3>
 <p><strong>ICMP</strong> steht für <strong>I</strong>nternet <strong>C</strong>ontrol <strong>M</strong>essage <strong>P</strong>rotocol und ist das Protokoll, welches sich um Pings kümmert. Wenn dieses Protokoll also in einer Firewall z. B. geblockt wird, kann der entsprechende Rechner nicht mehr gepingt werden.</p>
 <h3 id="ip">IP</h3>
-<p><strong>IP</strong> steht für <strong>I</strong>nternet <strong>P</strong>rotokoll und ist das Protokoll, welches mit <a>IP-Adressen</a> arbeitet.</p>
+<p><strong>IP</strong> steht für <strong>I</strong>nternet <strong>P</strong>rotokoll und ist das Protokoll, welches mit <a href="/article/ip-adressen">IP-Adressen</a> arbeitet.</p>
 <h2 id="transport-ebene">Transport-Ebene</h2>
 <p>Nun wird genauer auf die Transport-Ebene im <a href="/article/osi-model">DoD-Modell</a> und dessen Protokolle eingegangen.</p>
 <h3 id="tcp">TCP</h3>
@@ -211,7 +213,11 @@ Sollte heutzutage <strong>IMMER</strong> deaktiviert werden.</p>
 <h3 id="https">HTTPS</h3>
 <p><strong>HTTPS</strong> ist das selbe wie <a title="#http" href="#http">HTTP</a>, nur das es noch zusätzlich mit SSL verschlüsselt ist. das “S” bei HTTPS steht für <strong>S</strong>ecure.</p>
 <h3 id="dns">DNS</h3>
-<p><strong>DNS</strong> ist ein <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem. Es ist für die Zuordnung der Domain-Namen zur <a>IP-Adressen</a> zuständig.</p>
+<p><strong>DNS</strong> ist ein <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem. Es ist für die Zuordnung der Domain-Namen zur <a href="/article/ip-adressen">IP-Adressen</a> zuständig.</p>
+<h3 id="sntp">SNTP</h3>
+<p>Das <strong>S</strong>imple <strong>N</strong>etwork <strong>T</strong>ime <strong>P</strong>rotocol (kurz <strong>SNTP</strong>) dient zur Synchronisation der Zeit.</p>
+<h3 id="snmp">SNMP</h3>
+<p><strong>SNMP</strong> (<strong>S</strong>imple <strong>N</strong>etwork <strong>M</strong>anagement <strong>P</strong>rotocol) dient zur zentralen Verwaltung und Überwachung von Netzwerkelementen (z. B. Server, Drucker, Switche, Computer, Router, …)</p>
 <h2 id="ports">Ports</h2>
 <p>In diesem Kapitel werden Ports mit den dazu gehörigen Protokollen/Diensten aufgelistet.</p>
 <h3 id="was-ist-ein-port">Was ist ein Port?</h3>
@@ -245,7 +251,7 @@ Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder 
 <td><a title="#smb" href="#smb">SMB</a></td>
 </tr>
 <tr>
-<td>UDP/TCP</td>
+<td>TCP/UDP</td>
 <td>2049</td>
 <td><a title="#nfs" href="#nfs">NFS</a>v3</td>
 </tr>
@@ -283,6 +289,16 @@ Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder 
 <td>TCP/UDP</td>
 <td>53</td>
 <td><a title="#dns" href="#dns">DNS</a></td>
+</tr>
+<tr>
+<td>TCP/UDP</td>
+<td>123</td>
+<td><a title="#sntp" href="#sntp">SNTP</a></td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>161</td>
+<td><a title="#snmp" href="#snmp">SNMP</a></td>
 </tr>
 </tbody>
 </table>
