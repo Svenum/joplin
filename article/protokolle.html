@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1641891665364"
-                  >2022-01-11 10:01</time
+                >Updated At：<time datetime="1641970976042"
+                  >2022-01-12 08:02</time
                 ></span
               >
             </div>
@@ -48,6 +48,14 @@
         </header>
         <div class="article-content markdown-body"><h1 id="protokolle">Protokolle</h1>
 <ol>
+<li><a title="#netzzugangs-ebene" href="#netzzugangs-ebene">Netzzugangs-Ebene</a>
+<ol>
+<li><a title="#icmp" href="#icmp">ICMP</a></li>
+<li><a title="#ip" href="#ip">IP</a></li>
+</ol>
+</li>
+<li><a title="#transport-ebene" href="#transport-ebene">Transport-Ebene</a>
+<ol>
 <li><a title="#tcp" href="#tcp">TCP</a>
 <ol>
 <li><a title="#vun-tcp" href="#vun-tcp">Vor- und Nachteile</a></li>
@@ -61,9 +69,33 @@
 </ol>
 </li>
 </ol>
-<h2 id="tcp">TCP</h2>
-<p><strong>TCP</strong> steht für  <strong>T</strong>ransmission <strong>C</strong>ontrol <strong>P</strong>rotocol und ist ein verbindungsorientiertes (=&gt; benötigt ein Verbindungsaufbau) und zuverlässiges Transportprotokoll. TCP befindet sich im <a href="/article/osi-model">OSI-Modell</a> auf Ebene vier.</p>
-<h3 id="vor-und-nachteile">Vor- und Nachteile</h3>
+</li>
+<li><a title="#anwendungs-ebene" href="#anwendungs-ebene">Anwendungs-Ebene</a>
+<ol>
+<li><a title="#telnet" href="#telnet">Telnet</a></li>
+<li><a title="#ssh" href="#ssh">SSH</a></li>
+<li><a title="#smb" href="#smb">SMB</a></li>
+<li><a title="#nfs" href="#nfs">NFS</a></li>
+</ol>
+</li>
+<li><a title="#ports" href="#ports">Ports</a>
+<ol>
+<li><a title="#was-ist-ein-port" href="#was-ist-ein-port">Was ist ein Port?</a></li>
+<li><a title="#port-liste" href="#port-liste">Port-Liste</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="netzzugangs-ebene">Netzzugangs-Ebene</h2>
+<p>In diesem Kapitel wird genauer auf die Protokolle der Netzzugangs-Ebene im <a href="/article/osi-model">DoD-Modell</a> eingegangen.</p>
+<h3 id="icmp">ICMP</h3>
+<p><strong>ICMP</strong> steht für <strong>I</strong>nternet <strong>C</strong>ontrol <strong>M</strong>essage <strong>P</strong>rotocol und ist das Protokoll, welches sich um Pings kümmert. Wenn dieses Protokoll also in einer Firewall z. B. geblockt wird, kann der entsprechende Rechner nicht mehr gepingt werden.</p>
+<h3 id="ip">IP</h3>
+<p><strong>IP</strong> steht für <strong>I</strong>nternet <strong>P</strong>rotokoll und ist das Protokoll, welches mit <a>IP-Adressen</a> arbeitet.</p>
+<h2 id="transport-ebene">Transport-Ebene</h2>
+<p>Nun wird genauer auf die Transport-Ebene im <a href="/article/osi-model">DoD-Modell</a> und dessen Protokolle eingegangen.</p>
+<h3 id="tcp">TCP</h3>
+<p><strong>TCP</strong> steht für  <strong>T</strong>ransmission <strong>C</strong>ontrol <strong>P</strong>rotocol und ist ein verbindungsorientiertes (=&gt; benötigt ein Verbindungsaufbau) und zuverlässiges Transportprotokoll.</p>
+<h4 id="vor-und-nachteile">Vor- und Nachteile</h4>
 <div id="vun-tcp" class="jop-noMdConv"></div>
 |Vorteile|Nachteile|
 |-|-|
@@ -78,7 +110,7 @@ Beispiele:</p>
 <li>Downloads von Dateien</li>
 <li>…</li>
 </ul>
-<h3 id="verbindungsaufbau">Verbindungsaufbau</h3>
+<h4 id="verbindungsaufbau">Verbindungsaufbau</h4>
 <p>Der Verbindungsaufbau bei TCP erfolgt in drei Schritten.</p>
 <ol>
 <li>Anfrage von Client:
@@ -104,7 +136,7 @@ Beispiele:</p>
 </li>
 </ol>
 <p><img src="/_resources/175d1d91e1004566ad4c094ca91bf27f.png" /></p>
-<h3 id="verbindungsabbau">Verbindungsabbau</h3>
+<h4 id="verbindungsabbau">Verbindungsabbau</h4>
 <p>Ebenso wie der Verbindungsaufbau muss der Verbindungsabbau in drei Schritten erfolgen.</p>
 <ol>
 <li>Client oder Server stellt Abbau anfrage:
@@ -130,8 +162,8 @@ Beispiele:</p>
 </li>
 </ol>
 <p><img src="/_resources/c9e0c2e3f4924b9687e9721f05c580d9.png" /></p>
-<h2 id="udp">UDP</h2>
-<p><strong>UDP</strong> steht für <strong>U</strong>ser <strong>D</strong>atagram <strong>P</strong>rotocol und ist im Gegensatz zu <a title="#tcp" href="#tcp">TCP</a> ein nicht verbindungsorientiertes Protokoll. (=&gt; benötigt keinen Verbindungsaufbau) UDP befindet sich im <a href="/article/osi-model">OSI-Modell</a> auf Ebene vier.</p>
+<h3 id="udp">UDP</h3>
+<p><strong>UDP</strong> steht für <strong>U</strong>ser <strong>D</strong>atagram <strong>P</strong>rotocol und ist im Gegensatz zu <a title="#tcp" href="#tcp">TCP</a> ein nicht verbindungsorientiertes Protokoll. (=&gt; benötigt keinen Verbindungsaufbau)</p>
 <h3 id="vor-und-nachteile-2">Vor- und Nachteile</h3>
 <div id="vun-udp" class="jop-noMdConv"></div>
 <table>
@@ -155,6 +187,71 @@ Beispiele:</p>
 </tbody>
 </table>
 <p>Im vergleich zu <a title="#tcp" href="#tcp">TCP</a> meint man schnell, dass UDP bestimmt veraltet sei und unnütz, da es so viele Nachteile hat. Jedoch ist UDP immer noch viel in Verwendung und ein wichtiges Protokoll. Z. B. ist es beim Serien-Streamen egal ob in einer Millisekunde ein Pixel falsch angezeigt wird oder fehlt, da man es eh nicht bemerkt.</p>
+<h2 id="anwendungs-ebene">Anwendungs-Ebene</h2>
+<p>Nun erläutere ich die Protokolle der letzten Ebene im <a href="/article/osi-model">DoD-Modell</a>.</p>
+<h3 id="telnet">Telnet</h3>
+<p><strong>Telnet</strong> ist ein Protokoll, das den Remote-Zugang zu einer Shell ermöglicht. Über das gleichnamige Programm “Telnet” kann aber auch die Verbindung zu andren Protokollen Aufgebaut werden.
+Sollte heutzutage <strong>IMMER</strong> deaktiviert werden.</p>
+<h3 id="ssh">SSH</h3>
+<p><strong>SSH</strong> steht für <strong>S</strong>ecure <strong>Sh</strong>ell und kann ebenso wie <a title="#telnet" href="#telnet">Telnet</a> eine Remote-Verbindung zu Shells aufbauen. Im Gegensatz zu Telnet wird hier, wie der Name schon sagt, eine sichere (verschlüsselte) Verbindung zu dem Server aufgebaut. Das verringert die Gefahr des <strong>Sniffings</strong> (Abhören von Informationen/mitlesen) gewaltig.</p>
+<h3 id="smb">SMB</h3>
+<p><strong>SMB</strong> oder auch <strong>S</strong>erver <strong>M</strong>essage <strong>B</strong>lock ist ein von Microsoft entwickeltes Protokoll, was zum Datei austausch über ein Netzwerk dient. Es wird z. B. von Windows-Freigaben verwendet.</p>
+<h3 id="nfs">NFS</h3>
+<p><strong>NFS</strong> steht für <strong>N</strong>etwork <strong>F</strong>ile <strong>S</strong>ystem und ist für den selben aufgaben bereich wie <a title="#smb" href="#smb">SMB</a> zuständig. Es wurde jedoch von Linux entwickelt.</p>
+<h2 id="ports">Ports</h2>
+<p>In diesem Kapitel werden Ports mit den dazu gehörigen Protokollen/Diensten aufgelistet.</p>
+<h3 id="was-ist-ein-port">Was ist ein Port?</h3>
+<p>Ports kann man auch als Türen verstehen, welche zum richtigen Dienst führt.
+Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder DoD-Schicht</a> davor schon das richtige Protokoll gewählt wurde, meist <a title="#udp" href="#udp">UDP</a> oder <a title="#tcp" href="#tcp">TCP</a>.
+<img src="/_resources/7bebc735fdd94b1088acf12f75677305.png" /></p>
+<p>Eine <strong>besondere Stellung haben alle Ports von 0 bis 1024</strong>, da diese Offen Dokumentiert sind und jeder nachlesen kann, wie sie funktionieren.</p>
+<h3 id="port-liste">Port-Liste</h3>
+<table>
+<thead>
+<tr>
+<th>Vorheriges <br class="jop-noMdConv" /> Protokoll</th>
+<th>Port <br class="jop-noMdConv" /> Nummer</th>
+<th>Dienst</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP</td>
+<td>23</td>
+<td><a title="#telnet" href="#telnet">Telnet</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>22</td>
+<td><a title="#ssh" href="#ssh">SSH</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>445</td>
+<td><a title="#smb" href="#smb">SMB</a></td>
+</tr>
+<tr>
+<td>UDP/TCP</td>
+<td>2049</td>
+<td><a title="#nfs" href="#nfs">NFS</a>v3</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>2049</td>
+<td><a title="#nfs" href="#nfs">NFS</a>v4</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>20</td>
+<td><a title="#ftp" href="#ftp">FTP</a>-Data</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>21</td>
+<td><a title="#ftp" href="#ftp">FTP</a>-Control</td>
+</tr>
+</tbody>
+</table>
 </div>
       </article>
     </div>
