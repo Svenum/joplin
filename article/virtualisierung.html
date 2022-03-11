@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Virtualisierung - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Virtualisierung</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1646808268674"
+                  >2022-03-09 07:44</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1647010330829"
+                  >2022-03-11 15:52</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">its</span>
+              
+              <span class="keyword">vm</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">virtualisierung</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="virtualisierung">Virtualisierung</h1>
+<ol>
+<li><a title="#definition" href="#definition">Definition</a></li>
+<li><a title="#nested-virtualisation" href="#nested-virtualisation">Nested Virtualisation</a></li>
+<li><a title="#was-wird-virtualiesiert" href="#was-wird-virtualiesiert">Was wird Virtualisiert?</a></li>
+<li><a title="#vorteile-und-nachteile" href="#vorteile-und-nachteile">Vorteile und Nachteile</a></li>
+<li><a title="#arten" href="#arten">Arten</a>
+<ol>
+<li><a title="#level-1" href="#level-1">Level 1</a></li>
+<li><a title="#level-2" href="#level-2">Level 2</a></li>
+<li><a title="#emulation" href="#emulation">Emulation</a></li>
+<li><a title="#application" href="#application">Applikation</a></li>
+<li><a title="#betriebssystem" href="#betriebssystem">Betriebssystem</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="definition">Definition</h2>
+<p>Virtualisierung erlaubt es Physische Hardware / Ressourcen logisch aufzuteilen oder zusammenzufassen. Für diesen Vorgang wird ein Hypervisor benötigt.</p>
+<h2 id="nested-virtualisation">Nested Virtualisation</h2>
+<p>Wenn man eine Virtuelle Maschine in einer anderen VM macht, nennt man das <strong>Nested Virtualisation</strong>.</p>
+<h2 id="was-wrid-virtualisiert">Was wrid Virtualisiert?</h2>
+<table>
+<thead>
+<tr>
+<th>Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prozessor</td>
+</tr>
+<tr>
+<td>Systeme bzw. Hardware</td>
+</tr>
+<tr>
+<td>Betriebssysteme</td>
+</tr>
+<tr>
+<td>Anwendungen</td>
+</tr>
+<tr>
+<td>Desktop</td>
+</tr>
+<tr>
+<td>Rechenzentren</td>
+</tr>
+<tr>
+<td>RAM</td>
+</tr>
+<tr>
+<td>Festplatten</td>
+</tr>
+<tr>
+<td>Storage</td>
+</tr>
+<tr>
+<td>Netzwerk</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vorteile-und-nachteile">Vorteile und Nachteile</h2>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bessere Hardware Ausnutzung</td>
+<td>weniger Perfomance</td>
+</tr>
+<tr>
+<td>leichtere Bereitstellung (z. B. von Servern)</td>
+<td>nicht jede Hardware kann Virtualisiert werden</td>
+</tr>
+<tr>
+<td>mehr Flexibilität(kopieren von VMs)</td>
+<td>kann Single Point of Failure sein</td>
+</tr>
+<tr>
+<td>leichtere Software-Tests und Entwicklung für verschiedene Systeme</td>
+<td>komplex</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arten">Arten</h2>
+<p>Es gibt verschiedene Arten der Virtualisierung mit verschiedenen Eigenschaften.</p>
+<div id="hypervisor" class="jop-noMdConv">
+Oft spielt bei der Virtualisierung der Hypervisor eine wichtige Rolle. Er ist eine Software, die es ermöglicht Betriebssystem zu virtualisieren.
+<h3 id="level-1">Level 1</h3>
+<p>Bei der Level 1 Virtualisierung wird der sogenannte <a title="#hypervisor" href="#hypervisor">Hypervisor</a> auf den <a>Ring 0</a> geschoben.</p>
+<p>Dadurch entsteht eine sehr schnelle Verbindung zwischen Hardware und Betriebssystem.
+<img src="/_resources/eedd6be4296b42bfabf26a25c84f3304.png" />
+Ein solcher Hypervisor ist z. B. HyperV.</p>
+<h3 id="level-2">Level 2</h3>
+<p>Bei der Level 2 Virtualisierung befindet sich der <a title="#hypervisor" href="#hypervisor">Hypervisor</a> über dem Host-OS. Es ist weniger Performant als eine Level 1 Virtualisierung, jedoch besser für Testumgebungen geeignet.
+Programm-Beispiele sind:</p>
+<ul>
+<li>Virtual Box</li>
+<li>KVM</li>
+<li>VMware
+<img src="/_resources/bd5ac3cf6f8b4fbdb5b8425c7c0cdf67.png" /></li>
+</ul>
+<h3 id="emulation">Emulation</h3>
+<p>Bei der Emulation wird nicht nur die Hardware geteilt bzw. zusammen gefügt sondern es wird nicht vorhandene Hardware simuliert. Das benötigt man um z. B. alte Programme auf neuer Hardware laufen zu lassen. Oder um Software auf andere CPU-Archetektur zu testen. (z. B. ARM auf einem x64 System)
+<img src="/_resources/1a244af1312d44928bfba75f6d306ce7.png" /></p>
+<h3 id="application">Application</h3>
+<p>Wenn nur einzelne APPs in einer VM laufen, nennt man das <strong>Applikations-Virtualisierung</strong>. Ein Beispiel dafür ist JAVA mit dem <strong>J</strong>ava <strong>V</strong>irtual <strong>M</strong>aschine (<strong>JVM</strong>).
+<img src="/_resources/c9319e8e1d4c4af796e5366f3454e621.png" /></p>
+<h3 id="betriebssystem">Betriebssystem</h3>
+<p>Bei einer Betriebssystem-Virtualisierung wird der Kernel des Vorhandenen Host-OS verwendet und ledeglich ein weiterer User-Mode hinzugefügt.
+Programm-Beispiele sind Docker-Container.
+<img src="/_resources/2b5f76311d334317986ab4dc1c3c6e8f.png" /></p>
+</div></div>
+      </article>
+    </div>
+  </body>
+</html>
