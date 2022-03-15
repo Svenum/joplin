@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Datenbanken - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Datenbanken</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1647255058007"
+                  >2022-03-14 11:50</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1647271715972"
+                  >2022-03-14 16:28</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">ap</span>
+              
+              <span class="keyword">datenbank</span>
+              
+              <span class="keyword">normalisierung</span>
+              
+              <span class="keyword">db-modell</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">er-modell</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="datenbanken">Datenbanken</h1>
+<ol>
+<li><a title="#entwicklungsphasen" href="#entwicklungsphasen">Entwicklungsphasen</a></li>
+<li><a title="#er-modell" href="#er-modell">ER-Modell</a>
+<ol>
+<li><a title="#fachbegriffe" href="#fachbegriffe">Fachbegriffe</a></li>
+<li><a title="#symbole" href="#symbole">Symbole</a></li>
+<li><a title="#beziehungen" href="#beziehungen">Beziehungen</a>
+<ol>
+<li><a title="#1-zu-1" href="#1-zu-1">1 zu 1</a></li>
+<li><a title="#1-zu-n" href="#1-zu-n">1 zu n</a></li>
+<li><a title="#n-zu-m" href="#n-zu-m">n zu m</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a title="#relationales-datenbank-modell" href="#relationales-datenbank-modell">Relationales Datenbank Modell</a></li>
+<li><a title="#normalisierung" href="#normalisierung">Normalisierung</a>
+<ol>
+<li><a title="#0-normalform" href="#0-normalform">0. Normalform</a></li>
+<li><a title="#1-normalform" href="#1-normalform">1. Normalform</a></li>
+<li><a title="#2-normalform" href="#2-normalform">2. Normalform</a></li>
+<li><a title="#3-normalform" href="#3-normalform">3. Normalform</a></li>
+<li><a title="#kurzbeschreibung" href="#kurzbeschreibung">Kurzbeschreibung</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="entwicklungsphasen">Entwicklungsphasen</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Vorgang</th>
+<th>Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anforderungsanalyse / Externe Phase (Soll-Ist-Analyse)</td>
+<td>Informations- und Präsentationsbedarf der Anwender ermitteln und strukturieren</td>
+<td>Pflichtenheft</td>
+</tr>
+<tr>
+<td>Konzeptioneller Entwurf</td>
+<td>Analyse der logischen Definition der Objekttypen und ihrer Attribute + Darstellung der Beziehungen</td>
+<td>Semantisches DB-Modell z. B. ER-Modell</td>
+</tr>
+<tr>
+<td>Logischer Entwurf</td>
+<td>Datenbank Modellierung. Übersetzen des <a title="#er-modell" href="#er-modell">ER-Modells</a> in ein relationelles DB-Modell</td>
+<td>logisches DB-Modell</td>
+</tr>
+<tr>
+<td>z. B. relationelles Datenbankmodell</td>
+</tr>
+<tr>
+<td>Verfeinerung des Logischen Entwurfes</td>
+<td colspan="2">Logischen Entwurf anpassen und anpassen und verbessern</td>
+</tr>
+<tr>
+<td>Physikalische Phase</td>
+<td>Implementierung/Erstellung der Datenbenk mit einem <a href="/article/sql">DBMS</a></td>
+<td>DB-System</td>
+</tr>
+</tbody>
+</table>
+<h2 id="er-modell">ER-Modell</h2>
+<p>Das <strong>ER-Modell</strong> oder auch <strong>E</strong>ntity <strong>R</strong>elasionship <strong>Modell</strong> dient zur planung vor der Programmierung einer Datenbank.</p>
+<h3 id="fachbegriffe">Fachbegriffe</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entität</td>
+<td>Objekt, Tupel, ein Kompletter Datensatz</td>
+</tr>
+<tr>
+<td>Entitätsmenge</td>
+<td>Menge an Objekten</td>
+</tr>
+<tr>
+<td>Entitätstyp</td>
+<td>Entitäten, die sich mit gleichen Eigenschaften beschreiben lassen</td>
+</tr>
+<tr>
+<td>Attribut</td>
+<td>Name der Eigenschaft</td>
+</tr>
+<tr>
+<td>Attributwert</td>
+<td>Konkreter gespeicherter Wert eines Attributs</td>
+</tr>
+<tr>
+<td>Relationsship</td>
+<td>Beziehung zwischen Entitätstypen</td>
+</tr>
+<tr>
+<td>Kardinalität</td>
+<td>Mengenverhältnisse zwischen Entitätstypen</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/_resources/33c43e7caf674ddf9f74fdd125190573.png" /></p>
+<h3 id="symbole">Symbole</h3>
+<p><img src="/_resources/645ae0a5639e47508c3e57022882c77d.png" /></p>
+<h3 id="beziehungen">Beziehungen</h3>
+<h4 id="1-zu-1">1 zu 1</h4>
+<p><img src="/_resources/cde44ca7867c42018cf1960c037e1026.png" /></p>
+<h4 id="1-zu-n">1 zu n</h4>
+<p><img src="/_resources/c3b38759d61b48f2bcb8bccb5a4926ba.png" /></p>
+<h4 id="n-zu-m">n zu m</h4>
+<p><img src="/_resources/493080e26e6e4c9abc640a5d6d26f49e.png" />
+<em><strong>Im ER-Modell müssen n zu m Beziehungen NICHT aufgelöst werden!</strong></em></p>
+<h2 id="relationales-datenbank-modell">Relationales Datenbank Modell</h2>
+<p>Im <strong>relationellem DB-Modell</strong> ist die Struktur der Datenbank klar zu erkennen. Zudem werden die sogenannten <strong>Primärschlüssel (PK)</strong> und <strong>Fremdschlüssel (FK)</strong> in ihm abgebildet.</p>
+<p>Jeder Entity Type wird als eigenständige Tabelle dargestellt. Dabei werden die Attribute ebenfalls eingetragen. Die FKs und PKs werden Makiert.</p>
+<table>
+<thead>
+<tr>
+<th>Tabelle_A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AttributA PK</td>
+</tr>
+<tr>
+<td>AttributB FK</td>
+</tr>
+<tr>
+<td>AttributA1</td>
+</tr>
+<tr>
+<td>AttributA2</td>
+</tr>
+<tr>
+<td>AttributA3</td>
+</tr>
+</tbody>
+</table>
+<p>Zudem werden die Tabellen, welche Abhängig von einander sind miteinander verbunden und wie beim <a title="#er-modell" href="#er-modell">ER-Modell</a> die Kardinalität eingezeichnet.</p>
+<p>Im gegensatz zum ER-Modell werden hier <a title="#n-zu-m" href="#n-zu-m">n zu m</a> Verbindungen zu <a title="#verbindungen" href="#verbindungen">1 zu n</a> aufgetrennt. Dafür wird dann eine weitere Zwischentablle benötigt. Diese kann auch von der Verbindung abhängige Attribute enthalten.</p>
+<p><img src="/_resources/5d14be6dbcec4710be3bb31da66921be.png" /></p>
+<p>In solchen Tabellen wird kein PK mehr benötigt, statt dessen werden die zwei FKs der in Abhängigkeit stehenden Tabellen zu einem PK Verbunden.</p>
+<p><img src="/_resources/d6da246b16ca49c982a743ab76fe5783.png" /></p>
+<h2 id="normalisierung">Normalisierung</h2>
+<p>Bei der Normalisierung wird ein Datenbankmodell so optimiert, damit keine Redundanzen mehr entahlten sind.</p>
+<h3 id="0-normalform">0. Normalform</h3>
+<p>Die 0. Normalform liegt vor wenn die Daten unverändert sind und Redundanten vorliegen.
+<img src="/_resources/144e559ded6d4157bbf14f5dc297fdf4.png" /></p>
+<h3 id="1-normalform">1. Normalform</h3>
+<p>Wenn alle Daten atomar vorliegen ist die 1. Normalform erreicht.
+Das heißt, das pro “Zelle” nur 1 Wert existiert.</p>
+<p>Dadurch wird die Abfrage der Datenbank erleichter und die Struktur klarer.
+<img src="/_resources/61d06f46de9e48e2ae820ab8ead54989.png" /></p>
+<h3 id="2-normalform">2. Normalform</h3>
+<p>Bei der 2. Normalform sind die Attribute nur von einem PK abhängig und nicht von nur einem Teil des PKs. Zudem identifizeiren die Primärschlüssel eindeutig die Attribute.
+<img src="/_resources/e3f70308f4e846678e97e6cc3ef8f4eb.png" /></p>
+<h3 id="3-normalform">3. Normalform</h3>
+<p>Die letzte Normalform liegt dann vor wenn kein Attribut von einem Nichtschlüssel-Attribut abhängig ist. Eine solche Verbindung würde man transaktive (kettenartige) Verbindung nennen.</p>
+<p><img src="/_resources/a995de90809140bab8cda4950ab58980.png" /></p>
+<h3 id="kurzbeschreibung">Kurzbeschreibung</h3>
+<ol>
+<li>Normalform: Alle Werte liegen atomar vor.</li>
+<li>Normalform: Primärschlüssel identifizieren die Entitäten</li>
+<li>Normalform: Alle Werte hängen nur vom Primärschlüssel ab</li>
+</ol>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
