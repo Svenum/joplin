@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>DNS - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">DNS</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1651160875802"
+                  >2022-04-28 17:47</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1651166260371"
+                  >2022-04-28 19:17</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">tld</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">fld</span>
+              
+              <span class="keyword">icann</span>
+              
+              <span class="keyword">dns</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="dns">DNS</h1>
+<ol>
+<li><a title="#was-ist-dns" href="#was-ist-dns">Was ist DNS?</a></li>
+<li><a title="#dynamisches-dns" href="#dynamisches-dns">Dynamisches DNS</a></li>
+<li><a title="#fachbegriffe" href="#fachbegriffe">Fachbegriffe</a></li>
+<li><a title="#aufbau" href="#aufbau">Aufbau</a>
+<ol>
+<li><a title="#zonen" href="#zonen">Zonen</a></li>
+</ol>
+</li>
+<li><a title="#funktionsweise" href="#funktionsweise">Funktionsweise</a>
+<ol>
+<li><a title="#zonen%C3%BCbertragung" href="#zonen%C3%BCbertragung">Zonenübertragung</a></li>
+<li><a title="#zonendelegierung" href="#zonendelegierung">Zonendelegierung</a></li>
+<li><a title="#iterative-abfrage" href="#iterative-abfrage">Iterative Abfrage</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-dns">Was ist DNS?</h2>
+<p><strong>DNS</strong> oder auch <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem ist eine <strong>riesige</strong> Weltweit verteilte Datenbank welches Domain-Namen in <a href="/article/ip-adressen">IP-Adressen</a> auflöst. Diese Datenbank Teile liegen auf so genannten Nameservern. Die Wurzel <em>(engl.: root)</em> sind derzeit 13 Root-Nameserver (A-M), die die Informationen über die <strong>TLD</strong>s (<strong>T</strong>op <strong>L</strong>evel <strong>D</strong>omains) oder auch <strong>FLD</strong>s (<strong>F</strong>irst <strong>L</strong>evel <strong>D</strong>omain) verwalten. Diese TLDs werden von der <strong>ICANN</strong> (Internet Corparation for Assigned Names and Numbers) verwaltet.
+<img src="/_resources/69dcebddbb204a268b2aa6bab00dc192.png" /></p>
+<h2 id="dynamisches-dns">Dynamisches DNS</h2>
+<p><img src="/_resources/7bb04823f5854304a63fd2c8ec6f0dff.png" /></p>
+<h2 id="aufbau">Aufbau</h2>
+<p>Das DNS ist <strong>hierarchisch</strong> aufgebaut. Das bedeutet, das die Struktur von den Root-Serven aus immer mehr nach unten aufgefächert ist.
+<img src="/_resources/3906c9a30cbd4631b3971a55f0d76ae8.PNG" />
+<strong>Hostname + DNS-Suffix = FQDN</strong> (<strong>F</strong>ull <strong>Q</strong>ualified <strong>D</strong>omain <strong>N</strong>ame)</p>
+<table>
+<thead>
+<tr>
+<th>Hostname</th>
+<th>.</th>
+<th>DNS-Suffix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>www</td>
+<td>.</td>
+<td>google.com</td>
+</tr>
+<tr>
+<td>eu</td>
+<td>.</td>
+<td>store.ui.com</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zonen">Zonen</h3>
+<h2 id="funktionsweise">Funktionsweise</h2>
+<h3 id="zonenübertragung">Zonenübertragung</h3>
+<p>Oft werden mehrere DNS-Server aus Redundanz-Gründen gleichzeitig verwendet. Dabei gibt es immer einen <strong>Primären DNS-Server</strong> und einen oder mehrere <strong>Sekundäre DNS-Server</strong>. Die Sekundären DNS-Server haben nur lese rechte und können <strong>keine Einträge</strong> vornehmen. Der Primäre hingegen schon.
+Die Daten werden daher von dem Primären zu dem Sekundären mittels einer <strong>Zonenübertragung</strong> kopiert.
+<img src="/_resources/c2364cfd617e4fc28c2cb77a156d720e.png" />
+<strong>Vorteile</strong>:</p>
+<ul>
+<li>Ausfallsicherheit (Redundanz)</li>
+<li>Lastverteilung zwischen den Servern</li>
+<li>Entlastung der WAN-Strecke zwischen Standorten</li>
+</ul>
+<h3 id="zonendelegierung">Zonendelegierung</h3>
+<p>Bei der <strong>Zonendelegierung</strong> wird die Verwaltung von einer “untergeordnete” Zone an einen anderen  Nameserver weiter gegeben.
+<img src="/_resources/8941b1ae04914d0e8d1036c0e8ed596e.png" /></p>
+<p><strong>Vorteile</strong></p>
+<ul>
+<li>Aufteilung der DNS-Datenbank (Lastverteilung)</li>
+<li>Entlastung der WAN-Strecke</li>
+</ul>
+<h3 id="iterative-abfrage">Iterative Abfrage</h3>
+<p><img src="/_resources/b5d150d16e734fa7b635add087025968.png" /></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
