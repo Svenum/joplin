@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Setup Windoof-VM - notes.holypenguin.de</title>
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Setup Windoof-VM</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1640858032453"
+                  >2021-12-30 10:53</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1641988940468"
+                  >2022-01-12 13:02</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">windoof</span>
+              
+              <span class="keyword">linux,</span>
+              
+              <span class="keyword">vm</span>
+              
+              <span class="keyword">kvm</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="setup-windoof-vm">Setup Windoof-VM</h1>
+<ol>
+<li><a title="#needed-packages" href="#needed-packages">Needed Packages</a></li>
+<li><a title="#prepare-kernel" href="#prepare-kernel">Pepare Kernel</a>
+<ol>
+<li><a title="#mkiniscpio" href="#mkiniscpio">Mkinicpio</a></li>
+<li><a title="#modprobe" href="#modprobe">Modprobe</a></li>
+<li><a title="#grub" href="#grub">Grub</a></li>
+</ol>
+</li>
+<li><a title="#create-vfio-override-script" href="#create-vfio-override-script">Create VFIO-Override Script</a></li>
+<li><a title="#enable-changes" href="#enable-changes">Enable changes</a></li>
+<li><a title="#windoofxml" href="#windoofxml">Windoof.xml</a></li>
+<li><a title="#preload-and-stop-script" href="#preload-and-stop-script">Preload and Stop Script</a></li>
+<li><a title="#rights" href="#rights">Rights</a></li>
+</ol>
+<h2 id="needed-packages">Needed Packages</h2>
+<ul>
+<li>libvirtd</li>
+<li>qemu</li>
+<li>evsieve</li>
+</ul>
+<h2 id="prepare-kernel">Prepare Kernel</h2>
+<h3 id="mkinispio">Mkinispio</h3>
+<p>Add to <strong>/etc/mkinicpio.conf</strong>:
+<code>MODULES="... vfio_pci vfio vfio_iommu_type1 vfio_virqfd ..."</code>
+and:
+<code>FILES="... /usr/local/bin/vfio-pci-override.sh ..."</code></p>
+<h3 id="modprobe">Modprobe</h3>
+<p>Add File <strong>vfio.conf</strong>:
+<code>$ echo "install vfio-pci /usr/local/bin/vfio-pci-override.sh" &gt; /etc/modprobe.d/vfio.conf</code>
+and the file <strong>kvm.conf</strong>:
+<code>$ echo "options kvm_intel nested=1" &gt; /etc/modprobe.d/kvm.conf</code>
+<code>$ echo "options kvm_intel emulate_invalid_guest_state=0" &gt;&gt; /etc/modprobe.d/kvm.conf</code>
+<code>echo "options kvm ignore_msrs=1 report_ignored_msrs=0" &gt;&gt; /etc/modprobe.d/kvm.conf</code>
+to <strong>/etc/modpobe.d</strong>.</p>
+<h3 id="grub">Grub</h3>
+<p>Add to <strong>/etc/default/grub</strong> on intel-cpu:
+<code>GRUB_CMDLINE_LINUX_DEFAULT="... iommu=pt intel_iommu=on ..."</code></p>
+<h2 id="create-vfio-override-script">Create VFIO-Override Script</h2>
+<p>Create the file <strong>/usr/local/bin/vfio-pci-override.sh</strong> with the content:</p>
+<div><pre class="hljs"><code><span class="hljs-meta">#!/bin/sh</span>
+<span class="hljs-comment"># PCI-BUS-ID from the GPU and its Audio</span>
+DEVS=<span class="hljs-string">"0000:06:00.0 0000:06:00.1"</span>
+
+<span class="hljs-keyword">if</span> [ ! -z <span class="hljs-string">"<span class="hljs-subst">$(ls -A /sys/class/iommu)</span>"</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">for</span> DEV <span class="hljs-keyword">in</span> <span class="hljs-variable">$DEVS</span>; <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">if</span> [ -e /sys/bus/pci/devices/<span class="hljs-variable">$DEV</span>/driver/unbind ]; <span class="hljs-keyword">then</span>
+                <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$DEV</span>"</span> &gt; /sys/bus/pci/devices/<span class="hljs-variable">$DEV</span>/driver/unbind 2&gt; /dev/null
+        <span class="hljs-keyword">fi</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"vfio-pci"</span> &gt; /sys/bus/pci/devices/<span class="hljs-variable">$DEV</span>/driver_override 2&gt; /dev/null
+    <span class="hljs-keyword">done</span>
+<span class="hljs-keyword">fi</span>
+
+modprobe -i vfio-pci
+<span class="hljs-built_in">echo</span> efi-framebuffer.0 &gt; /sys/bus/platform/drivers/efi-framebuffer/unbind 2&gt; /dev/null</code></pre></div>
+<h2 id="enable-changes">Enable changes</h2>
+<p>Now you have to enable all the changes with two commands:
+<code>$ sudo mkinicpio -P</code>
+and
+<code>$ sudo update-grub</code>
+After the next Reboot all works fine.</p>
+<h2 id="windoofxml">Windoof.xml</h2>
+<p>The following xml are the propertis of the vm.
+Place the xml as <strong>/etc/libvrit/qemu/Windoof.xml</strong>.</p>
+<div><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">domain</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'kvm'</span> <span class="hljs-attr">xmlns:qemu</span>=<span class="hljs-string">'http://libvirt.org/schemas/domain/qemu/1.0'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Windoof<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uuid</span>&gt;</span>6e2b6c97-2889-4d06-af0f-9b82c6835ef7<span class="hljs-tag">&lt;/<span class="hljs-name">uuid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">metadata</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">libosinfo:libosinfo</span> <span class="hljs-attr">xmlns:libosinfo</span>=<span class="hljs-string">"http://libosinfo.org/xmlns/libvirt/domain/1.0"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">libosinfo:os</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"http://microsoft.com/win/10"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">libosinfo:libosinfo</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">metadata</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">memory</span> <span class="hljs-attr">unit</span>=<span class="hljs-string">'KiB'</span>&gt;</span>8388608<span class="hljs-tag">&lt;/<span class="hljs-name">memory</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">currentMemory</span> <span class="hljs-attr">unit</span>=<span class="hljs-string">'KiB'</span>&gt;</span>8388608<span class="hljs-tag">&lt;/<span class="hljs-name">currentMemory</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">vcpu</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">'static'</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">vcpu</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">os</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">type</span> <span class="hljs-attr">arch</span>=<span class="hljs-string">'x86_64'</span> <span class="hljs-attr">machine</span>=<span class="hljs-string">'pc-q35-6.1'</span>&gt;</span>hvm<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">loader</span> <span class="hljs-attr">readonly</span>=<span class="hljs-string">'yes'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pflash'</span>&gt;</span>/usr/share/edk2-ovmf/x64/OVMF_CODE.fd<span class="hljs-tag">&lt;/<span class="hljs-name">loader</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">nvram</span>&gt;</span>/var/lib/libvirt/qemu/nvram/Windoof_VARS.fd<span class="hljs-tag">&lt;/<span class="hljs-name">nvram</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bootmenu</span> <span class="hljs-attr">enable</span>=<span class="hljs-string">'no'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">os</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">features</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">acpi</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">apic</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hyperv</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">relaxed</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">vapic</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">spinlocks</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span> <span class="hljs-attr">retries</span>=<span class="hljs-string">'8191'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">vpindex</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">synic</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">stimer</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">vendor_id</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'1234567890ab'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">hyperv</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">kvm</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hidden</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">kvm</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">vmport</span> <span class="hljs-attr">state</span>=<span class="hljs-string">'off'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ioapic</span> <span class="hljs-attr">driver</span>=<span class="hljs-string">'kvm'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">features</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">cpu</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">'host-passthrough'</span> <span class="hljs-attr">check</span>=<span class="hljs-string">'partial'</span> <span class="hljs-attr">migratable</span>=<span class="hljs-string">'on'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">topology</span> <span class="hljs-attr">sockets</span>=<span class="hljs-string">'1'</span> <span class="hljs-attr">dies</span>=<span class="hljs-string">'1'</span> <span class="hljs-attr">cores</span>=<span class="hljs-string">'4'</span> <span class="hljs-attr">threads</span>=<span class="hljs-string">'2'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">cpu</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">clock</span> <span class="hljs-attr">offset</span>=<span class="hljs-string">'localtime'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">timer</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'rtc'</span> <span class="hljs-attr">tickpolicy</span>=<span class="hljs-string">'catchup'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">timer</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pit'</span> <span class="hljs-attr">tickpolicy</span>=<span class="hljs-string">'delay'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">timer</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'hpet'</span> <span class="hljs-attr">present</span>=<span class="hljs-string">'yes'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">timer</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'hypervclock'</span> <span class="hljs-attr">present</span>=<span class="hljs-string">'yes'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">clock</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">on_poweroff</span>&gt;</span>destroy<span class="hljs-tag">&lt;/<span class="hljs-name">on_poweroff</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">on_reboot</span>&gt;</span>restart<span class="hljs-tag">&lt;/<span class="hljs-name">on_reboot</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">on_crash</span>&gt;</span>destroy<span class="hljs-tag">&lt;/<span class="hljs-name">on_crash</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">pm</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">suspend-to-mem</span> <span class="hljs-attr">enabled</span>=<span class="hljs-string">'no'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">suspend-to-disk</span> <span class="hljs-attr">enabled</span>=<span class="hljs-string">'no'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">pm</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">devices</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">emulator</span>&gt;</span>/usr/bin/qemu-system-x86_64<span class="hljs-tag">&lt;/<span class="hljs-name">emulator</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">disk</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'file'</span> <span class="hljs-attr">device</span>=<span class="hljs-string">'disk'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">driver</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'qemu'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'qcow2'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">file</span>=<span class="hljs-string">'/home/sven/VMs/Windoof.qcow2'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">dev</span>=<span class="hljs-string">'sda'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'sata'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">boot</span> <span class="hljs-attr">order</span>=<span class="hljs-string">'1'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'drive'</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">target</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">unit</span>=<span class="hljs-string">'0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">disk</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">disk</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'block'</span> <span class="hljs-attr">device</span>=<span class="hljs-string">'disk'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">driver</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'qemu'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'raw'</span> <span class="hljs-attr">cache</span>=<span class="hljs-string">'none'</span> <span class="hljs-attr">io</span>=<span class="hljs-string">'native'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">dev</span>=<span class="hljs-string">'/dev/sdb'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">dev</span>=<span class="hljs-string">'sdc'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'sata'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'drive'</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">target</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">unit</span>=<span class="hljs-string">'2'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">disk</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'qemu-xhci'</span> <span class="hljs-attr">ports</span>=<span class="hljs-string">'15'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'sata'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'0'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x1f'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x2'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'1'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'1'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x10'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span> <span class="hljs-attr">multifunction</span>=<span class="hljs-string">'on'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'2'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'2'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x11'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x1'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'3'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'3'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x12'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x2'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'4'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'4'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x13'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x3'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'5'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'5'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x14'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x4'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'6'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'6'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x15'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x5'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'7'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'7'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x16'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x6'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'8'</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'pcie-root-port'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pcie-root-port'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">chassis</span>=<span class="hljs-string">'8'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0x17'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x02'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x7'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">controller</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'virtio-serial'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'0'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x03'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">controller</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">interface</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'network'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mac</span> <span class="hljs-attr">address</span>=<span class="hljs-string">'52:54:00:96:08:0e'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">network</span>=<span class="hljs-string">'default'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'e1000e'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x01'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">interface</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">serial</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pty'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'isa-serial'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0'</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'isa-serial'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">serial</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">console</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pty'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'serial'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">console</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">channel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'spicevmc'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'virtio'</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'com.redhat.spice.0'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'virtio-serial'</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'1'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">channel</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'mouse'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'virtio'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x0e'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'keyboard'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'virtio'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x0f'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'mouse'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'ps2'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'keyboard'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'ps2'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'1'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'spice'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">video</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">model</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'none'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hostdev</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">'subsystem'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">managed</span>=<span class="hljs-string">'yes'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x07'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">boot</span> <span class="hljs-attr">order</span>=<span class="hljs-string">'2'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x07'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">hostdev</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hostdev</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">'subsystem'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">managed</span>=<span class="hljs-string">'yes'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x01'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">rom</span> <span class="hljs-attr">file</span>=<span class="hljs-string">'/home/sven/.config/gpu.rom'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x04'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">hostdev</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hostdev</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">'subsystem'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">managed</span>=<span class="hljs-string">'yes'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x01'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x1'</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x06'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">hostdev</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">redirdev</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'spicevmc'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'2'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">redirdev</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">redirdev</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'spicevmc'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'3'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">redirdev</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">redirdev</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'spicevmc'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'usb'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">port</span>=<span class="hljs-string">'4'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">redirdev</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">memballoon</span> <span class="hljs-attr">model</span>=<span class="hljs-string">'virtio'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">address</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'pci'</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">'0x0000'</span> <span class="hljs-attr">bus</span>=<span class="hljs-string">'0x05'</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'0x00'</span> <span class="hljs-attr">function</span>=<span class="hljs-string">'0x0'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">memballoon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">devices</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">qemu:commandline</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'-device'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'ich9-intel-hda,bus=pcie.0,addr=0x1b'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'-device'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'hda-micro,audiodev=hda'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'-audiodev'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'pa,id=hda,server=unix:/run/user/1001/pulse/native'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'-object'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'input-linux,id=mouse1,evdev=/dev/input/by-id/guest-mouse'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'-object'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">qemu:arg</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'input-linux,id=kbd1,evdev=/dev/input/by-id/guest-keyboard,grab_all=on,repeat=on'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">qemu:commandline</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">domain</span>&gt;</span></code></pre></div>
+<h2 id="preload-and-stop-script">Preload and Stop Script</h2>
+<p>That the vm starts  and stops right we need to start a preload and stop script, that the script is executed, we need to download the file from “<a title="https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu" href="https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu">https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu</a>” and save it the file <strong>/etc/libvirt/hooks/qemu</strong>:
+<code>$ sudo curl https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu -o /etc/libvirt/hooks/qemu</code></p>
+<p>and create the scripts:</p>
+<ul>
+<li><strong>/etc/libvirt/hooks/qemu.d/Windoof/prepare/begin/prepare_windoof</strong>:</li>
+</ul>
+<div><pre class="hljs"><code><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># following informations you get by the command xrandr</span>
+USER=sven <span class="hljs-comment"># change to your user, who would execute the vm</span>
+DISPLAY_GO=DP-0 <span class="hljs-comment"># display whitch is going to be turned off</span>
+DISPLAY_GO_RATE=144.00 <span class="hljs-comment"># rate of the display</span>
+DISPLAY_GO_MODE=3440x1440 <span class="hljs-comment"># resolution of the display</span>
+
+DISPLAY_STAY=DVI-D-0 <span class="hljs-comment"># display whitch stay on</span>
+DISPLAY_STAY_RATE=144.00 <span class="hljs-comment"># resolution of the display</span>
+
+sudo -u <span class="hljs-variable">$USER</span> xrandr --display :0 --output <span class="hljs-variable">$DISPLAY_GO</span> --off 
+sudo -u <span class="hljs-variable">$USER</span> kwriteconfig5 --file <span class="hljs-variable">$USER</span>/.config/kscreenlockerrc --group <span class="hljs-string">'Daemon'</span> --key Autolock <span class="hljs-literal">false</span>
+sudo -u <span class="hljs-variable">$USER</span> qdbus org.kde.screensaver /ScreenSaver configure
+
+systemctl start envdev.service</code></pre></div>
+<ul>
+<li><strong>/etc/libvirt/hooks/qemu.d/Windoof/stopped/end/stopped-windoof</strong>:</li>
+</ul>
+<div><pre class="hljs"><code><span class="hljs-meta">#!/bin/bash</span>
+USER=sven <span class="hljs-comment"># change to your user, who would execute the vm</span>
+sudo -u <span class="hljs-variable">$USER</span> xrandr --display :0 --output DP-0 --left-of DVI-D-0 --mode 3440x1440 --rate 144.00 --primary
+sudo -u <span class="hljs-variable">$USER</span> kwriteconfig5 --file <span class="hljs-variable">$HOME</span>/.config/kscreenlockerrc --group <span class="hljs-string">'Daemon'</span> --key Autolock <span class="hljs-literal">true</span>
+sudo -u <span class="hljs-variable">$USER</span> qdbus org.kde.screensaver /ScreenSaver configure
+systemctl stop envdev.service</code></pre></div>
+<p>Now we have to create the envdev service by creating the file <strong>/etc/systemd/system/evdev.service</strong>:</p>
+<div><pre class="hljs"><code>[<span class="hljs-string">Unit</span>]
+<span class="hljs-string">Description</span>=<span class="hljs-string">Preparing</span> <span class="hljs-string">evdev</span> <span class="hljs-string">devices</span> <span class="hljs-string">for</span> <span class="hljs-string">Windoof</span> <span class="hljs-string">vm</span>
+<span class="hljs-string">Require</span>=<span class="hljs-string">libvirtd</span>.<span class="hljs-string">service</span>
+<span class="hljs-string">After</span>=<span class="hljs-string">libvirtd</span>.<span class="hljs-string">service</span>
+
+[<span class="hljs-string">Service</span>]
+<span class="hljs-string">type</span>=<span class="hljs-string">simple</span>
+<span class="hljs-string">Environment</span>=<span class="hljs-string">KB_ID</span>=/<span class="hljs-string">dev</span>/<span class="hljs-string">input</span>/<span class="hljs-string">by-id</span>/<span class="hljs-string">usb-Logitech_USB_Receiver-if01-event-kbd</span>
+<span class="hljs-string">Environment</span>=<span class="hljs-string">MOUSE_ID</span>=/<span class="hljs-string">dev</span>/<span class="hljs-string">input</span>/<span class="hljs-string">by-id</span>/<span class="hljs-string">usb-Logitech_USB_Receiver-if02-event-mouse</span>
+<span class="hljs-string">ExecStart</span>=<span class="hljs-string">sudo</span> <span class="hljs-string">evsieve</span> <span class="hljs-built_in">--input</span> $<span class="hljs-string">KB_ID</span>  <span class="hljs-string">domain</span>=<span class="hljs-string">kb</span> <span class="hljs-string">grab</span> \
+    <span class="hljs-built_in">--input</span>  $<span class="hljs-string">MOUSE_ID</span> <span class="hljs-string">domain</span>=<span class="hljs-string">ms</span> <span class="hljs-string">grab</span> \
+    <span class="hljs-built_in">--hook</span>   <span class="hljs-string">key:scrolllock </span><span class="hljs-string">toggle</span>   \
+    <span class="hljs-built_in">--map</span>    <span class="hljs-string">key:scrolllock </span>@<span class="hljs-string">host-kb</span> \
+    <span class="hljs-built_in">--toggle</span> @<span class="hljs-string">kb</span> @<span class="hljs-string">guest-kb</span> @<span class="hljs-string">host-kb</span>  \
+    <span class="hljs-built_in">--toggle</span> @<span class="hljs-string">ms</span> @<span class="hljs-string">guest-ms</span> @<span class="hljs-string">host-ms</span>  \
+    <span class="hljs-built_in">--output</span> <span class="hljs-string">key:mute </span><span class="hljs-string">key:nextsong </span><span class="hljs-string">key:previoussong </span><span class="hljs-string">key:playpause </span><span class="hljs-string">key:volumeup </span><span class="hljs-string">key:volumedown </span>@<span class="hljs-string">host-kb</span> <span class="hljs-built_in">create-link=/dev/input/by-id/host-keyboard</span>   \
+    <span class="hljs-built_in">--output</span> @<span class="hljs-string">host-ms</span> <span class="hljs-built_in">create-link=/dev/input/by-id/host-mouse</span>      \
+    <span class="hljs-built_in">--output</span> @<span class="hljs-string">guest-kb</span> <span class="hljs-built_in">create-link=/dev/input/by-id/guest-keyboard</span> \
+    <span class="hljs-built_in">--output</span> @<span class="hljs-string">guest-ms</span> <span class="hljs-built_in">create-link=/dev/input/by-id/guest-mouse</span>
+<span class="hljs-string">ExecStop</span>=<span class="hljs-string">killall</span> <span class="hljs-string">evsieve</span></code></pre></div>
+<h2 id="rights">Rights</h2>
+<p>to use the vm as non root user, you need to add the user to the group <strong>libvirtd</strong>:
+<code>$ sudo usermod -aG libvirtd sven</code></p>
+<p>and allow the group to start the vm as root:
+tipp:
+<code>$ sudo visudo</code></p>
+<p>and then add the line:
+<code>%libvirt ALL=(ALL) NOPASSWD:/usr/bin/virsh start Windoof</code></p>
+<p>That you are allowed to access the keyboard and the mouse, you have to  uncommend two things in /etc/libvirt/qemu.conf
+<code>#user=root</code> =&gt; <code>user=root</code>
+and
+<code>#group=root</code>=&gt;<code>group=root</code></p>
+<p>Now you only have to add:</p>
+<div><pre class="hljs"><code>cgroup_device_acl = <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">"/dev/null"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"/dev/full"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"/dev/zero"</span><span class="hljs-punctuation">,</span> 
+        <span class="hljs-string">"/dev/random"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"/dev/urandom"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">"/dev/ptmx"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"/dev/kvm"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"/dev/kqemu"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">"/dev/rtc"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"/dev/hpet"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">"/dev/input/by-id/KEYBOARD_NAME"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">"/dev/input/by-id/MOUSE_NAME"</span>
+<span class="hljs-punctuation">]</span></code></pre></div>
+<p>to the same file.</p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

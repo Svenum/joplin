@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>ITIL - notes.holypenguin.de</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.de</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">ITIL</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1638435287354"
+                  >2021-12-02 09:54</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1638506942117"
+                  >2021-12-03 05:49</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">support level</span>
+              
+              <span class="keyword">iaas</span>
+              
+              <span class="keyword">saas</span>
+              
+              <span class="keyword">sla</span>
+              
+              <span class="keyword">itil</span>
+              
+              <span class="keyword">ola</span>
+              
+              <span class="keyword">11.klasse</span>
+              
+              <span class="keyword">bs</span>
+              
+              <span class="keyword">paas</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li><a title="#was-ist-sla" href="#was-ist-sla">Was ist SLA?</a></li>
+<li><a title="#was-ist-ola" href="#was-ist-ola">Was ist OLA?</a></li>
+<li><a title="#support-level" href="#support-level">Support Level</a>
+<ol>
+<li><a title="#single-level-support" href="#single-level-support">Single Level Support</a></li>
+<li><a title="#second-level-support" href="#second-level-support">Second Level Support</a></li>
+<li><a title="#third-level-support" href="#third-level-support">Third Level Support</a>
+<ol>
+<li><a title="#underpinning-contract" href="#underpinning-contract">Underpinning Contract</a></li>
+</ol>
+</li>
+<li><a title="#service-level-agreement" href="#service-level-agreement">Service Level Agreement</a></li>
+<li><a title="#operation-level-agreement" href="#operation-level-agreement">Operation Level Agreement</a></li>
+<li><a title="#verschieden-cloud-systeme" href="#verschieden-cloud-systeme">Verschiedene Cloud Systeme</a>
+<ol>
+<li><a title="#iaas" href="#iaas">IaaS</a></li>
+<li><a title="#paas" href="#paas">PaaS</a></li>
+<li><a title="#saas" href="#saas">SaaS</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="was-ist-sla">Was ist SLA?</h1>
+<p>SLA steht für <em><strong>S</strong>ervice <strong>L</strong>evel <strong>A</strong>greement</em> und bedeutet, das bei einem Dienstvertrag genau festgelegt wird, wann die Leistungen erfüllt sind und wann nicht. Z. B.:</p>
+<ul>
+<li>Premium Abo
+<ul>
+<li>24/7 Telefon Support</li>
+<li>max. 1 Tag Ausfall im Jahr</li>
+</ul>
+</li>
+<li>Standard Abo
+<ul>
+<li>24h Werkstags Telefon Support</li>
+<li>max. 10 Tage Ausfall im Jahr</li>
+</ul>
+</li>
+<li>Mini Abo
+<ul>
+<li>von 7:00 Uhr bis 16:00 Uhr, Mo-Fr Telefon Support</li>
+<li>max. 30 Tage Ausfall im Jahr</li>
+</ul>
+</li>
+</ul>
+<h1 id="was-ist-ola">Was ist OLA?</h1>
+<p>Beim OLA (<em><strong>O</strong>peration <strong>L</strong>evel <strong>A</strong>greement</em>) handelt es sich um ein SLA, das intern in einer Firma geschlossen wurde, z. B. zwischen den Support Level.</p>
+<h1 id="support-level">Support Level</h1>
+<h2 id="first-level-support">First Level Support</h2>
+<p>Im FLS (<strong>F</strong>irst <strong>L</strong>evel <strong>S</strong>upport) werden einfache Probleme gelöst und schwerere Probleme Kategorisiert. Zudem werden sämtliche Informationen die zur Problemlösung erforderlich sind gesammelt. Anschließend werden die Informationen an den Second Level Support weitergegeben.
+Der FLS dient auch als <strong>Single Point of Contact</strong>. Dadurch werden die anderen Support Level nicht von ihrer Arbeit abgehalten.</p>
+<h2 id="second-level-support">Second Level Support</h2>
+<p>Beim SLS (<strong>S</strong>econd <strong>L</strong>evel <strong>S</strong>upport) werden die schwereren Probleme, die der FLS nicht lösen konnten bearbeitet. Sollte der SLS das Problem auch nicht lösen können, so wird das Problem weiter <strong>eskaliert</strong> zu dem Third Level Support.</p>
+<h2 id="third-level-support">Third Level Support</h2>
+<p>TLS (<strong>T</strong>hird <strong>L</strong>evel <strong>S</strong>upport) ist die unterste Support schicht. Hier sitzen Experten auf ihren Themengebieten und kümmern sich um die Schwersten Probleme.</p>
+<h3 id="underpinning-contract">Underpinning Contract</h3>
+<p>Beim UC wird der TLS zu Externen ausgesourced. Oft kümmert sich der Hersteller der Software/Hardware, bei der das Problem auf getreten ist um solche anliegen.</p>
+<h1 id="verschiedene-cloud-systeme">Verschiedene Cloud Systeme</h1>
+<p><img src="/_resources/b45d9d4c2e844a9ab8ff25cc945f028a.png" /></p>
+<h2 id="iaas">IaaS</h2>
+<p>Der Kunde kann sich bei IaaS <em>(<strong>I</strong>nferstructior <strong>a</strong>s <strong>a</strong> <strong>S</strong>ervice)</em> selbstständig seine eigene Infrastruktur aufbauen, das heißt Netzwerke anlegen, VMs erstellen und Betriebssysteme aussuchen. Der Dienstleister kümmert sich nur um die Hardware.
+Beispiele:</p>
+<ul>
+<li>AWS (Amazon Web Services)</li>
+<li>Microsoft Azure</li>
+<li>Linode</li>
+</ul>
+<h2 id="paas">PaaS</h2>
+<p>Bei PaaS <em>(<strong>P</strong>latform <strong>a</strong>s <strong>a</strong> <strong>S</strong>ervice)</em> stellt der Dienstleister alles bis zur OS untergrenze zur Verfügung. Der Kunde kann also sein Betriebssystem aussuchen und seine Software installieren.
+Beispiele:</p>
+<ul>
+<li>Windows Azure</li>
+<li>Google App Engine</li>
+<li>Apache Stratos</li>
+</ul>
+<h2 id="saas">SaaS</h2>
+<p>Der Kunde muss sich bei Saas  <em>(<strong>S</strong>oftware <strong>a</strong>s <strong>a</strong> <strong>S</strong>ervice)</em> nur um die Einstellungen der Software und die Daten/Informationen, die die Application benötigt zu kümmern. Die Infrastruktur und Installation übernimmt der Dienstleister.
+Beispiele:</p>
+<ul>
+<li>Google Workspace</li>
+<li>Dropbox</li>
+<li>Cisco Webex</li>
+</ul>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
