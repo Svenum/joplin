@@ -1,0 +1,1174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title></title>
+        <link>undefined</link>
+        <description>undefined</description>
+        <lastBuildDate>Fri, 29 Apr 2022 14:52:31 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[DNS]]></title>
+            <guid>5f4d75a9cbbb4cbf86cde1976e79137d</guid>
+            <pubDate>Thu, 28 Apr 2022 15:47:55 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="dns">DNS</h1>
+<ol>
+<li><a title="#was-ist-dns" href="#was-ist-dns">Was ist DNS?</a></li>
+<li><a title="#dynamisches-dns" href="#dynamisches-dns">Dynamisches DNS</a></li>
+<li><a title="#fachbegriffe" href="#fachbegriffe">Fachbegriffe</a></li>
+<li><a title="#aufbau" href="#aufbau">Aufbau</a>
+<ol>
+<li><a title="#zonen" href="#zonen">Zonen</a></li>
+<li><a title="#dns-records" href="#dns-records">DNS-Records</a></li>
+</ol>
+</li>
+<li><a title="#funktionsweise" href="#funktionsweise">Funktionsweise</a>
+<ol>
+<li><a title="#zonen%C3%BCbertragung" href="#zonen%C3%BCbertragung">Zonenübertragung</a></li>
+<li><a title="#zonendelegierung" href="#zonendelegierung">Zonendelegierung</a></li>
+<li><a title="#iterative-abfrage" href="#iterative-abfrage">Iterative Abfrage</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-dns">Was ist DNS?</h2>
+<p><strong>DNS</strong> oder auch <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem ist eine <strong>riesige</strong> Weltweit verteilte Datenbank welches Domain-Namen in <a href="/article/ip-adressen">IP-Adressen</a> auflöst. Diese Datenbank Teile liegen auf so genannten Nameservern. Die Wurzel <em>(engl.: root)</em> sind derzeit 13 Root-Nameserver (A-M), die die Informationen über die <strong>TLD</strong>s (<strong>T</strong>op <strong>L</strong>evel <strong>D</strong>omains) oder auch <strong>FLD</strong>s (<strong>F</strong>irst <strong>L</strong>evel <strong>D</strong>omain) verwalten. Diese TLDs werden von der <strong>ICANN</strong> (Internet Corparation for Assigned Names and Numbers) verwaltet.
+<img src="/_resources/69dcebddbb204a268b2aa6bab00dc192.png" /></p>
+<h2 id="dynamisches-dns">Dynamisches DNS</h2>
+<p><img src="/_resources/7bb04823f5854304a63fd2c8ec6f0dff.png" /></p>
+<h2 id="aufbau">Aufbau</h2>
+<p>Das DNS ist <strong>hierarchisch</strong> aufgebaut. Das bedeutet, das die Struktur von den Root-Serven aus immer mehr nach unten aufgefächert ist.
+<img src="/_resources/3906c9a30cbd4631b3971a55f0d76ae8.PNG" />
+<strong>Hostname + DNS-Suffix = FQDN</strong> (<strong>F</strong>ull <strong>Q</strong>ualified <strong>D</strong>omain <strong>N</strong>ame)</p>
+<table>
+<thead>
+<tr>
+<th>Hostname</th>
+<th>.</th>
+<th>DNS-Suffix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>www</td>
+<td>.</td>
+<td>google.com</td>
+</tr>
+<tr>
+<td>eu</td>
+<td>.</td>
+<td>store.ui.com</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zonen">Zonen</h3>
+<p>Eine <strong>Zone</strong> ist ein Verwaltungs(teil)bereich im DNS-Namensraum. In der Regel beinhaltet eine Zone genau eine Domäne. (z. B. bsinfo.eu)
+In dieser Zonen gibt es Datenbankeinträge welche die IP zu einem FQDN auflösen (<strong>Reverse-Lookup Zonendatei</strong>) oder eine FQDN zu einer IP (<strong>Forward-Lookup Zonendatei</strong>).
+<strong>-&gt; ZWEI SEPERATE DATENBANKEN</strong></p>
+<h3 id="dns-records">DNS-Records</h3>
+<table>
+<thead>
+<tr>
+<th>Record</th>
+<th>Name</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOA</td>
+<td>Source of Authority</td>
+<td>enthält technische Angaben für die gesamte Zone</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Name Server</td>
+<td>verweist auf die Nameserver einer Zone</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Address</td>
+<td>Verknüpft einen Domainnamen mit einer IPv4-Adresse</td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>Address</td>
+<td>Verknüpft einen Domainnamen mit einer IPv6-Adresse</td>
+</tr>
+<tr>
+<td>PTR</td>
+<td>Pointer</td>
+<td>Verknüpft eine IP-Adresse mit einem Domainnamen</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>Canonical Name</td>
+<td>Definiert einen Domain namen als Alias für eine anderen</td>
+</tr>
+<tr>
+<td>MX</td>
+<td>Mail Exchanger</td>
+<td>Verweist auf einen Mailserver für die Domain</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>Text</td>
+<td>enthalten beliebige alphanumerische Informationen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="funktionsweise">Funktionsweise</h2>
+<h3 id="zonenübertragung">Zonenübertragung</h3>
+<p>Oft werden mehrere DNS-Server aus Redundanz-Gründen gleichzeitig verwendet. Dabei gibt es immer einen <strong>Primären DNS-Server</strong> und einen oder mehrere <strong>Sekundäre DNS-Server</strong>. Die Sekundären DNS-Server haben nur lese rechte und können <strong>keine Einträge</strong> vornehmen. Der Primäre hingegen schon.
+Die Daten werden daher von dem Primären zu dem Sekundären mittels einer <strong>Zonenübertragung</strong> kopiert.
+<img src="/_resources/c2364cfd617e4fc28c2cb77a156d720e.png" />
+<strong>Vorteile</strong>:</p>
+<ul>
+<li>Ausfallsicherheit (Redundanz)</li>
+<li>Lastverteilung zwischen den Servern</li>
+<li>Entlastung der WAN-Strecke zwischen Standorten</li>
+</ul>
+<h3 id="zonendelegierung">Zonendelegierung</h3>
+<p>Bei der <strong>Zonendelegierung</strong> wird die Verwaltung von einer “untergeordnete” Zone an einen anderen  Nameserver weiter gegeben.
+<img src="/_resources/8941b1ae04914d0e8d1036c0e8ed596e.png" /></p>
+<p><strong>Vorteile</strong></p>
+<ul>
+<li>Aufteilung der DNS-Datenbank (Lastverteilung)</li>
+<li>Entlastung der WAN-Strecke</li>
+</ul>
+<h3 id="iterative-abfrage">Iterative Abfrage</h3>
+<p><img src="/_resources/b5d150d16e734fa7b635add087025968.png" /></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Datenbanken]]></title>
+            <guid>fb3288d930da4321b76889d911dc3bc8</guid>
+            <pubDate>Mon, 14 Mar 2022 10:50:58 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="datenbanken">Datenbanken</h1>
+<ol>
+<li><a title="#entwicklungsphasen" href="#entwicklungsphasen">Entwicklungsphasen</a></li>
+<li><a title="#er-modell" href="#er-modell">ER-Modell</a>
+<ol>
+<li><a title="#fachbegriffe" href="#fachbegriffe">Fachbegriffe</a></li>
+<li><a title="#symbole" href="#symbole">Symbole</a></li>
+<li><a title="#beziehungen" href="#beziehungen">Beziehungen</a>
+<ol>
+<li><a title="#1-zu-1" href="#1-zu-1">1 zu 1</a></li>
+<li><a title="#1-zu-n" href="#1-zu-n">1 zu n</a></li>
+<li><a title="#n-zu-m" href="#n-zu-m">n zu m</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a title="#relationales-datenbank-modell" href="#relationales-datenbank-modell">Relationales Datenbank Modell</a></li>
+<li><a title="#normalisierung" href="#normalisierung">Normalisierung</a>
+<ol>
+<li><a title="#0-normalform" href="#0-normalform">0. Normalform</a></li>
+<li><a title="#1-normalform" href="#1-normalform">1. Normalform</a></li>
+<li><a title="#2-normalform" href="#2-normalform">2. Normalform</a></li>
+<li><a title="#3-normalform" href="#3-normalform">3. Normalform</a></li>
+<li><a title="#kurzbeschreibung" href="#kurzbeschreibung">Kurzbeschreibung</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="entwicklungsphasen">Entwicklungsphasen</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Vorgang</th>
+<th>Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anforderungsanalyse / Externe Phase (Soll-Ist-Analyse)</td>
+<td>Informations- und Präsentationsbedarf der Anwender ermitteln und strukturieren</td>
+<td>Pflichtenheft</td>
+</tr>
+<tr>
+<td>Konzeptioneller Entwurf</td>
+<td>Analyse der logischen Definition der Objekttypen und ihrer Attribute + Darstellung der Beziehungen</td>
+<td>Semantisches DB-Modell z. B. ER-Modell</td>
+</tr>
+<tr>
+<td>Logischer Entwurf</td>
+<td>Datenbank Modellierung. Übersetzen des <a title="#er-modell" href="#er-modell">ER-Modells</a> in ein relationelles DB-Modell</td>
+<td>logisches DB-Modell z. B. relationelles Datenbankmodell</td>
+</tr>
+<tr>
+<td>Verfeinerung des Logischen Entwurfes</td>
+<td colspan="2">Logischen Entwurf anpassen und verbessern</td>
+</tr>
+<tr>
+<td>Physikalische Phase</td>
+<td>Implementierung/Erstellung der Datenbenk mit einem <a href="/article/sql">DBMS</a></td>
+<td>DB-System</td>
+</tr>
+</tbody>
+</table>
+<h2 id="er-modell">ER-Modell</h2>
+<p>Das <strong>ER-Modell</strong> oder auch <strong>E</strong>ntity <strong>R</strong>elasionship <strong>Modell</strong> dient zur planung vor der Programmierung einer Datenbank.</p>
+<h3 id="fachbegriffe">Fachbegriffe</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entität</td>
+<td>Objekt, Tupel, ein Kompletter Datensatz</td>
+</tr>
+<tr>
+<td>Entitätsmenge</td>
+<td>Menge an Objekten</td>
+</tr>
+<tr>
+<td>Entitätstyp</td>
+<td>Entitäten, die sich mit gleichen Eigenschaften beschreiben lassen</td>
+</tr>
+<tr>
+<td>Attribut</td>
+<td>Name der Eigenschaft</td>
+</tr>
+<tr>
+<td>Attributwert</td>
+<td>Konkreter gespeicherter Wert eines Attributs</td>
+</tr>
+<tr>
+<td>Relationsship</td>
+<td>Beziehung zwischen Entitätstypen</td>
+</tr>
+<tr>
+<td>Kardinalität</td>
+<td>Mengenverhältnisse zwischen Entitätstypen</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/_resources/33c43e7caf674ddf9f74fdd125190573.png" /></p>
+<h3 id="symbole">Symbole</h3>
+<p><img src="/_resources/645ae0a5639e47508c3e57022882c77d.png" /></p>
+<h3 id="beziehungen">Beziehungen</h3>
+<h4 id="1-zu-1">1 zu 1</h4>
+<p><img src="/_resources/cde44ca7867c42018cf1960c037e1026.png" /></p>
+<h4 id="1-zu-n">1 zu n</h4>
+<p><img src="/_resources/c3b38759d61b48f2bcb8bccb5a4926ba.png" /></p>
+<h4 id="n-zu-m">n zu m</h4>
+<p><img src="/_resources/493080e26e6e4c9abc640a5d6d26f49e.png" />
+<em><strong>Im ER-Modell müssen n zu m Beziehungen NICHT aufgelöst werden!</strong></em></p>
+<h2 id="relationales-datenbank-modell">Relationales Datenbank Modell</h2>
+<p>Im <strong>relationellem DB-Modell</strong> ist die Struktur der Datenbank klar zu erkennen. Zudem werden die sogenannten <strong>Primärschlüssel (PK)</strong> und <strong>Fremdschlüssel (FK)</strong> in ihm abgebildet.</p>
+<p>Jeder Entity Type wird als eigenständige Tabelle dargestellt. Dabei werden die Attribute ebenfalls eingetragen. Die FKs und PKs werden Makiert.</p>
+<table>
+<thead>
+<tr>
+<th>Tabelle_A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AttributA PK</td>
+</tr>
+<tr>
+<td>AttributB FK</td>
+</tr>
+<tr>
+<td>AttributA1</td>
+</tr>
+<tr>
+<td>AttributA2</td>
+</tr>
+<tr>
+<td>AttributA3</td>
+</tr>
+</tbody>
+</table>
+<p>Zudem werden die Tabellen, welche Abhängig von einander sind miteinander verbunden und wie beim <a title="#er-modell" href="#er-modell">ER-Modell</a> die Kardinalität eingezeichnet.</p>
+<p>Im gegensatz zum ER-Modell werden hier <a title="#n-zu-m" href="#n-zu-m">n zu m</a> Verbindungen zu <a title="#verbindungen" href="#verbindungen">1 zu n</a> aufgetrennt. Dafür wird dann eine weitere Zwischentablle benötigt. Diese kann auch von der Verbindung abhängige Attribute enthalten.</p>
+<p><img src="/_resources/5d14be6dbcec4710be3bb31da66921be.png" /></p>
+<p>In solchen Tabellen wird kein PK mehr benötigt, statt dessen werden die zwei FKs der in Abhängigkeit stehenden Tabellen zu einem PK Verbunden.</p>
+<p><img src="/_resources/d6da246b16ca49c982a743ab76fe5783.png" /></p>
+<h2 id="normalisierung">Normalisierung</h2>
+<p>Bei der Normalisierung wird ein Datenbankmodell so optimiert, damit keine Redundanzen mehr entahlten sind.</p>
+<h3 id="0-normalform">0. Normalform</h3>
+<p>Die 0. Normalform liegt vor wenn die Daten unverändert sind und Redundanten vorliegen.
+<img src="/_resources/144e559ded6d4157bbf14f5dc297fdf4.png" /></p>
+<h3 id="1-normalform">1. Normalform</h3>
+<p>Wenn alle Daten atomar vorliegen ist die 1. Normalform erreicht.
+Das heißt, das pro “Zelle” nur 1 Wert existiert.</p>
+<p>Dadurch wird die Abfrage der Datenbank erleichter und die Struktur klarer.
+<img src="/_resources/61d06f46de9e48e2ae820ab8ead54989.png" /></p>
+<h3 id="2-normalform">2. Normalform</h3>
+<p>Bei der 2. Normalform sind die Attribute nur von einem PK abhängig und nicht von nur einem Teil des PKs. Zudem identifizeiren die Primärschlüssel eindeutig die Attribute.
+<img src="/_resources/e3f70308f4e846678e97e6cc3ef8f4eb.png" /></p>
+<h3 id="3-normalform">3. Normalform</h3>
+<p>Die letzte Normalform liegt dann vor wenn kein Attribut von einem Nichtschlüssel-Attribut abhängig ist. Eine solche Verbindung würde man transaktive (kettenartige) Verbindung nennen.</p>
+<p><img src="/_resources/a995de90809140bab8cda4950ab58980.png" /></p>
+<h3 id="kurzbeschreibung">Kurzbeschreibung</h3>
+<ol>
+<li>Normalform: Alle Werte liegen atomar vor.</li>
+<li>Normalform: Primärschlüssel identifizieren die Entitäten</li>
+<li>Normalform: Alle Werte hängen nur vom Primärschlüssel ab</li>
+</ol>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Cloud-Computing]]></title>
+            <guid>0840b31b32854ba5b21851fd869e19d8</guid>
+            <pubDate>Fri, 11 Mar 2022 14:55:01 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="cloud-computing">Cloud-Computing</h1>
+<ol>
+<li><a title="#definition" href="#definition">Definition</a></li>
+<li><a title="#bereitstellungsmodelle" href="#bereitstellungsmodelle">Bereitstellungsmodelle</a>
+<ol>
+<li><a title="#public-cloud" href="#public-cloud">Public Cloud</a></li>
+<li><a title="#private-cloud" href="#private-cloud">Private Cloud</a></li>
+<li><a title="#hybrid-cloud" href="#hybrid-cloud">Hybrid Cloud</a></li>
+<li><a title="#community-cloud" href="#community-cloud">Community Cloud</a></li>
+</ol>
+</li>
+<li><a title="#servicemodelle" href="#servicemodelle">Servicemodelle</a>
+<ol>
+<li><a title="#iaas" href="#iaas">IaaS</a></li>
+<li><a title="#paas" href="#paas">PaaS</a></li>
+<li><a title="#saas" href="#saas">SaaS</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="definition">Definition</h2>
+<p><strong>Cloud Computing</strong> heißt nichts anderes als das jemand die Rechenleistung seiner Server anderen über das Internet zur Verfügung stellt.</p>
+<h2 id="bereitstellungsmodelle">Bereitstellungsmodelle</h2>
+<p>Es gibt verschiedene Arten der Cloud, diese Arten werden auch <strong>Bereitstellungsmodelle</strong> genannt.</p>
+<h3 id="public-cloud">Public Cloud</h3>
+<p>Bei einer Public Cloud ist jeder Berechtigt sie zu nutzen. ein Beispiel ist z. B. YouTube oder DropBox</p>
+<h3 id="private-cloud">Private Cloud</h3>
+<p>Eine Private Cloud ist z. B. das Private Rechenzentrum einer Firma, welches über das Internet erreichbar ist. Also ist auch nur eine bestimmte Personen-Gruppe berechtigt sie zu Nutzen. Nicht jeder beliebige kann diese Cloud nutzen.</p>
+<h3 id="hybrid-cloud">Hybrid Cloud</h3>
+<p>Die Hybrid Cloud verbindet die ersten zwei genannten Cloud Modelle. Das heißt, wenn eine Firma eine öffentliche Cloud wie z. B. Azure benutz, jedoch trotzdem noch On-Preme eine Cloud betreibt ist dies eine Hybrid-Cloud.</p>
+<h3 id="community-cloud">Community Cloud</h3>
+<p>Community-Clouds sind ähnlich wie Private Cloud, nur das mehrere ausgewählte Gruppen auf sie zugreifen dürfen. Ein Beispiel sind z. B. mehrere Unis, die sich eine Cloud Teilen um Forschungsergebnisse aus zu tauschen.</p>
+<h2 id="servicemodelle">Servicemodelle</h2>
+<p>Unter den Service Modellen versteht man welchen Service ein Cloud-Provider anbietet. Es gibt drei Formen.</p>
+<h3 id="iaas">IaaS</h3>
+<p><strong>I</strong>nfrastruktur <strong>A</strong>s <strong>A</strong> <strong>S</strong>ervice (<strong>IAAS</strong>) ist, wenn der Kunde vollen Zugriff auf die Cloud bekommt und sich seine eigene Infrastruktur aufbauen kann.
+Zugriff auf:</p>
+<ul>
+<li>Netzwerk</li>
+<li>Betriebssystem</li>
+<li>Storage</li>
+<li>…</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li>Linode</li>
+<li>Azure</li>
+<li>Oracle Cloud</li>
+</ul>
+<h3 id="paas">PaaS</h3>
+<p>Bei <strong>P</strong>latform <strong>A</strong>s <strong>A</strong> <strong>S</strong>ervice erhält der Kunde eine Platform mit Entwicklungstools und Bereitstellungsmöglichkeiten von Programmen (oft Webseiten).</p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li>YouTube</li>
+</ul>
+<h3 id="saas">SaaS</h3>
+<p><strong>S</strong>oftware <strong>A</strong>s <strong>A</strong> <strong>S</strong>ervice ist eine Art Lizenz die der Kunde erwirbt. Jedoch erhält er nicht nur die Rechte die Software zu verwenden, sondern sie wird ihm auch direkt über das Internet bereit gestellt.</p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li>Office 365</li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Betriebssysteme]]></title>
+            <guid>71c644b85ca246ffb4b0d1fb4d9c1a96</guid>
+            <pubDate>Fri, 11 Mar 2022 14:30:33 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="betriebssysteme">Betriebssysteme</h1>
+<ol>
+<li><a title="#cpu-ringe" href="#cpu-ringe">CPU-Ringe</a></li>
+</ol>
+<h2 id="cpu-ringe">CPU-Ringe</h2>
+<p>Ein Betriebssystem wird gerne in Ringen Dargestellt.
+<img src="/_resources/2bb1eb43a98f4ffe81fce908f4000294.png" />
+<em>Quelle: <a title="https://de.wikipedia.org/wiki/Ring_(CPU)" href="https://de.wikipedia.org/wiki/Ring_(CPU)">Wikipedia</a></em>
+<strong>Kernel-Mode</strong> oder auch <strong>Ring 0</strong> ist der Teil, der mit der Hardware direkt Kommuniziert. Er stellt APIs bereit, wodurch der User über den <strong>Ring 3</strong> (<strong>User-Mode</strong>) auf die Hardware zugreifen kann.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Virtualisierung]]></title>
+            <guid>21c11b5dde2649f29b7a10d40e212449</guid>
+            <pubDate>Wed, 09 Mar 2022 06:44:28 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="virtualisierung">Virtualisierung</h1>
+<ol>
+<li><a title="#definition" href="#definition">Definition</a></li>
+<li><a title="#nested-virtualisation" href="#nested-virtualisation">Nested Virtualisation</a></li>
+<li><a title="#was-wird-virtualiesiert" href="#was-wird-virtualiesiert">Was wird Virtualisiert?</a></li>
+<li><a title="#vorteile-und-nachteile" href="#vorteile-und-nachteile">Vorteile und Nachteile</a></li>
+<li><a title="#arten" href="#arten">Arten</a>
+<ol>
+<li><a title="#level-1" href="#level-1">Level 1</a></li>
+<li><a title="#level-2" href="#level-2">Level 2</a></li>
+<li><a title="#emulation" href="#emulation">Emulation</a></li>
+<li><a title="#application" href="#application">Applikation</a></li>
+<li><a title="#betriebssystem" href="#betriebssystem">Betriebssystem</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="definition">Definition</h2>
+<p>Virtualisierung erlaubt es Physische Hardware / Ressourcen logisch aufzuteilen oder zusammenzufassen. Für diesen Vorgang wird ein Hypervisor benötigt.</p>
+<h2 id="nested-virtualisation">Nested Virtualisation</h2>
+<p>Wenn man eine Virtuelle Maschine in einer anderen VM macht, nennt man das <strong>Nested Virtualisation</strong>.</p>
+<h2 id="was-wrid-virtualisiert">Was wrid Virtualisiert?</h2>
+<table>
+<thead>
+<tr>
+<th>Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prozessor</td>
+</tr>
+<tr>
+<td>Systeme bzw. Hardware</td>
+</tr>
+<tr>
+<td>Betriebssysteme</td>
+</tr>
+<tr>
+<td>Anwendungen</td>
+</tr>
+<tr>
+<td>Desktop</td>
+</tr>
+<tr>
+<td>Rechenzentren</td>
+</tr>
+<tr>
+<td>RAM</td>
+</tr>
+<tr>
+<td>Festplatten</td>
+</tr>
+<tr>
+<td>Storage</td>
+</tr>
+<tr>
+<td>Netzwerk</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vorteile-und-nachteile">Vorteile und Nachteile</h2>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bessere Hardware Ausnutzung</td>
+<td>weniger Perfomance</td>
+</tr>
+<tr>
+<td>leichtere Bereitstellung (z. B. von Servern)</td>
+<td>nicht jede Hardware kann Virtualisiert werden</td>
+</tr>
+<tr>
+<td>mehr Flexibilität(kopieren von VMs)</td>
+<td>kann Single Point of Failure sein</td>
+</tr>
+<tr>
+<td>leichtere Software-Tests und Entwicklung für verschiedene Systeme</td>
+<td>komplex</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arten">Arten</h2>
+<p>Es gibt verschiedene Arten der Virtualisierung mit verschiedenen Eigenschaften.</p>
+<div id="hypervisor" class="jop-noMdConv">
+Oft spielt bei der Virtualisierung der Hypervisor eine wichtige Rolle. Er ist eine Software, die es ermöglicht Betriebssystem zu virtualisieren.
+<h3 id="level-1">Level 1</h3>
+<p>Bei der Level 1 Virtualisierung wird der sogenannte <a title="#hypervisor" href="#hypervisor">Hypervisor</a> auf den <a href="/article/betriebssysteme">Ring 0</a> geschoben.</p>
+<p>Dadurch entsteht eine sehr schnelle Verbindung zwischen Hardware und Betriebssystem.
+<img src="/_resources/eedd6be4296b42bfabf26a25c84f3304.png" />
+Ein solcher Hypervisor ist z. B. HyperV.</p>
+<h3 id="level-2">Level 2</h3>
+<p>Bei der Level 2 Virtualisierung befindet sich der <a title="#hypervisor" href="#hypervisor">Hypervisor</a> über dem Host-OS. Es ist weniger Performant als eine Level 1 Virtualisierung, jedoch besser für Testumgebungen geeignet.
+Programm-Beispiele sind:</p>
+<ul>
+<li>Virtual Box</li>
+<li>KVM</li>
+<li>VMware
+<img src="/_resources/bd5ac3cf6f8b4fbdb5b8425c7c0cdf67.png" /></li>
+</ul>
+<h3 id="emulation">Emulation</h3>
+<p>Bei der Emulation wird nicht nur die Hardware geteilt bzw. zusammen gefügt sondern es wird nicht vorhandene Hardware simuliert. Das benötigt man um z. B. alte Programme auf neuer Hardware laufen zu lassen. Oder um Software auf andere CPU-Archetektur zu testen. (z. B. ARM auf einem x64 System)
+<img src="/_resources/1a244af1312d44928bfba75f6d306ce7.png" /></p>
+<h3 id="application">Application</h3>
+<p>Wenn nur einzelne APPs in einer VM laufen, nennt man das <strong>Applikations-Virtualisierung</strong>. Ein Beispiel dafür ist JAVA mit dem <strong>J</strong>ava <strong>V</strong>irtual <strong>M</strong>aschine (<strong>JVM</strong>).
+<img src="/_resources/c9319e8e1d4c4af796e5366f3454e621.png" /></p>
+<h3 id="betriebssystem">Betriebssystem</h3>
+<p>Bei einer Betriebssystem-Virtualisierung wird der Kernel des Vorhandenen Host-OS verwendet und ledeglich ein weiterer User-Mode hinzugefügt.
+Programm-Beispiele sind Docker-Container.
+<img src="/_resources/2b5f76311d334317986ab4dc1c3c6e8f.png" /></p>
+</div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Protokolle]]></title>
+            <guid>6f5cad648046494a9e97bfeeb7e3c74b</guid>
+            <pubDate>Tue, 11 Jan 2022 08:22:27 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="protokolle">Protokolle</h1>
+<ol>
+<li><a title="#netzzugangs-ebene" href="#netzzugangs-ebene">Netzzugangs-Ebene</a>
+<ol>
+<li><a title="#icmp" href="#icmp">ICMP</a></li>
+<li><a title="#ip" href="#ip">IP</a></li>
+</ol>
+</li>
+<li><a title="#transport-ebene" href="#transport-ebene">Transport-Ebene</a>
+<ol>
+<li><a title="#tcp" href="#tcp">TCP</a>
+<ol>
+<li><a title="#vun-tcp" href="#vun-tcp">Vor- und Nachteile</a></li>
+<li><a title="#verbindungsaufbau" href="#verbindungsaufbau">Verbindungsaufbau</a></li>
+<li><a title="#verbindungsabbau" href="#verbindungsabbau">Verbindungsabbau</a></li>
+</ol>
+</li>
+<li><a title="#udp" href="#udp">UDP</a>
+<ol>
+<li><a title="#vun-udp" href="#vun-udp">Vor- und Nachteile</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a title="#anwendungs-ebene" href="#anwendungs-ebene">Anwendungs-Ebene</a>
+<ol>
+<li><a title="#telnet" href="#telnet">Telnet</a></li>
+<li><a title="#ssh" href="#ssh">SSH</a></li>
+<li><a title="#smb" href="#smb">SMB</a></li>
+<li><a title="#nfs" href="#nfs">NFS</a></li>
+<li><a title="#ftp" href="#ftp">FTP</a></li>
+<li><a title="#tftp" href="#tftp">TFTP</a></li>
+<li><a title="#http" href="#http">HTTP</a></li>
+<li><a title="#https" href="#https">HTTPS</a></li>
+<li><a title="#sntp" href="#sntp">SNTP</a></li>
+<li><a title="#snmp" href="#snmp">SNMP</a></li>
+</ol>
+</li>
+<li><a title="#ports" href="#ports">Ports</a>
+<ol>
+<li><a title="#was-ist-ein-port" href="#was-ist-ein-port">Was ist ein Port?</a></li>
+<li><a title="#port-liste" href="#port-liste">Port-Liste</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="netzzugangs-ebene">Netzzugangs-Ebene</h2>
+<p>In diesem Kapitel wird genauer auf die Protokolle der Netzzugangs-Ebene im <a href="/article/osi-model">DoD-Modell</a> eingegangen.</p>
+<h3 id="icmp">ICMP</h3>
+<p><strong>ICMP</strong> steht für <strong>I</strong>nternet <strong>C</strong>ontrol <strong>M</strong>essage <strong>P</strong>rotocol und ist das Protokoll, welches sich um Pings kümmert. Wenn dieses Protokoll also in einer Firewall z. B. geblockt wird, kann der entsprechende Rechner nicht mehr gepingt werden.</p>
+<h3 id="ip">IP</h3>
+<p><strong>IP</strong> steht für <strong>I</strong>nternet <strong>P</strong>rotokoll und ist das Protokoll, welches mit <a href="/article/ip-adressen">IP-Adressen</a> arbeitet.</p>
+<h2 id="transport-ebene">Transport-Ebene</h2>
+<p>Nun wird genauer auf die Transport-Ebene im <a href="/article/osi-model">DoD-Modell</a> und dessen Protokolle eingegangen.</p>
+<h3 id="tcp">TCP</h3>
+<p><strong>TCP</strong> steht für  <strong>T</strong>ransmission <strong>C</strong>ontrol <strong>P</strong>rotocol und ist ein verbindungsorientiertes (=&gt; benötigt ein Verbindungsaufbau) und zuverlässiges Transportprotokoll.</p>
+<h4 id="vor-und-nachteile">Vor- und Nachteile</h4>
+<div id="vun-tcp" class="jop-noMdConv"></div>
+|Vorteile|Nachteile|
+|-|-|
+|Fehlerkorrektur|langsam (bei heutiger Geschwindigkeit **fast** zu vernachlässigen)|
+|Flusskontrolle||
+|Übermittlung von Status Informationen||
+<p>Auf Grund dieser Vor- und Nachteile wird TCP zur Übertragung von Daten hergenommen die <strong>unbedingt</strong> vollständig und richtig sein müssen.
+Beispiele:</p>
+<ul>
+<li>Websites</li>
+<li>Chats</li>
+<li>Downloads von Dateien</li>
+<li>…</li>
+</ul>
+<h4 id="verbindungsaufbau">Verbindungsaufbau</h4>
+<p>Der Verbindungsaufbau bei TCP erfolgt in drei Schritten.</p>
+<ol>
+<li>Anfrage von Client:
+<ul>
+<li>SYN-Flag</li>
+<li>Sequenznumber (seq) = x</li>
+<li>Acknowledgenumber (ack) = 0</li>
+</ul>
+</li>
+<li>Antwort Server (SYN ACK):
+<ul>
+<li>SYN- und ACK-Flag</li>
+<li>Sequenznumber (seq) = y</li>
+<li>Acknowledgenumber (ack) = x + 1</li>
+</ul>
+</li>
+<li>Bestätigung des Clients (ACK):
+<ul>
+<li>ACK-Flag</li>
+<li>Sequenznumber (seq) = x + 1</li>
+<li>Acknowledgenumber (ack) = y + 1</li>
+</ul>
+</li>
+</ol>
+<p><img src="/_resources/175d1d91e1004566ad4c094ca91bf27f.png" /></p>
+<h4 id="verbindungsabbau">Verbindungsabbau</h4>
+<p>Ebenso wie der Verbindungsaufbau muss der Verbindungsabbau in drei Schritten erfolgen.</p>
+<ol>
+<li>Client oder Server stellt Abbau anfrage:
+<ul>
+<li>ACK- und FIN-Flag</li>
+<li>seq = x</li>
+<li>ack = y</li>
+</ul>
+</li>
+<li>Gegenstelle bestätigt den Abbau:
+<ul>
+<li>FIN- und ACK-Flag</li>
+<li>seq = y</li>
+<li>ack = x + 1</li>
+</ul>
+</li>
+<li>Client oder Server bestätigen den korrekten abbau:
+<ul>
+<li>ACK-Flag</li>
+<li>seq = x + 1</li>
+<li>ack = y + 1</li>
+</ul>
+</li>
+</ol>
+<p><img src="/_resources/c9e0c2e3f4924b9687e9721f05c580d9.png" /></p>
+<h3 id="udp">UDP</h3>
+<p><strong>UDP</strong> steht für <strong>U</strong>ser <strong>D</strong>atagram <strong>P</strong>rotocol und ist im Gegensatz zu <a title="#tcp" href="#tcp">TCP</a> ein nicht verbindungsorientiertes Protokoll. (=&gt; benötigt keinen Verbindungsaufbau)</p>
+<h3 id="vor-und-nachteile-2">Vor- und Nachteile</h3>
+<div id="vun-udp" class="jop-noMdConv"></div>
+<table>
+<thead>
+<tr>
+<th>Nachteile</th>
+<th>Vorteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keine Fehlerkorrektur</td>
+<td>schnell</td>
+</tr>
+<tr>
+<td colspan="2">keine Flusskontrolle</td>
+</tr>
+<tr>
+<td colspan="2">keine Übermittlung von Status Informationen</td>
+</tr>
+</tbody>
+</table>
+<p>Im vergleich zu <a title="#tcp" href="#tcp">TCP</a> meint man schnell, dass UDP bestimmt veraltet sei und unnütz, da es so viele Nachteile hat. Jedoch ist UDP immer noch viel in Verwendung und ein wichtiges Protokoll. Z. B. ist es beim Serien-Streamen egal ob in einer Millisekunde ein Pixel falsch angezeigt wird oder fehlt, da man es eh nicht bemerkt.</p>
+<h2 id="anwendungs-ebene">Anwendungs-Ebene</h2>
+<p>Nun erläutere ich die Protokolle der letzten Ebene im <a href="/article/osi-model">DoD-Modell</a>.</p>
+<h3 id="telnet">Telnet</h3>
+<p><strong>Telnet</strong> ist ein Protokoll, das den Remote-Zugang zu einer Shell ermöglicht. Über das gleichnamige Programm “Telnet” kann aber auch die Verbindung zu andren Protokollen Aufgebaut werden.
+Sollte heutzutage <strong>IMMER</strong> deaktiviert werden.</p>
+<h3 id="ssh">SSH</h3>
+<p><strong>SSH</strong> steht für <strong>S</strong>ecure <strong>Sh</strong>ell und kann ebenso wie <a title="#telnet" href="#telnet">Telnet</a> eine Remote-Verbindung zu Shells aufbauen. Im Gegensatz zu Telnet wird hier, wie der Name schon sagt, eine sichere (verschlüsselte) Verbindung zu dem Server aufgebaut. Das verringert die Gefahr des <strong>Sniffings</strong> (Abhören von Informationen/mitlesen) gewaltig.</p>
+<h3 id="smb">SMB</h3>
+<p><strong>SMB</strong> oder auch <strong>S</strong>erver <strong>M</strong>essage <strong>B</strong>lock ist ein von Microsoft entwickeltes Protokoll, was zum Datei austausch über ein Netzwerk dient. Es wird z. B. von Windows-Freigaben verwendet.</p>
+<h3 id="nfs">NFS</h3>
+<p><strong>NFS</strong> steht für <strong>N</strong>etwork <strong>F</strong>ile <strong>S</strong>ystem und ist für den selben aufgaben bereich wie <a title="#smb" href="#smb">SMB</a> zuständig. Es wurde jedoch von Linux entwickelt.</p>
+<h3 id="ftp">FTP</h3>
+<p><strong>FTP</strong> oder auch <strong>F</strong>ile <strong>T</strong>ransport <strong>P</strong>rotokoll wurde zur einfachen Datenübertragung über Netzwerke entwickelt. Im Gegensatz zur <a title="#smb" href="#smb">SMB</a> und <a title="#nfs" href="#nfs">NFS</a> wird FTP auch über das Internet und nicht nur im Lokalen-Netzwerk verwendet.</p>
+<h3 id="tftp">TFTP</h3>
+<p>Das <strong>T</strong>rivial <strong>F</strong>ile <strong>T</strong>ransfer <strong>P</strong>rotocol, hat viele ähnlich keiten mit <a title="#ftp" href="#ftp">FTP</a>. Der größte und entscheidende Unterschied ist, dass TFTP ein <strong>nicht</strong> verbindungsorientiertes Protokoll verwendet, also <a title="#udp" href="#udp">UDP</a>.</p>
+<h3 id="http">HTTP</h3>
+<p><strong>HTTP</strong> ist ein Protokoll zur Darstellung von Webseiten, es steht für <strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol. Dieses Protokoll wird standardmäßig von Browsern benutzt</p>
+<h3 id="https">HTTPS</h3>
+<p><strong>HTTPS</strong> ist das selbe wie <a title="#http" href="#http">HTTP</a>, nur das es noch zusätzlich mit SSL verschlüsselt ist. das “S” bei HTTPS steht für <strong>S</strong>ecure.</p>
+<h3 id="dns">DNS</h3>
+<p><strong>DNS</strong> ist ein <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem. Es ist für die Zuordnung der Domain-Namen zur <a href="/article/ip-adressen">IP-Adressen</a> zuständig.</p>
+<h3 id="sntp">SNTP</h3>
+<p>Das <strong>S</strong>imple <strong>N</strong>etwork <strong>T</strong>ime <strong>P</strong>rotocol (kurz <strong>SNTP</strong>) dient zur Synchronisation der Zeit.</p>
+<h3 id="snmp">SNMP</h3>
+<p><strong>SNMP</strong> (<strong>S</strong>imple <strong>N</strong>etwork <strong>M</strong>anagement <strong>P</strong>rotocol) dient zur zentralen Verwaltung und Überwachung von Netzwerkelementen (z. B. Server, Drucker, Switche, Computer, Router, …)</p>
+<h2 id="ports">Ports</h2>
+<p>In diesem Kapitel werden Ports mit den dazu gehörigen Protokollen/Diensten aufgelistet.</p>
+<h3 id="was-ist-ein-port">Was ist ein Port?</h3>
+<p>Ports kann man auch als Türen verstehen, welche zum richtigen Dienst führt.
+Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder DoD-Schicht</a> davor schon das richtige Protokoll gewählt wurde, meist <a title="#udp" href="#udp">UDP</a> oder <a title="#tcp" href="#tcp">TCP</a>.
+<img src="/_resources/7bebc735fdd94b1088acf12f75677305.png" /></p>
+<p>Eine <strong>besondere Stellung haben alle Ports von 0 bis 1024</strong>, da diese Offen Dokumentiert sind und jeder nachlesen kann, wie sie funktionieren.</p>
+<h3 id="port-liste">Port-Liste</h3>
+<table>
+<thead>
+<tr>
+<th>Vorheriges <br class="jop-noMdConv" /> Protokoll</th>
+<th>Port <br class="jop-noMdConv" /> Nummer</th>
+<th>Dienst</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP</td>
+<td>23</td>
+<td><a title="#telnet" href="#telnet">Telnet</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>22</td>
+<td><a title="#ssh" href="#ssh">SSH</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>445</td>
+<td><a title="#smb" href="#smb">SMB</a></td>
+</tr>
+<tr>
+<td>TCP/UDP</td>
+<td>2049</td>
+<td><a title="#nfs" href="#nfs">NFS</a>v3</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>2049</td>
+<td><a title="#nfs" href="#nfs">NFS</a>v4</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>20</td>
+<td><a title="#ftp" href="#ftp">FTP</a>-Data</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>21</td>
+<td><a title="#ftp" href="#ftp">FTP</a>-Control</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>69</td>
+<td><a title="#tftp" href="#tftp">TFTP</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>80</td>
+<td><a title="#http" href="#http">HTTP</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>443</td>
+<td><a title="#https" href="#https">HTTPS</a></td>
+</tr>
+<tr>
+<td>TCP/UDP</td>
+<td>53</td>
+<td><a title="#dns" href="#dns">DNS</a></td>
+</tr>
+<tr>
+<td>TCP/UDP</td>
+<td>123</td>
+<td><a title="#sntp" href="#sntp">SNTP</a></td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>161</td>
+<td><a title="#snmp" href="#snmp">SNMP</a></td>
+</tr>
+</tbody>
+</table>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[IP-Adressen]]></title>
+            <guid>2c1a35273e754ca7a86c51b8216d6e00</guid>
+            <pubDate>Tue, 11 Jan 2022 08:11:48 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="ip-adressen">IP-Adressen</h1>
+<ol>
+<li><a title="#was-sind-ip-adressen" href="#was-sind-ip-adressen">Was sind IP-Adressen</a></li>
+<li><a title="#aufbau-von-ip-adressen" href="#aufbau-von-ip-adressen">Aufbau von IP-Adressen</a></li>
+<li><a title="#ipv4" href="#ipv4">IPv4</a>
+<ol>
+<li><a title="#was-ist-ipv4" href="#was-ist-ipv4">Was ist IPv4?</a></li>
+<li><a title="#ipv4-aufbau" href="#ipv4-aufbau">IPv4 Aufbau</a></li>
+<li><a title="#b-4" href="#b-4">Besondere Adressen</a></li>
+</ol>
+</li>
+<li><a title="#ipv6" href="#ipv6">IPv6</a>
+<ol>
+<li><a title="#was-ist-ipv6" href="#was-ist-ipv6">Was ist IPv6?</a></li>
+<li><a title="#ipv6-adressraum" href="#ipv6-adressraum">IPv6 Adressraum</a></li>
+<li><a title="#verk%C3%BCrzungs-regeln" href="#verk%C3%BCrzungs-regeln">Verkürzungs Regeln</a>
+<ol>
+<li><a title="#vornullen" href="#vornullen">Vornullen</a></li>
+<li><a title="#nullerbl%C3%B6cke" href="#nullerbl%C3%B6cke">Nullerblöcke</a></li>
+</ol>
+</li>
+<li><a title="#b-6" href="#b-6">Besondere Adressen</a></li>
+<li><a title="#vor-und-nachteile-von-ipv6" href="#vor-und-nachteile-von-ipv6">Vor- und Nachteile von IPv6</a>
+<ol>
+<li><a title="#vorteile" href="#vorteile">Vorteile</a></li>
+<li><a title="#nachteile" href="#nachteile">Nachteile</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="was-sind-ip-adressen">Was sind IP-Adressen</h2>
+<p>IP-Adressen sind eindeutige IDs innerhalb <strong>eines</strong> Netzwerkes. Sie werden Entweder Dynamisch (DHCP) oder Statisch (manuell) vergeben. Es gibt sie in zwei formen:</p>
+<ul>
+<li><a title="#ipv4" href="#ipv4">IPv4-Adressen</a></li>
+<li><a title="#ipv6" href="#ipv6">IPv6-Adressen</a></li>
+</ul>
+<p>Zudem definieren IP-Adressen auch Netzwerkbereiche, dies passiert mittels <a title="#aufbau-von-ip-adressen" href="#aufbau-von-ip-adressen">Subnetzmasken</a>.</p>
+<h2 id="aufbau-von-ip-adressen">Aufbau von IP-Adressen</h2>
+<p>Die folgenden Beispiele gelten für <a title="#ipv4" href="#ipv4">IPv4</a>- und <a title="#ipv6" href="#ipv6">IPv6</a>- Adressen, der einzige Unterschied ist die Schreibweise und Länge der IP-Adressen. Zur leichteren Lesbarkeit werden nun IPv4-Adressen verwendet.</p>
+<table>
+<thead>
+<tr>
+<th>Subnetzmaske</th>
+<th>IP-Adresse</th>
+<th>Schreibweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.255.255.0</td>
+<td>192.168.1.37</td>
+<td>Decimal</td>
+</tr>
+<tr>
+<td>11111111 11111111 1111111 00000000</td>
+<td>11000000 10101000 00000001 00100101</td>
+<td>Binär</td>
+</tr>
+</tbody>
+</table>
+<p>An den stellen, wo die Subnetzmaske die Einser hat ist der sogenannte <strong>Netz-Anteil</strong>, da wo die Nuller sind ist der sogenannte <strong>Host-Anteil</strong>. Der Netz-Anteil darf dann nicht verändert werden. Also wären gültige Adressen von 192.168.1.0 bis 192.168.1.255.
+Eine kürzere Schreibweise ist “Netzadresse/länge” des Netzanteils in Bit.
+Beispiel für IPv4:</p>
+<ul>
+<li>192.168.1.0/24</li>
+</ul>
+<p>Beispiel für IPv6:</p>
+<ul>
+<li>fe05::1/16</li>
+</ul>
+<h2 id="ipv4">IPv4</h2>
+<h3 id="was-ist-ipv4">Was ist IPv4</h3>
+<p><strong>IPv4</strong> (lang <strong>I</strong>nternet <strong>P</strong>rotokoll <strong>V</strong>ersion <strong>4</strong>) kümmert sich darum, dass IP-Adressen (der vierten Version) gefunden werden.</p>
+<h3 id="ipv4-aufbau">IPv4 Aufbau</h3>
+<p>IPv4-Adressen bestehen aus <strong>vier Oktetten</strong>, die in gepunkteter Decimal-Schreibweise dargestellt werden.
+z. B.:</p>
+<table>
+<thead>
+<tr>
+<th>Adresse</th>
+<th>Schreibform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11000000 10101000 00000001 00100101</td>
+<td>Binär</td>
+</tr>
+<tr>
+<td>192.168.1.37</td>
+<td>gepunktete Decimal-Schreibweise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="besondere-adressen">Besondere Adressen</h3>
+<div id="b-4" class="jop-noMdConv"></div>
+<p>Broadcast-Adressen sind bei IPv4 immer die letzte IP-Adresse im Netz. Die Netzadresse ist immer die erste Adresse im Netzwerk. Beide Adressen dürfen <strong>NIEMALS</strong> an Clients vergeben werden.</p>
+<h2 id="ipv6">IPv6</h2>
+<h3 id="was-ist-ipv6">Was ist IPv6?</h3>
+<p><strong>IPv6</strong> steht für <em><strong>I</strong>nternet <strong>P</strong>rotokoll <strong>V</strong>ersion <strong>6</strong></em>. IPv6 wurde Entwickelt, weil die <a title="#ipv4" href="#ipv4">IPv4</a> Adressen ausgegangen sind. IPv4 hat 2³² und IPv6 hat 2¹²⁸ mögliche Adressen. Daran sieht man, dass IPv6 einen viel größeren Adressbereich hat als IPv4.
+Beispiele:</p>
+<ul>
+<li>IPv4: 192.169.0.12</li>
+<li>IPv6: fe80:f890::1</li>
+</ul>
+<h3 id="ipv6-adressraum">IPv6 Adressraum</h3>
+<p>IPv6 hat 128 bit, die in Doppelpunkt-Schreibweise in Hexadezimalen Zahlen dargestellt werden, also Zahlen von 0 - f.</p>
+<p><img src="/_resources/c82a60b491364ddca88fa9596acea2a3.png" /></p>
+<h3 id="verkürzungs-regeln">Verkürzungs Regeln</h3>
+<p>Es gibt zwei verschiedene Verkürzungs Regeln, mit denen man IPv6 Adressen abkürzen kann. In den Folgenden Kapiteln, wird jeweils nur eine Regel aus vranschaulichungs Gründen angewandt. Natürlich können die Regeln kombiniert werden.</p>
+<h4 id="vornullen">Vornullen</h4>
+<p>Pro Block können sämtliche Vornullen weggelassen werden z. B.:</p>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td>2001:0db8:0000:08d3:0000:8a2e:0070:7344</td>
+<td>vorher</td>
+</tr>
+<tr>
+<td>2001:db8:0:8d3:0:8a2e:70:7344</td>
+<td>nachher</td>
+</tr>
+</tbody>
+</table>
+<h4 id="nullerblöcke">Nullerblöcke</h4>
+<p>Es können Nuller Blöcke oder Nuller Blöcke Reihen durch “::” ersetzt werden. Diese Regel kann jedoch aus eindeutigkeits Gründen nur einmal angewandt werden. z. B.:</p>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td>2001:0000:0000:1db8:0000:0000:0000:1428</td>
+<td>Vorher</td>
+</tr>
+<tr>
+<td>2001::1db8:0000:0000:0000:1428</td>
+<td>Nachher</td>
+</tr>
+<tr>
+<td>2001:0000:0000:1db8::1428</td>
+<td>Nachher</td>
+</tr>
+</tbody>
+</table>
+<h3 id="besondere-adressen-2">Besondere Adressen</h3>
+<div id="b-6" class="jop-noMdConv"></div>
+<p><img src="/_resources/e630cea039504f2fad8640d23c9ba6d8.png" />
+<img src="/_resources/604d88fc54ae43e19f01418b5de196fe.png" /></p>
+<ul>
+<li>Unicast: Geht an genau ein Node
+<ul>
+<li>Global Unicast: Globale IP-Adresse (vom Internet Erreichbar)</li>
+<li>Link-Locale IP-Adresse (wird nicht geroutet)</li>
+</ul>
+</li>
+<li>Multicast: Geht an mehrer Nodes</li>
+<li>Anycast: Geht an eine vordefinierte Gruppe an Nodes (es muss nur einer Antworten)</li>
+</ul>
+<p><em><strong>(Bei IPv6 nennt man Geräte Nodes)</strong></em></p>
+<p><img src="/_resources/508d79d2c97a4d42be064bb72902c584.png" /></p>
+<h3 id="vor-und-nachteile-von-ipv6">Vor- und Nachteile von IPv6</h3>
+<h4 id="vorteile">Vorteile</h4>
+<ul>
+<li>Automatische Konfiguration (DHCP evtl. unnötig)</li>
+<li>Multicast durch spezielle Adressen</li>
+<li>schnelleres Routing</li>
+<li>Punkt-zu-Punkt-Verschlüsselung</li>
+<li>Datenpakete bis 4 GByte (Jumbograms)</li>
+<li>einfache Header Erweiterung
+<img src="/_resources/88c6855086ba4dacbb0c56b8d58c876a.png" /></li>
+<li>neue Protokolle
+<ul>
+<li>NPM (Neightbor Discovery Protokoll)</li>
+<li>ICMPv6 (Fehlerbehandlung)</li>
+</ul>
+</li>
+</ul>
+<h4 id="nachteile">Nachteile</h4>
+<ul>
+<li>Nicht alle Geräte und Anwendungen unterstützen IPv6</li>
+<li>Übergangstechnologien verhindern eine schnelle Einführung</li>
+<li>hohe Komplexität (Schulungsbedarf)</li>
+<li>fehlende Anonymität bei SLAAC (Autokonfiguration) wegen Verarbeitung der MAC-Adresse (Behoben durch IPv6 Privacy Extenstion)</li>
+<li>automatische Namensvergabe (über DNS) ist ein IPv6-DHCP-Server nötig</li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Routing]]></title>
+            <guid>400028e5d6a64b38bee7b6ff90cbae48</guid>
+            <pubDate>Tue, 11 Jan 2022 08:09:17 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="routing">Routing</h1>
+<ol>
+<li><a title="#was-ist-routing" href="#was-ist-routing">Was ist Routing?</a></li>
+<li><a title="#warum-muss-man-netze-verbinden" href="#warum-muss-man-netze-verbinden">Warum muss man Netze verbinden?</a></li>
+<li><a title="#wie-funktioniert-routing" href="#wie-funktioniert-routing">Wie Funktioniert Routing?</a>
+<ol>
+<li><a title="#beispiel" href="#beispiel">Beispiel</a></li>
+</ol>
+</li>
+<li><a title="#verschiedene-arten" href="#verschiedene-arten">Verschiedene Arten</a>
+<ol>
+<li><a title="#statisch" href="#statisch">Statisch</a></li>
+<li><a title="#dynamisch" href="#dynamisch">Dynamisch</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-routing">Was ist Routing?</h2>
+<p>Beim Routing werden unterschiedliche Netze miteinander verbunden. Für das Routing wird ein Router oder ein Layer-3-Switch benötigt. Der Layer 3 Switch heißt so, weil er im
+<a href="/article/osi-model">OSI-Modell</a> auf der dritten Ebene arbeitet, also mit <a href="/article/ip-adressen">IP-Adressen</a>.</p>
+<h2 id="warum-muss-man-netze-verbinden">Warum muss man Netze verbinden?</h2>
+<p>Um diese Frage klären zu können muss man sich zuerst fragen, warum trenne ich mein Netzwerk in mehrere kleine Netze überhaupt auf?
+Durch das aufteilen der Netze wird eine höhere Sicherheit erreicht. Z. B. wenn ein Angreifer es in ein Netz geschafft hat, hat er es schwerer hat auf die andren Netzwerke zu kommen.</p>
+<p>Damit aber Geräte trotz unterschiedlicher Netze jetzt aber Kommunizieren können, z. B. Webserver und Client, muss zwischen den Netzen geroutet werden.</p>
+<p>Aus diesen Gründen ist ein solches Netz
+<img src="/_resources/f55e0a5bafee4212a7b6d9f3fc194e3a.png" />
+schlechter als ein solches.
+<img src="/_resources/09ea72d6d5d54ae786bd5fb67a1ca47e.png" /></p>
+<h2 id="wie-funktioniert-routing">Wie Funktioniert Routing?</h2>
+<p>Damit ein Router richtig routen kann, benötigt er eine Routing Tabelle mit folgendem Aufbau:
+<img src="/_resources/88559b909d5c4c318b2d9bfd30c87318.png" />
+In dieser Tabelle steht an welcher Schnittstelle welches Netzwerk anliegt und welches Gateway verwendet werden soll.</p>
+<h3 id="beispiel">Beispiel</h3>
+<p><img src="/_resources/f9e9ebbb6b164cfca27cbf52bd987589.png" /></p>
+<h2 id="verschiedene-arten">Verschiedene Arten</h2>
+<p>Beim Routing gibt es verschiedene Arten, die Statische und Dynamische.
+<img src="/_resources/ce384b34273544c08e0d5d504ca39ffe.png" /></p>
+<h3 id="statisch">Statisch</h3>
+<p>Beim statischen Routing muss die Routing Tabelle per Hand angelegt werden. Wie man sicher vorstellen kann, ist das bei ein oder zwei Routern noch recht übersichtlich, wenn es aber 10, 20 oder sogar 50 Router sind, kann das sehr mühsam werden.
+Daher gibt es noch die Zweite Variante.</p>
+<h3 id="dynamisch">Dynamisch</h3>
+<p>Im Gegensatz zum statischen Routing wird beim dynamischen Routing die Routing-Tabelle automatisch erstellt. Das passiert indem die Router mit einander kommunizieren und dabei ihre Informationen austauschen.
+Dafür werden zwei Verschiedene Routing-Protokolle verwendet:</p>
+<ul>
+<li>Distance Vector:
+<ul>
+<li>RIP</li>
+</ul>
+</li>
+<li>Link State:
+<ul>
+<li>OSPF</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[OSI-Model]]></title>
+            <guid>17383a08982d4583a045b4845309d8f4</guid>
+            <pubDate>Mon, 10 Jan 2022 08:34:19 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="osi-modell">OSI-Modell</h1>
+<ol>
+<li><a title="#was-ist-das-osi-model" href="#was-ist-das-osi-model">Was ist das OSI-Modell</a></li>
+<li><a title="#aufbau" href="#aufbau">Aufbau</a></li>
+<li><a title="#datenkapselung" href="#datenkapselung">Datenkapselung</a></li>
+</ol>
+<h2 id="was-ist-das-osi-model">Was ist das OSI-Model</h2>
+<p>Das <strong><a title="https://de.wikipedia.org/wiki/OSI-Modell" href="https://de.wikipedia.org/wiki/OSI-Modell">OSI-Modell</a></strong> ist ein Schichten-Modell, welches die Übertragung von Daten in einem Netzwerk beschreibt. Ein ähnliches Modell ist das <strong><a title="https://de.wikipedia.org/wiki/DoD-Schichtenmodell" href="https://de.wikipedia.org/wiki/DoD-Schichtenmodell">DoD-Modell</a></strong>. Es ist vom Aufbau identisch. Es werden nur die obersten drei OSI-Schichten zu einer Schicht zusammen gefasst.</p>
+<h2 id="aufbau">Aufbau</h2>
+<p><img src="/_resources/7067ce632a3c464ca5428ff34b2228c7.png" /></p>
+<h2 id="datenkapselung">Datenkapselung</h2>
+<p><img src="/_resources/c77c8d2a936e497db1e8c31ae775da91.png" /></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[WLAN]]></title>
+            <guid>e9a2f50e15934100a5c0f21f9454fbb7</guid>
+            <pubDate>Mon, 10 Jan 2022 08:24:32 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="wlan">WLAN</h1>
+<ol>
+<li><a title="#was-ist-wlan" href="#was-ist-wlan">Was ist WLAN?</a></li>
+<li><a title="#betriebsarten" href="#betriebsarten">Betriebsarten</a>
+<ol>
+<li><a title="#infrastruktur" href="#infrastruktur">Infrastruktur</a>
+<ol>
+<li><a title="#mesh" href="#mesh">Mesh</a></li>
+</ol>
+</li>
+<li><a title="#adhoc" href="#adhoc">Ad-Hoc</a></li>
+</ol>
+</li>
+<li><a title="#standarts" href="#standarts">Standards</a></li>
+<li><a title="#optimierung-von-wlan" href="#optimierung-von-wlan">Optimierung von WLAN</a>
+<ol>
+<li><a title="#beispiel-an-unterschiedlichen-standards" href="#beispiel-an-unterschiedlichen-standards">Beispiel an unterschiedlichen Standards</a></li>
+</ol>
+</li>
+<li><a title="#vor-und-nachteile" href="#vor-und-nachteile">Vor- und Nachteile</a></li>
+<li><a title="#sicherheitsma%C3%9Fnahmen" href="#sicherheitsma%C3%9Fnahmen">Sicherheitsmaßnahmen</a></li>
+</ol>
+<h2 id="was-ist-wlan">Was ist WLAN?</h2>
+<p><strong>WLAN</strong> <em>(oder in den USA auch Wi-Fi genannt)</em> steht für <strong>W</strong>ireless <strong>L</strong>ocal <strong>A</strong>rea <strong>N</strong>etwork. Es ist ein lokales Netzwerk bei dem die Teilnehmer über Funk Kommunizieren. Im <a href="/article/osi-model">OSI-Modell</a> würde WLAN auf der Schickt 2 liegen, da hier mittels MAC-Adressen gearbeitet werden.</p>
+<h2 id="betriebsarten">Betriebsarten</h2>
+<p>WLAN hat zwei verschiedene Betriebsarten, Infrastruktur und Ad-Hoc.</p>
+<h3 id="infrastruktur">Infrastruktur</h3>
+<p>Im Modus Infrastruktur wird eine zentrale Netzwerk-Komponente (<strong>AP</strong> oder auch <em><strong>A</strong>cess-<strong>P</strong>oint</em>) benötigt. Ein WLAN hat immer einen eindeutigen Namen, den <strong>SSID</strong> (<strong>S</strong>ervifce <strong>S</strong>et <strong>Id</strong>entifier). Dieser ist immer Case-Sensitive und kann über den SSID-Broadcast bekannt gemacht werden.
+<img src="/_resources/cf55ab50ec354c4e9da544aef2ae7382.png" /></p>
+<h4 id="mesh">Mesh</h4>
+<p>Bei einem Mesh-WLAN teilen sich mehrere APs das selbe WLAN mit der selben SSID. die Einstellungen werden dann von einem WLAN-Controller zentral verwaltet. Dadurch kann die Reichweite und die Geschwindigkeit optimiert werden. Die Verwaltung wird ebenfalls vereinfacht.
+Oft sind Meshs herstellerspezifisch, dass heißt die APs und der WLAN-Controller müssen vom selben Hersteller sein.</p>
+<h3 id="ad-hoc">Ad-Hoc</h3>
+<p>Im Ad-Hoc-Modus gibt es keine zentrale Netzwerk-Komponente. Die Geräte kommunizieren untereinender.
+<img src="/_resources/8c9a7dda979e4b0aa4249ccdd7d9ab99.png" /></p>
+<h2 id="standards">Standards</h2>
+<p>Die WLAN-Standards werden von der <a title="https://de.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers" href="https://de.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers">IEEE</a> festgelegt.</p>
+<p><img src="/_resources/9de238ff4a2248208556a1b9b8a037d3.png" /></p>
+<h2 id="optimierung-von-wlan">Optimierung von WLAN</h2>
+<ul>
+<li>breitere Kanäle (20/40/80/160 MHz) bzw. mehrere Frequenzbereiche gleichzeitig nutzen (2,4/5 GHz)</li>
+<li>leistungsfähigere Verfahren (=&gt; bessere Standards) verwenden
+<ul>
+<li>802.11n: QAM64</li>
+<li>802.11ac: QAM256</li>
+<li>802.11ax: QAM1024</li>
+</ul>
+</li>
+<li>mehrere Datenströme für Up-und Download verwenden (<strong>MIMO</strong> oder auch <strong>m</strong>ultiple <strong>i</strong>nput <strong>m</strong>ultiple <strong>o</strong>utput)</li>
+<li>mehrere Datenströme für Up-und Download mit dynamischer Anzahl pro Gerät (<strong>Multi-User-MIMO</strong>)</li>
+<li>Richtwirkung der Antenne dynamisch Anpassen</li>
+<li>Lastverteilung, wählen für Dual-Band fähige Clients den günstigsten Frequenzbereich wählen (<strong>Band-Steering</strong>)</li>
+</ul>
+<h3 id="beispiel-an-unterschiedlichen-standards">Beispiel an unterschiedlichen Standards</h3>
+<p><img src="/_resources/f5605aad62dc4c06934217a18c5156b8.png" /></p>
+<h2 id="vor-und-nachteile">Vor- und Nachteile</h2>
+<table>
+<thead>
+<tr>
+<th>Nachteile</th>
+<th>Vorteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schnelle Auslastung bei Vielen Teilnehmern</td>
+<td>Große Mobilität</td>
+</tr>
+<tr>
+<td>Störung durch andere Elektrische Geräte (z. B. Mikrowelle)</td>
+<td>keine starke Bindung an Infrastruktur</td>
+</tr>
+<tr>
+<td>unstabil (Verbindungsabbrüche, Leistungsschwankungen, Reichweitenreduktion, Ausleuchtung)</td>
+<td>günstiger als viele Kabel zu verlegen</td>
+</tr>
+<tr>
+<td colspan="2">schwierig zu verwalten</td>
+</tr>
+<tr>
+<td colspan="2">Viele Fehlermöglichkeiten bei Konfiguration (z. B. Falsche Frequenz Wahl)</td>
+</tr>
+<tr>
+<td colspan="2">Leichtere Lauschangriffe (<strong>Brute Force Attacken</strong>)</td>
+</tr>
+<tr>
+<td colspan="2">nicht autorisierte APs (<strong>Rogue AP</strong>)</td>
+</tr>
+<tr>
+<td colspan="2">abfangen, löschen oder einschleusen von Daten</td>
+</tr>
+<tr></tr>
+</tbody>
+</table>
+<h2 id="sicherheitsmaßnahmen">Sicherheitsmaßnahmen</h2>
+<ul>
+<li>Standard-Passwörter ändern</li>
+<li>WPS deaktivieren</li>
+<li>APs nur per LAN konfigurieren</li>
+<li>Verschlüsselung aktivieren (min. WPA2)
+<ul>
+<li>WEP veraltet und <strong>UNSICHER</strong></li>
+<li>WPA veraltet und <strong>NUR TEILS SICHER</strong></li>
+<li>WPA2 aktueller Standard <strong>sicher</strong> kann aber geknackt werden</li>
+<li>WPA3 neuster Standard aktuell noch <strong>sehr sicher</strong></li>
+</ul>
+</li>
+<li>SSID ohne Rückschlussmöglichkeit auf Hardware wählen</li>
+<li>Nur verwendete Geräte einschalten</li>
+<li>Firewalls einsetzen</li>
+<li>Regelmäßig Firmware aktualisieren</li>
+</ul>
+]]></content:encoded>
+        </item>
+    </channel>
+</rss>
