@@ -4,9 +4,14 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 29 Apr 2022 15:01:55 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 May 2022 09:48:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[EPK]]></title>
+            <guid>676bcb0657474cb796d24ac1fb52e673</guid>
+            <pubDate>Sun, 01 May 2022 09:47:27 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[DNS]]></title>
             <guid>5f4d75a9cbbb4cbf86cde1976e79137d</guid>
@@ -1301,24 +1306,6 @@ Dafür werden zwei Verschiedene Routing-Protokolle verwendet:</p>
 </ul>
 </li>
 </ul>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[OSI-Model]]></title>
-            <guid>17383a08982d4583a045b4845309d8f4</guid>
-            <pubDate>Mon, 10 Jan 2022 08:34:19 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="osi-modell">OSI-Modell</h1>
-<ol>
-<li><a title="#was-ist-das-osi-model" href="#was-ist-das-osi-model">Was ist das OSI-Modell</a></li>
-<li><a title="#aufbau" href="#aufbau">Aufbau</a></li>
-<li><a title="#datenkapselung" href="#datenkapselung">Datenkapselung</a></li>
-</ol>
-<h2 id="was-ist-das-osi-model">Was ist das OSI-Model</h2>
-<p>Das <strong><a title="https://de.wikipedia.org/wiki/OSI-Modell" href="https://de.wikipedia.org/wiki/OSI-Modell">OSI-Modell</a></strong> ist ein Schichten-Modell, welches die Übertragung von Daten in einem Netzwerk beschreibt. Ein ähnliches Modell ist das <strong><a title="https://de.wikipedia.org/wiki/DoD-Schichtenmodell" href="https://de.wikipedia.org/wiki/DoD-Schichtenmodell">DoD-Modell</a></strong>. Es ist vom Aufbau identisch. Es werden nur die obersten drei OSI-Schichten zu einer Schicht zusammen gefasst.</p>
-<h2 id="aufbau">Aufbau</h2>
-<p><img src="/_resources/7067ce632a3c464ca5428ff34b2228c7.png" /></p>
-<h2 id="datenkapselung">Datenkapselung</h2>
-<p><img src="/_resources/c77c8d2a936e497db1e8c31ae775da91.png" /></p>
 ]]></content:encoded>
         </item>
     </channel>
