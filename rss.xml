@@ -4,13 +4,33 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sun, 01 May 2022 09:50:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 May 2022 13:07:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
             <title><![CDATA[EPK]]></title>
             <guid>676bcb0657474cb796d24ac1fb52e673</guid>
             <pubDate>Sun, 01 May 2022 09:47:27 GMT</pubDate>
+            <content:encoded><![CDATA[<ol>
+<li><a title="#was-ist-ein-epk" href="#was-ist-ein-epk">Was ist ein EPK?</a></li>
+<li><a title="#symbole" href="#symbole">Symbole</a></li>
+<li><a title="#regeln" href="#regeln">Regeln</a></li>
+</ol>
+<h1 id="was-ist-ein-epk">Was ist ein EPK?</h1>
+<p><strong>EPK</strong>s (<strong>E</strong>reignisgesteuerte <strong>P</strong>rozess<strong>k</strong>ette) dienen zur veranschaulichen von Komplexen Prozess abläufen.</p>
+<h1 id="symbole">Symbole</h1>
+<p><img src="/_resources/aab4bad158694335a5fa45a6426869fc.png" /></p>
+<p><img src="/_resources/a7177db3fe8846ba81b55a590be9454b.png" /></p>
+<h1 id="regeln">Regeln</h1>
+<p>Bei EPKs gibt es fünf verschiedene Regeln, die eingehalten werden müssen.</p>
+<ol>
+<li>Jese EPK <strong>startet UND endet</strong> mit einem Ereignis</li>
+<li>Ereignisse und Funktionen wechseln sich ab (Es dürfen nicht zwei Ereignisse oder Funktionen hintereinander kommen)</li>
+<li><strong>Organisationseinheiten</strong> sind <strong>immer</strong> mit Strichen und <strong>Informationsobjekte</strong> sind <strong>immer</strong> mit Pfeilen mit <strong>Funktionen</strong> verbunden</li>
+<li>Wenn der Ablauf durch Operatoren geteilt wird, dann muss der Ablauf mit dem <strong>selben</strong> Operator auch zusammen geführt werden.</li>
+<li>Nach einem Ereigniss darf <strong>nur</strong> der UND-Operator folgen</li>
+</ol>
+]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[DNS]]></title>
