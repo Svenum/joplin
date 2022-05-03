@@ -6,12 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="stylesheet" href="/_assets/main.css" />
 
-    <title>SQL - notes.holypenguin.de</title>
+    <title>SQL - notes.holypenguin.net</title>
   <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
   <body>
     <div class="main">
       <nav class="navigation">
-        <a href="/">notes.holypenguin.de</a>
+        <a href="/">notes.holypenguin.net</a>
       </nav>
       <article>
         <header>
@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1651233980277"
-                  >2022-04-29 14:06</time
+                >Updated At：<time datetime="1651553657368"
+                  >2022-05-03 06:54</time
                 ></span
               >
             </div>
@@ -52,7 +52,7 @@
             
           </div>
         </header>
-        <div class="article-content markdown-body"><h1 id="sqllink">SQL🔗</h1>
+        <div class="article-content markdown-body"><h1 id="sql">SQL</h1>
 <ol>
 <li><a title="#was-ist-sql" href="#was-ist-sql">Was ist SQL?</a></li>
 <li><a title="#sql-untersprachen" href="#sql-untersprachen">SQL Untersprachen</a>
@@ -75,7 +75,7 @@
 </ol>
 </li>
 <li><a title="#unabh%C3%A4ngige-befehle" href="#unabh%C3%A4ngige-befehle">Unabhängige Befehle</a></li>
-<li><a title="#select-statements" href="#select-statements">SELECT-Statements</a>
+<li><a title="#select-statements" href="#select-statements">Select Statements</a>
 <ol>
 <li><a title="#aufbau" href="#aufbau">Aufbau</a></li>
 <li><a title="#joins" href="#joins">Joins</a>
@@ -98,13 +98,13 @@
 <li><a title="#weitere-fachbegriffe" href="#weitere-fachbegriffe">Weitere Fachbegriffe</a>
 1. <a title="#rdbms" href="#rdbms">RDBMS</a></li>
 </ol>
-<h2 id="was-ist-sqllink">Was ist SQL?🔗</h2>
+<h2 id="was-ist-sql">Was ist SQL?</h2>
 <p>SQL (Structured Query Language) ist eine Datenbank Sprache, mit der man Datanbanken erstellen, verwalten und auslesen kann.
 SQL hat drei Untersprachen DDL, DML, DQL.</p>
-<h2 id="sql-untersprachenlink">SQL Untersprachen🔗</h2>
-<h3 id="ddllink">DDL🔗</h3>
+<h2 id="sql-untersprachen">SQL Untersprachen</h2>
+<h3 id="ddl">DDL</h3>
 <p>DDL steht für <strong>D</strong>ata <strong>D</strong>efinition <strong>L</strong>anguage. Mit <a>DDL</a> kann man Datenbanken und Tabellen erstellen/löschen. Wenn man eine Datenbank mit einem Haus vergleicht, dann ist DDL für den Rohbau, also die Wände und das Dach zuständig.</p>
-<h4 id="ddl-befehlelink">DDL-Befehle🔗</h4>
+<h4 id="ddl-befehle">DDL-Befehle</h4>
 <table>
 <thead>
 <tr>
@@ -126,9 +126,9 @@ SQL hat drei Untersprachen DDL, DML, DQL.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="dmllink">DML🔗</h3>
+<h3 id="dml">DML</h3>
 <p>DML steht für <strong>D</strong>ata <strong>M</strong>anipulation <strong>L</strong>anguage. Mit DDL kann man Datensätze in einer Tabelle bearbeiten, löschen und Einfügen. In einem Haus, wäre die DML für die Einrichtung zuständig.</p>
-<h4 id="dml-befehlelink">DML-Befehle🔗</h4>
+<h4 id="dml-befehle">DML-Befehle</h4>
 <table>
 <thead>
 <tr>
@@ -155,9 +155,9 @@ SQL hat drei Untersprachen DDL, DML, DQL.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="dqllink">DQL🔗</h3>
+<h3 id="dql">DQL</h3>
 <p>DQL steht für <strong>D</strong>ata <strong>Q</strong>uery <strong>L</strong>anguage. Mit DQL werden Datensätze aus Tabellen ausgelesen und sortiert.</p>
-<h4 id="dql-befehlelink">DQL-Befehle🔗</h4>
+<h4 id="dql-befehle">DQL-Befehle</h4>
 <table>
 <thead>
 <tr>
@@ -174,7 +174,7 @@ SQL hat drei Untersprachen DDL, DML, DQL.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="unabhängige-befehlelink">Unabhängige Befehle🔗</h2>
+<h2 id="unabhängige-befehle">Unabhängige Befehle</h2>
 <p>Neben den Untersprachen von SQL gibt es noch weiter Befehle, die keiner Untersprache angehören.</p>
 <table>
 <thead>
@@ -212,8 +212,8 @@ SQL hat drei Untersprachen DDL, DML, DQL.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="select-statementslink">SELECT-Statements🔗</h2>
-<h3 id="aufbaulink">Aufbau🔗</h3>
+<h2 id="select-statements">Select Statements</h2>
+<h3 id="aufbau">Aufbau</h3>
 <p>Jedes SELECT-Statement hat den selben Aufbau:
 <strong>SELECT</strong> &lt;Attribute&gt;
 <strong>FROM</strong> &lt;Tabelle&gt;
@@ -279,8 +279,8 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 <h4 id="outer-join">OUTER JOIN</h4>
 <h4 id="left-join">LEFT JOIN</h4>
 <h4 id="right-join">RIGHT JOIN</h4>
-<h2 id="funktionenlink">Funktionen🔗</h2>
-<h3 id="datumlink">Datum🔗</h3>
+<h2 id="funktionen">Funktionen</h2>
+<h3 id="datum">Datum</h3>
 <table>
 <thead>
 <tr>
@@ -294,10 +294,10 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 <tbody>
 <tr>
 <td>DATE()</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>DATE(&lt;string&gt;</td>
+<td>Filter das Datum aus einem “Date” oder einer “Datetime”</td>
+<td>DATE(‘2003-12-31 01:02:03’)</td>
+<td>‘2003-12-31’</td>
 </tr>
 <tr>
 <td>YEAR()</td>
@@ -343,7 +343,7 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sonstigelink">Sonstige🔗</h3>
+<h3 id="sonstige">Sonstige</h3>
 <table>
 <thead>
 <tr>
@@ -378,7 +378,7 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 </tr>
 </tbody>
 </table>
-<h2 id="ansi-sparc-modellink">ANSI-SPARC Model🔗</h2>
+<h2 id="ansi-sparc-model">ANSI-SPARC Model</h2>
 <p>Das ANSI-SPARC Model zeigt, den Aufbau einer Datenbank.</p>
 <table>
 <thead>
@@ -403,8 +403,8 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 </tbody>
 </table>
 <p><img src="/_resources/cdb8e407d73442b2890a2b2dde048c5f.jpg" /></p>
-<h2 id="weitere-fachbegriffelink">Weitere Fachbegriffe🔗</h2>
-<h3 id="rdbmslink">RDBMS🔗</h3>
+<h2 id="weitere-fachbegriffe">Weitere Fachbegriffe</h2>
+<h3 id="rdbms">RDBMS</h3>
 <p>Ein RDBMS ist ein <strong>R</strong>elationales <strong>D</strong>aten<strong>b</strong>ank <strong>M</strong>anagement <strong>S</strong>ystem. Es kümmert sich um die Verwaltung und Strukturierung der Daten in einer Datenbank. Darin werden die Tabellen erstellt, Datensätze eingefügt und Daten abgerufen.</p>
 </div>
       </article>
