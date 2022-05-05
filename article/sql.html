@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1651553657368"
-                  >2022-05-03 06:54</time
+                >Updated At：<time datetime="1651585597219"
+                  >2022-05-03 15:46</time
                 ></span
               >
             </div>
@@ -294,7 +294,7 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 <tbody>
 <tr>
 <td>DATE()</td>
-<td>DATE(&lt;string&gt;</td>
+<td>DATE(&lt;string&gt;)</td>
 <td>Filter das Datum aus einem “Date” oder einer “Datetime”</td>
 <td>DATE(‘2003-12-31 01:02:03’)</td>
 <td>‘2003-12-31’</td>
@@ -324,7 +324,7 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 <td>TIMESTAMPDIFF()</td>
 <td>TIMESTAMPDIFF(&lt;zubedrachtender Wert&gt;, &lt;datum1&gt;, &lt;datum2&gt;)</td>
 <td>Gibt die Differenz von zwei Daten aus</td>
-<td>TIMESTAMP(YEAR, “2022-01-18”, “2001-04-22”)</td>
+<td>TIMESTAMP(YEAR, “2001-04-22”, “2022-01-18”)</td>
 <td>20</td>
 </tr>
 <tr>
@@ -375,6 +375,13 @@ WHERE name = “Peter” AND vorname = “Hans”;</p>
 <td>Gibt den kleinsten Wert aus</td>
 <td>MIN(preis)</td>
 <td>2.90</td>
+</tr>
+<tr>
+<td>CONCAT()</td>
+<td>CONCAT(&lt;string1&gt;, &lt;string2&gt;)</td>
+<td>Fügt mehrere Werte zusammen</td>
+<td>CONCAT(“Sven”, “”, “Ziegler”)</td>
+<td>“Sven Ziegler”</td>
 </tr>
 </tbody>
 </table>
