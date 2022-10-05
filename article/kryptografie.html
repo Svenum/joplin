@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Kryptografie - notes.holypenguin.net</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.net</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Kryptografie</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1664961791297"
+                  >2022-10-05 11:23</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1664962730355"
+                  >2022-10-05 11:38</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">12.klasse</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">it-sicherheit</span>
+              
+              <span class="keyword">kryptografie</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="kryptografie">Kryptografie</h1>
+<ol>
+<li><a title="#was-ist-kryptografie" href="#was-ist-kryptografie">Was ist Kryptografie?</a></li>
+<li><a title="#verschl%C3%BCsselungsverfahren" href="#verschl%C3%BCsselungsverfahren">Verschlüsselungsverfahren</a>
+<ol>
+<li><a title="#symetrisch" href="#symetrisch">Symetrisch</a></li>
+<li><a title="#asymetrisch" href="#asymetrisch">Asymetrisch</a></li>
+<li><a title="#hybrid" href="#hybrid">Hybrid</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-kryptografie">Was ist Kryptografie?</h2>
+<p>Kryptografie dient zur geheimen Kommunikation gegen unbefugte Entschlüsselung und die Informationsgewinnung aus verschlüsselten fremden Nachrichten. Dadurch sollen also Daten sicher versendet und Empfangen werden. Kryptografie schützt die Schutzziele:
+<strong>- Vertraulichkeit</strong>
+<strong>- Integrität</strong>
+<strong>- Authentizität</strong></p>
+<h2 id="verschlüsselungsverfahren">Verschlüsselungsverfahren</h2>
+<h3 id="symetrisch">Symetrisch</h3>
+<p><img src="/_resources/7defe7d07fe54badaacd298d2b4090bd.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schnell</td>
+<td>Schlüssel austausch Problem</td>
+</tr>
+<tr>
+<td colspan="2">sicherer nach Schlüsselübertragung</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verfahren:</strong> AES, DES, 3DES</p>
+<h3 id="asymetrisch">Asymetrisch</h3>
+<p><img src="/_resources/ecf9fa4368964e5e929de1723d666451.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kein schlüssel austausch Problem</td>
+<td>langsam (1000 - 10000 mal)</td>
+</tr>
+<tr>
+<td>Angreifer versuche aus Public Key den Private Key zu berechnen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verfahren:</strong> RSA, Elgamal-Kryptosystem</p>
+<h3 id="hybrid">Hybrid</h3>
+<p><img src="/_resources/9c191fc4e96946dc9a38308572d9ed4d.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schnell</td>
+<td>aufwendig</td>
+</tr>
+<tr>
+<td colspan="2">keine austausch Problem</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verfahren:</strong> SSH, HTTPS, SSL/TLS</p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
