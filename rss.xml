@@ -4,9 +4,67 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 05 May 2022 09:16:28 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 Oct 2022 09:01:54 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[DSGVO]]></title>
+            <guid>54566dfe386147069b95935522a3de2a</guid>
+            <pubDate>Wed, 05 Oct 2022 08:32:18 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="dsgvo">DSGVO</h1>
+<ol>
+<li><a title="#ziele" href="#ziele">Ziele</a></li>
+<li><a title="#geltungsbereich" href="#geltungsbereich">Geltungsbereich</a></li>
+<li><a title="#grunds%C3%A4tzte" href="#grunds%C3%A4tzte">Grundsätzte</a></li>
+<li><a title="#wichtige-begriffe" href="#wichtige-begriffe">Wichtige Begriffe</a>
+<ol>
+<li><a title="#personenbezogene-daten" href="#personenbezogene-daten">Personenbezogene Daten</a></li>
+<li><a title="#verarbeitung" href="#verarbeitung">Verarbeitung</a></li>
+<li><a title="#profiling" href="#profiling">Profiling</a></li>
+<li><a title="#pseudonymisierung" href="#pseudonymisierung">Pseudonymisierung</a></li>
+<li><a title="#anonymisierung" href="#anonymisierung">Anonymisierung</a></li>
+<li><a title="#empf%C3%A4nger" href="#empf%C3%A4nger">Empfänger</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="ziele">Ziele</h2>
+<p>Das Ziel der <strong>DSGVO</strong> (<strong>D</strong>aten<strong>S</strong>chutz<strong>G</strong>rund<strong>V</strong>er<strong>Ordnung</strong>) ist der schutz von natürlichen Personen bei der ganz oder teilweise <strong>automatisierten</strong> Verarbeitung derer persönlichen Daten und auf einem Dateisystem gespeichert werden.</p>
+<h2 id="geltungsbereich">Geltungsbereich</h2>
+<p>Die DSGVO tritt immer dann in kraft, wenn einer der folgenden personen sich in der Europäischen Union befindet.
+<strong>Verantwortlicher:</strong>
+Person oder Firma, welche über die Zwecke und Mittel der Verarbeitung entscheidet.</p>
+<p><strong>Auftragverarbeiter:</strong>
+Person oder Firma, welche die Daten im Auftrag des Verantwortlichen Verarbeitet.</p>
+<p><strong>betroffene Person:</strong>
+Person, der die personen bezogenen Daten gehörten.</p>
+<h2 id="grundsätzte">Grundsätzte</h2>
+<p>Die DSGVO hat 5 Grundsätze, die beim Verarbeiten von personenbezogenen Daten eingehalten werden müssen.</p>
+<p><strong>Verarbeitung nach Treu und Glauben:</strong>
+Die betroffene Personen müssen in der Lage sein, das Vorhandensein einer Verarbeitung zu erfahren und ordnungsgemäß informiert zu werden.</p>
+<p><strong>Zweckbindung:</strong>
+Die gespeicherten Daten dürfen nur für den Zweck verwendet werden, für den sie gespeichert wurden.</p>
+<p><strong>Datenminimierung:</strong>
+Es müssen so <strong>wenig</strong> Daten wie möglich verarbeitet werden.</p>
+<p><strong>Richtigkeit:</strong>
+Alle Daten die gespeichert werden, müssen Richtig sein.</p>
+<p><strong>Speicherbegrenzung:</strong>
+Die Dathen dürfen nur so lange gespeichert werden, wie sie benötigt werden.</p>
+<p><strong>Daten, die zur Diskriminierung verwednet werden können (z. B. sexualität, Religion, Hautfarbe, …) dürfen NICHT verarbeitet werden!</strong></p>
+<h2 id="wichtige-begriffe">Wichtige Begriffe</h2>
+<h3 id="personenbezogene-daten">Personenbezogene Daten</h3>
+<p>Daten, die eine natürliche Person identifizieren können. (z. B. Namen, Adresse, Geburtsdaten, …)</p>
+<h3 id="verarbeitung">Verarbeitung</h3>
+<p>Jedes automatisiertes und nicht automatisiertes Verfahren, welches mit personenbezogenen Daten gemacht wird. (z. B. Anpassung, Erhebung, Löschung, …)</p>
+<h3 id="profiling">Profiling</h3>
+<p>Verfahren die benutzt werden um bestimmte Persönliche Aspekte zu bewerten. (z. B. Gesundheit, Verhalten, Interessen, Aufenthaltsorte, …)</p>
+<h3 id="pseudonymisierung">Pseudonymisierung</h3>
+<p>Verwenden von Tabellen um die Daten zu verknüpfen und zu trennen. Dadurch können die Daten aber wieder zusammen gefügt werden.</p>
+<h3 id="anonymisierung">Anonymisierung</h3>
+<p>Daten so aufbewahren, das diese nicht zurück auf eine natürliche Person geführt werden können.</p>
+<h3 id="empfänger">Empfänger</h3>
+<p>Person oder Firma, der die personenbezogenen Daten offengelegt werden.strong text</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[EPK]]></title>
             <guid>676bcb0657474cb796d24ac1fb52e673</guid>
@@ -411,8 +469,45 @@ Zugriff auf:</p>
             <pubDate>Fri, 11 Mar 2022 14:30:33 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="betriebssysteme">Betriebssysteme</h1>
 <ol>
+<li><a title="#was-ist-ein-betriebssystem" href="#was-ist-ein-betriebssystem">Was ist ein Betriebssystem?</a></li>
+<li><a title="#aufgaben-eines-betriebssystems" href="#aufgaben-eines-betriebssystems">Aufgaben eines Betriebssystems</a>
+<ol>
+<li><a title="#prozessverwaltung" href="#prozessverwaltung">Prozessverwaltung</a></li>
+<li><a title="#speicherverwaltung" href="#speicherverwaltung">Speicherverwaltung</a></li>
+<li><a title="#dateiverwaltung" href="#dateiverwaltung">Dateiverwaltung</a></li>
+<li><a title="#ger%C3%A4teverwaltung" href="#ger%C3%A4teverwaltung">Gerätzeverwaltung</a></li>
+</ol>
+</li>
+<li><a title="#eigenschaften-von-betriebssystemen" href="#eigenschaften-von-betriebssystemen">Eigenschaften von Betriebssystemen</a>
+<ol>
+<li><a title="#multitasking" href="#multitasking">Multitasking</a></li>
+<li><a title="#mehrprozessorbetrieb" href="#mehrprozessorbetrieb">Mehrprozessorbetrieb</a></li>
+<li><a title="#multithreading" href="#multithreading">Multi-Threading</a></li>
+</ol>
+</li>
 <li><a title="#cpu-ringe" href="#cpu-ringe">CPU-Ringe</a></li>
 </ol>
+<h2 id="was-ist-ein-betriebssystem">Was ist ein Betriebssystem</h2>
+<p>Das Betriebssystem ist das bindeglied zwischen Hardware und Software. Oft wird eine <strong>Summe</strong> von <strong>Betriebssystemkern (Kernel)</strong> und <strong>wichtige Systemprogrammen</strong> als Betriebssystem verstanden. Zudem stellt ein Betriebssystem <strong>Schnittstellen (APIs)</strong> zwischen Software und Hardware bereit. Die wichtigste Aufgabe eines Betriebssystems ist die <strong>Resourcenverwaltung</strong>.</p>
+<p><img src="/_resources/82719ef976ff42f2b74035d53b6a00a4.png" /></p>
+<h2 id="aufgaen-eines-betriebssystems">Aufgaen eines Betriebssystems</h2>
+<p><img src="/_resources/2a597475e2744f09b7bdd550952ff8a1.png" /></p>
+<h3 id="prozessverwaltung">Prozessverwaltung</h3>
+<p>Damit mehrere Benutzer gleichzeitig und/oder ein Benutzer gleichzeitig mehrere Aktionen durchführen kann ohne sich in dei Quere zu kommen müssen diese <strong>Prozesse</strong> verwaltet werden. Ein Prozess ist z. B. ein gestartetes Programm.</p>
+<h3 id="speicherverwaltung">Speicherverwaltung</h3>
+<p><strong>Zuteilen</strong> von <strong>Speicherbereichen</strong> an laufende Prozesse, <strong>Schutz</strong> der <strong>Speicherbereiche</strong> vor unbefugten Zugriffen, bei Speicherengpässen: <strong>Auslagern</strong> (swapping) von ganzen oder von Teilen (paging) von Prozessen auf die Platte in Dateien (swap file, page file) oder Partitionen (swap partition)</p>
+<h3 id="dateiverwaltung">Dateiverwaltung</h3>
+<p>Zuteilung von <strong>Plattenplatz</strong> für Programme, Benutzer und Systemdienste, <strong>Schreiben</strong>, <strong>Lesen</strong> und <strong>Strukturieren</strong> der <strong>Daten</strong> auf Massenspeichern. Dafür Stellt der Kernel eine API für die Entsprechenden <strong>Dateisysteme</strong> zur Verfügung.</p>
+<h3 id="gerätzeverwaltung">Gerätzeverwaltung</h3>
+<p>Der <strong>kontrollierte</strong> Zugriff auf <strong>Hardware</strong> wie z. B. Eingabe- und Ausgabe geräte der Anwender wird mittels <strong>Gerätetreiber</strong> ermöglicht.</p>
+<h2 id="eigenschaften-von-betriebssystemen">Eigenschaften von Betriebssystemen</h2>
+<h3 id="multitasking">Multitasking</h3>
+<p>Beim <strong>Multitasking</strong> werden <strong>NICHT</strong> mehrere Programme gleichzeitig ausgeführt, sondern den Programmen werden Ledeglich Zeitslots (<strong>Zeitscheiben</strong>) zu gewiesen in denen sie Arbeiten dürfen. Dies wird von einem <strong>Schedular</strong> verwaltet.
+<img src="/_resources/4460a78355fb45a7b2bab657112fd77c.png" /></p>
+<h3 id="mehrprozessorbetrieb">Mehrprozessorbetrieb</h3>
+<p>Moderne Betriebssysteme unterstützten mehrere Prozessorkerne auf einmal. Dadurch können in jedem Kerne jeweils <strong>EINE</strong> aufgabe <strong>pro Kern gleichzeitig</strong> durchgeführt werden.</p>
+<h3 id="multi-threading">Multi-Threading</h3>
+<p>Um ein Programm n och schneller laufen zu lassen besteht die möglichkeit des <strong>Multi-Threadings</strong>. Dabei werden Programm-Schnipsel <strong>Threads</strong> auf verschiedene Kerne <strong>gleichzeitig</strong> aufgeteilt. Dies muss aber von dem <strong>Betriebssystem</strong>, dem <strong>Programm</strong>, und der <strong>Hardware</strong> unterstützt sein.</p>
 <h2 id="cpu-ringe">CPU-Ringe</h2>
 <p>Ein Betriebssystem wird gerne in Ringen Dargestellt.
 <img src="/_resources/2bb1eb43a98f4ffe81fce908f4000294.png" />
@@ -1265,66 +1360,6 @@ Beispiele:</p>
 <li>hohe Komplexität (Schulungsbedarf)</li>
 <li>fehlende Anonymität bei SLAAC (Autokonfiguration) wegen Verarbeitung der MAC-Adresse (Behoben durch IPv6 Privacy Extenstion)</li>
 <li>automatische Namensvergabe (über DNS) ist ein IPv6-DHCP-Server nötig</li>
-</ul>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Routing]]></title>
-            <guid>400028e5d6a64b38bee7b6ff90cbae48</guid>
-            <pubDate>Tue, 11 Jan 2022 08:09:17 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="routing">Routing</h1>
-<ol>
-<li><a title="#was-ist-routing" href="#was-ist-routing">Was ist Routing?</a></li>
-<li><a title="#warum-muss-man-netze-verbinden" href="#warum-muss-man-netze-verbinden">Warum muss man Netze verbinden?</a></li>
-<li><a title="#wie-funktioniert-routing" href="#wie-funktioniert-routing">Wie Funktioniert Routing?</a>
-<ol>
-<li><a title="#beispiel" href="#beispiel">Beispiel</a></li>
-</ol>
-</li>
-<li><a title="#verschiedene-arten" href="#verschiedene-arten">Verschiedene Arten</a>
-<ol>
-<li><a title="#statisch" href="#statisch">Statisch</a></li>
-<li><a title="#dynamisch" href="#dynamisch">Dynamisch</a></li>
-</ol>
-</li>
-</ol>
-<h2 id="was-ist-routing">Was ist Routing?</h2>
-<p>Beim Routing werden unterschiedliche Netze miteinander verbunden. Für das Routing wird ein Router oder ein Layer-3-Switch benötigt. Der Layer 3 Switch heißt so, weil er im
-<a href="/article/osi-model">OSI-Modell</a> auf der dritten Ebene arbeitet, also mit <a href="/article/ip-adressen">IP-Adressen</a>.</p>
-<h2 id="warum-muss-man-netze-verbinden">Warum muss man Netze verbinden?</h2>
-<p>Um diese Frage klären zu können muss man sich zuerst fragen, warum trenne ich mein Netzwerk in mehrere kleine Netze überhaupt auf?
-Durch das aufteilen der Netze wird eine höhere Sicherheit erreicht. Z. B. wenn ein Angreifer es in ein Netz geschafft hat, hat er es schwerer hat auf die andren Netzwerke zu kommen.</p>
-<p>Damit aber Geräte trotz unterschiedlicher Netze jetzt aber Kommunizieren können, z. B. Webserver und Client, muss zwischen den Netzen geroutet werden.</p>
-<p>Aus diesen Gründen ist ein solches Netz
-<img src="/_resources/f55e0a5bafee4212a7b6d9f3fc194e3a.png" />
-schlechter als ein solches.
-<img src="/_resources/09ea72d6d5d54ae786bd5fb67a1ca47e.png" /></p>
-<h2 id="wie-funktioniert-routing">Wie Funktioniert Routing?</h2>
-<p>Damit ein Router richtig routen kann, benötigt er eine Routing Tabelle mit folgendem Aufbau:
-<img src="/_resources/88559b909d5c4c318b2d9bfd30c87318.png" />
-In dieser Tabelle steht an welcher Schnittstelle welches Netzwerk anliegt und welches Gateway verwendet werden soll.</p>
-<h3 id="beispiel">Beispiel</h3>
-<p><img src="/_resources/f9e9ebbb6b164cfca27cbf52bd987589.png" /></p>
-<h2 id="verschiedene-arten">Verschiedene Arten</h2>
-<p>Beim Routing gibt es verschiedene Arten, die Statische und Dynamische.
-<img src="/_resources/ce384b34273544c08e0d5d504ca39ffe.png" /></p>
-<h3 id="statisch">Statisch</h3>
-<p>Beim statischen Routing muss die Routing Tabelle per Hand angelegt werden. Wie man sicher vorstellen kann, ist das bei ein oder zwei Routern noch recht übersichtlich, wenn es aber 10, 20 oder sogar 50 Router sind, kann das sehr mühsam werden.
-Daher gibt es noch die Zweite Variante.</p>
-<h3 id="dynamisch">Dynamisch</h3>
-<p>Im Gegensatz zum statischen Routing wird beim dynamischen Routing die Routing-Tabelle automatisch erstellt. Das passiert indem die Router mit einander kommunizieren und dabei ihre Informationen austauschen.
-Dafür werden zwei Verschiedene Routing-Protokolle verwendet:</p>
-<ul>
-<li>Distance Vector:
-<ul>
-<li>RIP</li>
-</ul>
-</li>
-<li>Link State:
-<ul>
-<li>OSPF</li>
-</ul>
-</li>
 </ul>
 ]]></content:encoded>
         </item>

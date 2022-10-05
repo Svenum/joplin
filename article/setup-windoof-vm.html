@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1641988940468"
-                  >2022-01-12 13:02</time
+                >Updated At：<time datetime="1651959602627"
+                  >2022-05-07 23:40</time
                 ></span
               >
             </div>
@@ -99,7 +99,7 @@ DEVS=<span class="hljs-string">"0000:06:00.0 0000:06:00.1"</span>
 <span class="hljs-keyword">fi</span>
 
 modprobe -i vfio-pci
-<span class="hljs-built_in">echo</span> efi-framebuffer.0 &gt; /sys/bus/platform/drivers/efi-framebuffer/unbind 2&gt; /dev/null</code></pre></div>
+<span class="hljs-comment">#echo efi-framebuffer.0 &gt; /sys/bus/platform/drivers/efi-framebuffer/unbind 2&gt; /dev/null</span></code></pre></div>
 <h2 id="enable-changes">Enable changes</h2>
 <p>Now you have to enable all the changes with two commands:
 <code>$ sudo mkinicpio -P</code>

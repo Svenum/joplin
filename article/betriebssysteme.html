@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1647009225353"
-                  >2022-03-11 15:33</time
+                >Updated At：<time datetime="1664854059200"
+                  >2022-10-04 05:27</time
                 ></span
               >
             </div>
@@ -34,8 +34,45 @@
         </header>
         <div class="article-content markdown-body"><h1 id="betriebssysteme">Betriebssysteme</h1>
 <ol>
+<li><a title="#was-ist-ein-betriebssystem" href="#was-ist-ein-betriebssystem">Was ist ein Betriebssystem?</a></li>
+<li><a title="#aufgaben-eines-betriebssystems" href="#aufgaben-eines-betriebssystems">Aufgaben eines Betriebssystems</a>
+<ol>
+<li><a title="#prozessverwaltung" href="#prozessverwaltung">Prozessverwaltung</a></li>
+<li><a title="#speicherverwaltung" href="#speicherverwaltung">Speicherverwaltung</a></li>
+<li><a title="#dateiverwaltung" href="#dateiverwaltung">Dateiverwaltung</a></li>
+<li><a title="#ger%C3%A4teverwaltung" href="#ger%C3%A4teverwaltung">Gerätzeverwaltung</a></li>
+</ol>
+</li>
+<li><a title="#eigenschaften-von-betriebssystemen" href="#eigenschaften-von-betriebssystemen">Eigenschaften von Betriebssystemen</a>
+<ol>
+<li><a title="#multitasking" href="#multitasking">Multitasking</a></li>
+<li><a title="#mehrprozessorbetrieb" href="#mehrprozessorbetrieb">Mehrprozessorbetrieb</a></li>
+<li><a title="#multithreading" href="#multithreading">Multi-Threading</a></li>
+</ol>
+</li>
 <li><a title="#cpu-ringe" href="#cpu-ringe">CPU-Ringe</a></li>
 </ol>
+<h2 id="was-ist-ein-betriebssystem">Was ist ein Betriebssystem</h2>
+<p>Das Betriebssystem ist das bindeglied zwischen Hardware und Software. Oft wird eine <strong>Summe</strong> von <strong>Betriebssystemkern (Kernel)</strong> und <strong>wichtige Systemprogrammen</strong> als Betriebssystem verstanden. Zudem stellt ein Betriebssystem <strong>Schnittstellen (APIs)</strong> zwischen Software und Hardware bereit. Die wichtigste Aufgabe eines Betriebssystems ist die <strong>Resourcenverwaltung</strong>.</p>
+<p><img src="/_resources/82719ef976ff42f2b74035d53b6a00a4.png" /></p>
+<h2 id="aufgaen-eines-betriebssystems">Aufgaen eines Betriebssystems</h2>
+<p><img src="/_resources/2a597475e2744f09b7bdd550952ff8a1.png" /></p>
+<h3 id="prozessverwaltung">Prozessverwaltung</h3>
+<p>Damit mehrere Benutzer gleichzeitig und/oder ein Benutzer gleichzeitig mehrere Aktionen durchführen kann ohne sich in dei Quere zu kommen müssen diese <strong>Prozesse</strong> verwaltet werden. Ein Prozess ist z. B. ein gestartetes Programm.</p>
+<h3 id="speicherverwaltung">Speicherverwaltung</h3>
+<p><strong>Zuteilen</strong> von <strong>Speicherbereichen</strong> an laufende Prozesse, <strong>Schutz</strong> der <strong>Speicherbereiche</strong> vor unbefugten Zugriffen, bei Speicherengpässen: <strong>Auslagern</strong> (swapping) von ganzen oder von Teilen (paging) von Prozessen auf die Platte in Dateien (swap file, page file) oder Partitionen (swap partition)</p>
+<h3 id="dateiverwaltung">Dateiverwaltung</h3>
+<p>Zuteilung von <strong>Plattenplatz</strong> für Programme, Benutzer und Systemdienste, <strong>Schreiben</strong>, <strong>Lesen</strong> und <strong>Strukturieren</strong> der <strong>Daten</strong> auf Massenspeichern. Dafür Stellt der Kernel eine API für die Entsprechenden <strong>Dateisysteme</strong> zur Verfügung.</p>
+<h3 id="gerätzeverwaltung">Gerätzeverwaltung</h3>
+<p>Der <strong>kontrollierte</strong> Zugriff auf <strong>Hardware</strong> wie z. B. Eingabe- und Ausgabe geräte der Anwender wird mittels <strong>Gerätetreiber</strong> ermöglicht.</p>
+<h2 id="eigenschaften-von-betriebssystemen">Eigenschaften von Betriebssystemen</h2>
+<h3 id="multitasking">Multitasking</h3>
+<p>Beim <strong>Multitasking</strong> werden <strong>NICHT</strong> mehrere Programme gleichzeitig ausgeführt, sondern den Programmen werden Ledeglich Zeitslots (<strong>Zeitscheiben</strong>) zu gewiesen in denen sie Arbeiten dürfen. Dies wird von einem <strong>Schedular</strong> verwaltet.
+<img src="/_resources/4460a78355fb45a7b2bab657112fd77c.png" /></p>
+<h3 id="mehrprozessorbetrieb">Mehrprozessorbetrieb</h3>
+<p>Moderne Betriebssysteme unterstützten mehrere Prozessorkerne auf einmal. Dadurch können in jedem Kerne jeweils <strong>EINE</strong> aufgabe <strong>pro Kern gleichzeitig</strong> durchgeführt werden.</p>
+<h3 id="multi-threading">Multi-Threading</h3>
+<p>Um ein Programm n och schneller laufen zu lassen besteht die möglichkeit des <strong>Multi-Threadings</strong>. Dabei werden Programm-Schnipsel <strong>Threads</strong> auf verschiedene Kerne <strong>gleichzeitig</strong> aufgeteilt. Dies muss aber von dem <strong>Betriebssystem</strong>, dem <strong>Programm</strong>, und der <strong>Hardware</strong> unterstützt sein.</p>
 <h2 id="cpu-ringe">CPU-Ringe</h2>
 <p>Ein Betriebssystem wird gerne in Ringen Dargestellt.
 <img src="/_resources/2bb1eb43a98f4ffe81fce908f4000294.png" />
