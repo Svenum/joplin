@@ -4,9 +4,122 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 05 Oct 2022 10:44:56 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 Oct 2022 13:17:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[Klassisches Projektmanagement]]></title>
+            <guid>076f341679e94a6bb2126ae140153572</guid>
+            <pubDate>Wed, 05 Oct 2022 12:41:58 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="klassisches-projektmanagement">Klassisches Projektmanagement</h1>
+<ol>
+<li><a title="#merkmale-eines-projekts" href="#merkmale-eines-projekts">Merkmale eines Projekts</a></li>
+<li><a title="#magisches-dreieck" href="#magisches-dreieck">Magisches Dreieck</a></li>
+<li><a title="#projektablauf" href="#projektablauf">Projektablauf</a>
+<ol>
+<li><a title="#lasten-pflichtenheft" href="#lasten-pflichtenheft">Lasten-/Pflichtenheft</a></li>
+<li><a title="#projektziele" href="#projektziele">Projektziele</a></li>
+</ol>
+</li>
+<li><a title="#projektorganisation" href="#projektorganisation">Projektorganisation</a></li>
+<li><a title="#methoden" href="#methoden">Methoden</a>
+<ol>
+<li><a title="#projektstrukturplan" href="#projektstrukturplan">Projektstrukturplan</a></li>
+<li><a title="#gantt-diagramm" href="#gantt-diagramm">Gantt-Diagramm</a></li>
+<li><a title="#netzplan" href="#netzplan">Netzplan</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="merkmale-eines-projekts">Merkmale eines Projekts</h2>
+<p>Nicht jede aufgabe ist automatisch ein Projekt. Ein projekt hat folgende sechs Eigenschaften:</p>
+<ul>
+<li><strong>Einmaligkeit:</strong> das Vorhaben ist einmalig und kein Altagsgeschäft</li>
+<li><strong>Zielvorgabe:</strong> das Vorhaben hat ein genau Definiertes Ziel</li>
+<li><strong>Zeitliche Begrenzung:</strong> das Vorhaben hat einen genauen Start- und Endzeitpunkt</li>
+<li><strong>Begrenzte Ressourcen:</strong> das Vorhaben hat nur eine bestimmte menge an Mitarbeiter, Geld, …</li>
+<li><strong>Projektspezifische Organisation:</strong> inerhalb des Vorhabens gibt es eine eigene Organisation (z. B. Projektleiter, Projektteam)</li>
+<li><strong>Komplexität:</strong> das Vorhaben benötigt eine gewisse Komplexität/Schwierigkeit</li>
+</ul>
+<h2 id="magisches-dreieck">Magisches Dreieck</h2>
+<p>Beim Projektmanagement geht es darum, die drei Dimensionen (<strong>Kosten, Zeit, Leistung/Qualität</strong>) so ein zu teilen, das das Projekt ein erfolg wird. Das schwieriege daran ist, das diese Ziele <strong>miteinander konkurrieren</strong>.
+z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötige ich mir Mitarbeiter (<strong>Leistung</strong>) welche auch gehalt benötigen (<strong>Kosten</strong>).
+<img src="/_resources/e1a5c58a32e84669b92630e6c6940b1d.png" /></p>
+<p>Wichtig zu beachten ist, das es noch eine <strong>virte Dimension</strong> nämlich die <strong>Kundenzufriedenheit</strong> gibt, auf welche das Dreiekc angepasst werden muss.</p>
+<h2 id="projektablauf">Projektablauf</h2>
+<p>Ein Projekt wird häufig in <strong>vier Phasen</strong> aufgeteilt.</p>
+<table>
+<thead>
+<tr>
+<th>Projekt-Phase</th>
+<th>Aufgabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definitionsphase</td>
+<td>- Machbarkeit analysieren <br class="jop-noMdConv" />- Lösungskonzept entwickeln <br class="jop-noMdConv" />- Kick-Off-Meeting <br class="jop-noMdConv" />- Projektvertrag abschließen <br class="jop-noMdConv" />- Ausgangsproblem analysieren <br class="jop-noMdConv" /> - Projektorganisation installieren</td>
+</tr>
+<tr>
+<td>Planungsphase</td>
+<td>- Ressoursenplanung (Zeit, Kosten, Personal, …) <br class="jop-noMdConv" />- Arbeitspakete festlagen</td>
+</tr>
+<tr>
+<td>Durchführungsphase</td>
+<td>- Projektplanung präzesieren/anpassen <br class="jop-noMdConv" />- Soll-Ist-Abweichungen minimieren <br class="jop-noMdConv" />- Durchführung steuern/überwachen <br class="jop-noMdConv" />- Projekt dokumentieren</td>
+</tr>
+<tr>
+<td>Abschlussphase</td>
+<td>- Evaluation und Reflektion <br class="jop-noMdConv" />- Präsentation und Abnahme <br class="jop-noMdConv" />- Einweisung in das Ergebniss <br class="jop-noMdConv" />- Abschlussbericht erstellen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lasten-pflichtenheft">Lasten-/Pflichtenheft</h3>
+<p>Bei diesen Phasen spielen das <strong>Lasten-</strong> und <strong>Pflichtenheft</strong> eine wichtige Rolle.
+<strong>Lastenheft:</strong> hier stehen die Wünsche der Kunden drin beschrieben. (Wunschzettel)
+<strong>Pflichtenheft:</strong> hier steht <strong>was, wie</strong> umgesetzt wird. (Was unter dem Weihnachtsbaum liegt)</p>
+<h3 id="projektziele">Projektziele</h3>
+<p>Projektziele sollten während der 1. Phase ausführlich beschrieben werden. Dabei sollten die Ziele mittels der <strong>S.M.A.R.T.-Formel</strong> formuliert werden.</p>
+<ul>
+<li><strong>S:</strong> Spezifisch</li>
+<li><strong>M:</strong> Messbar</li>
+<li><strong>A:</strong> Akzeptiert / Attraktiv</li>
+<li><strong>R:</strong> Realistisch</li>
+<li><strong>T:</strong> Terminitiert
+<img src="/_resources/fc3d3c7d561b4075a3958795c25ab7a0.png" /></li>
+</ul>
+<h2 id="projektorganisation">Projektorganisation</h2>
+<table>
+<thead>
+<tr>
+<th>Organisation</th>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/0dfaf62b82e142eb913ca182e4c4f600.png" /><br class="jop-noMdConv" />Reine Projektorganisation</td>
+<td>- hohe identifikation der Projektmitarbeiter und dem Projekt <br class="jop-noMdConv" />- klare Struktur <br class="jop-noMdConv" />- Direkte Kommunikation</td>
+<td>- hoher aufwand der Wiedereingliederung in die Linienorganisation <br class="jop-noMdConv" />- oft schwieriger Wissensaustausch mit Fachabteilungen <br class="jop-noMdConv" />- Mitarbeiter fehlen für dauer des Projekts in den Abeilungen</td>
+</tr>
+<tr>
+<td><img src="/_resources/f6758d8299a0479d8a92fedd2aa7452f.png" /><br class="jop-noMdConv" />Stabsorganisation</td>
+<td>- Organisationsstruktur muss nicht umgestellt werden <br class="jop-noMdConv" />- Projektorganisation kann schnell eingerichtet und aufgelöst werden <br class="jop-noMdConv" />- Projektmitarbeiter bleiben in den Abteilungen</td>
+<td>- Projektleiter hat keine direkte Weisungsbefugnis <br class="jop-noMdConv" />- Abstimmung und Koordination ist aufwendig</td>
+</tr>
+<tr>
+<td><img src="/_resources/78eaa37c70c64b478d6f6df1c9ea0dfa.png" /><br class="jop-noMdConv" />Matrixorganisation</td>
+<td>- Mitarbeiter bleiben in den Abteilungen <br class="jop-noMdConv" />- Flexibler zugriff auf Ressoursen <br class="jop-noMdConv" />- Fachwissen der Abteilungen steht zur verfügung</td>
+<td>- konflikte zwischen Projektleiter und Abteilungsleiter <br class="jop-noMdConv" />- Probleme bei der Priorisierung zwischen Linien- und Projektarbeit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methoden">Methoden</h2>
+<h3 id="projektstrukturplan">Projektstrukturplan</h3>
+<h3 id="gantt-diagramm">Gantt-Diagramm</h3>
+<h3 id="netzplan">Netzplan</h3>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Kryptografie]]></title>
             <guid>fe70f92f70e943dfb9ed3711be3b3a88</guid>
@@ -43,7 +156,8 @@
 <td>Schlüssel austausch Problem</td>
 </tr>
 <tr>
-<td colspan="2">sicherer nach Schlüsselübertragung</td>
+<td>sicherer nach Schlüsselübertragung</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -63,6 +177,7 @@
 <td>langsam (1000 - 10000 mal)</td>
 </tr>
 <tr>
+<td></td>
 <td>Angreifer versuche aus Public Key den Private Key zu berechnen</td>
 </tr>
 </tbody>
@@ -83,7 +198,8 @@
 <td>aufwendig</td>
 </tr>
 <tr>
-<td colspan="2">keine austausch Problem</td>
+<td>keine austausch Problem</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -983,268 +1099,6 @@ ob die Beziehung zwischen den Partnern auf Gleichheit oder auf Unterschiedlichke
 </tr>
 <tr>
 <td colspan="2">konstruktive Vorschläge machen</td>
-</tr>
-</tbody>
-</table>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Protokolle]]></title>
-            <guid>6f5cad648046494a9e97bfeeb7e3c74b</guid>
-            <pubDate>Tue, 11 Jan 2022 08:22:27 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="protokolle">Protokolle</h1>
-<ol>
-<li><a title="#netzzugangs-ebene" href="#netzzugangs-ebene">Netzzugangs-Ebene</a>
-<ol>
-<li><a title="#icmp" href="#icmp">ICMP</a></li>
-<li><a title="#ip" href="#ip">IP</a></li>
-</ol>
-</li>
-<li><a title="#transport-ebene" href="#transport-ebene">Transport-Ebene</a>
-<ol>
-<li><a title="#tcp" href="#tcp">TCP</a>
-<ol>
-<li><a title="#vun-tcp" href="#vun-tcp">Vor- und Nachteile</a></li>
-<li><a title="#verbindungsaufbau" href="#verbindungsaufbau">Verbindungsaufbau</a></li>
-<li><a title="#verbindungsabbau" href="#verbindungsabbau">Verbindungsabbau</a></li>
-</ol>
-</li>
-<li><a title="#udp" href="#udp">UDP</a>
-<ol>
-<li><a title="#vun-udp" href="#vun-udp">Vor- und Nachteile</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><a title="#anwendungs-ebene" href="#anwendungs-ebene">Anwendungs-Ebene</a>
-<ol>
-<li><a title="#telnet" href="#telnet">Telnet</a></li>
-<li><a title="#ssh" href="#ssh">SSH</a></li>
-<li><a title="#smb" href="#smb">SMB</a></li>
-<li><a title="#nfs" href="#nfs">NFS</a></li>
-<li><a title="#ftp" href="#ftp">FTP</a></li>
-<li><a title="#tftp" href="#tftp">TFTP</a></li>
-<li><a title="#http" href="#http">HTTP</a></li>
-<li><a title="#https" href="#https">HTTPS</a></li>
-<li><a title="#sntp" href="#sntp">SNTP</a></li>
-<li><a title="#snmp" href="#snmp">SNMP</a></li>
-</ol>
-</li>
-<li><a title="#ports" href="#ports">Ports</a>
-<ol>
-<li><a title="#was-ist-ein-port" href="#was-ist-ein-port">Was ist ein Port?</a></li>
-<li><a title="#port-liste" href="#port-liste">Port-Liste</a></li>
-</ol>
-</li>
-</ol>
-<h2 id="netzzugangs-ebene">Netzzugangs-Ebene</h2>
-<p>In diesem Kapitel wird genauer auf die Protokolle der Netzzugangs-Ebene im <a href="/article/osi-model">DoD-Modell</a> eingegangen.</p>
-<h3 id="icmp">ICMP</h3>
-<p><strong>ICMP</strong> steht für <strong>I</strong>nternet <strong>C</strong>ontrol <strong>M</strong>essage <strong>P</strong>rotocol und ist das Protokoll, welches sich um Pings kümmert. Wenn dieses Protokoll also in einer Firewall z. B. geblockt wird, kann der entsprechende Rechner nicht mehr gepingt werden.</p>
-<h3 id="ip">IP</h3>
-<p><strong>IP</strong> steht für <strong>I</strong>nternet <strong>P</strong>rotokoll und ist das Protokoll, welches mit <a href="/article/ip-adressen">IP-Adressen</a> arbeitet.</p>
-<h2 id="transport-ebene">Transport-Ebene</h2>
-<p>Nun wird genauer auf die Transport-Ebene im <a href="/article/osi-model">DoD-Modell</a> und dessen Protokolle eingegangen.</p>
-<h3 id="tcp">TCP</h3>
-<p><strong>TCP</strong> steht für  <strong>T</strong>ransmission <strong>C</strong>ontrol <strong>P</strong>rotocol und ist ein verbindungsorientiertes (=&gt; benötigt ein Verbindungsaufbau) und zuverlässiges Transportprotokoll.</p>
-<h4 id="vor-und-nachteile">Vor- und Nachteile</h4>
-<div id="vun-tcp" class="jop-noMdConv"></div>
-|Vorteile|Nachteile|
-|-|-|
-|Fehlerkorrektur|langsam (bei heutiger Geschwindigkeit **fast** zu vernachlässigen)|
-|Flusskontrolle||
-|Übermittlung von Status Informationen||
-<p>Auf Grund dieser Vor- und Nachteile wird TCP zur Übertragung von Daten hergenommen die <strong>unbedingt</strong> vollständig und richtig sein müssen.
-Beispiele:</p>
-<ul>
-<li>Websites</li>
-<li>Chats</li>
-<li>Downloads von Dateien</li>
-<li>…</li>
-</ul>
-<h4 id="verbindungsaufbau">Verbindungsaufbau</h4>
-<p>Der Verbindungsaufbau bei TCP erfolgt in drei Schritten.</p>
-<ol>
-<li>Anfrage von Client:
-<ul>
-<li>SYN-Flag</li>
-<li>Sequenznumber (seq) = x</li>
-<li>Acknowledgenumber (ack) = 0</li>
-</ul>
-</li>
-<li>Antwort Server (SYN ACK):
-<ul>
-<li>SYN- und ACK-Flag</li>
-<li>Sequenznumber (seq) = y</li>
-<li>Acknowledgenumber (ack) = x + 1</li>
-</ul>
-</li>
-<li>Bestätigung des Clients (ACK):
-<ul>
-<li>ACK-Flag</li>
-<li>Sequenznumber (seq) = x + 1</li>
-<li>Acknowledgenumber (ack) = y + 1</li>
-</ul>
-</li>
-</ol>
-<p><img src="/_resources/175d1d91e1004566ad4c094ca91bf27f.png" /></p>
-<h4 id="verbindungsabbau">Verbindungsabbau</h4>
-<p>Ebenso wie der Verbindungsaufbau muss der Verbindungsabbau in drei Schritten erfolgen.</p>
-<ol>
-<li>Client oder Server stellt Abbau anfrage:
-<ul>
-<li>ACK- und FIN-Flag</li>
-<li>seq = x</li>
-<li>ack = y</li>
-</ul>
-</li>
-<li>Gegenstelle bestätigt den Abbau:
-<ul>
-<li>FIN- und ACK-Flag</li>
-<li>seq = y</li>
-<li>ack = x + 1</li>
-</ul>
-</li>
-<li>Client oder Server bestätigen den korrekten abbau:
-<ul>
-<li>ACK-Flag</li>
-<li>seq = x + 1</li>
-<li>ack = y + 1</li>
-</ul>
-</li>
-</ol>
-<p><img src="/_resources/c9e0c2e3f4924b9687e9721f05c580d9.png" /></p>
-<h3 id="udp">UDP</h3>
-<p><strong>UDP</strong> steht für <strong>U</strong>ser <strong>D</strong>atagram <strong>P</strong>rotocol und ist im Gegensatz zu <a title="#tcp" href="#tcp">TCP</a> ein nicht verbindungsorientiertes Protokoll. (=&gt; benötigt keinen Verbindungsaufbau)</p>
-<h3 id="vor-und-nachteile-2">Vor- und Nachteile</h3>
-<div id="vun-udp" class="jop-noMdConv"></div>
-<table>
-<thead>
-<tr>
-<th>Nachteile</th>
-<th>Vorteile</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>keine Fehlerkorrektur</td>
-<td>schnell</td>
-</tr>
-<tr>
-<td colspan="2">keine Flusskontrolle</td>
-</tr>
-<tr>
-<td colspan="2">keine Übermittlung von Status Informationen</td>
-</tr>
-</tbody>
-</table>
-<p>Im vergleich zu <a title="#tcp" href="#tcp">TCP</a> meint man schnell, dass UDP bestimmt veraltet sei und unnütz, da es so viele Nachteile hat. Jedoch ist UDP immer noch viel in Verwendung und ein wichtiges Protokoll. Z. B. ist es beim Serien-Streamen egal ob in einer Millisekunde ein Pixel falsch angezeigt wird oder fehlt, da man es eh nicht bemerkt.</p>
-<h2 id="anwendungs-ebene">Anwendungs-Ebene</h2>
-<p>Nun erläutere ich die Protokolle der letzten Ebene im <a href="/article/osi-model">DoD-Modell</a>.</p>
-<h3 id="telnet">Telnet</h3>
-<p><strong>Telnet</strong> ist ein Protokoll, das den Remote-Zugang zu einer Shell ermöglicht. Über das gleichnamige Programm “Telnet” kann aber auch die Verbindung zu andren Protokollen Aufgebaut werden.
-Sollte heutzutage <strong>IMMER</strong> deaktiviert werden.</p>
-<h3 id="ssh">SSH</h3>
-<p><strong>SSH</strong> steht für <strong>S</strong>ecure <strong>Sh</strong>ell und kann ebenso wie <a title="#telnet" href="#telnet">Telnet</a> eine Remote-Verbindung zu Shells aufbauen. Im Gegensatz zu Telnet wird hier, wie der Name schon sagt, eine sichere (verschlüsselte) Verbindung zu dem Server aufgebaut. Das verringert die Gefahr des <strong>Sniffings</strong> (Abhören von Informationen/mitlesen) gewaltig.</p>
-<h3 id="smb">SMB</h3>
-<p><strong>SMB</strong> oder auch <strong>S</strong>erver <strong>M</strong>essage <strong>B</strong>lock ist ein von Microsoft entwickeltes Protokoll, was zum Datei austausch über ein Netzwerk dient. Es wird z. B. von Windows-Freigaben verwendet.</p>
-<h3 id="nfs">NFS</h3>
-<p><strong>NFS</strong> steht für <strong>N</strong>etwork <strong>F</strong>ile <strong>S</strong>ystem und ist für den selben aufgaben bereich wie <a title="#smb" href="#smb">SMB</a> zuständig. Es wurde jedoch von Linux entwickelt.</p>
-<h3 id="ftp">FTP</h3>
-<p><strong>FTP</strong> oder auch <strong>F</strong>ile <strong>T</strong>ransport <strong>P</strong>rotokoll wurde zur einfachen Datenübertragung über Netzwerke entwickelt. Im Gegensatz zur <a title="#smb" href="#smb">SMB</a> und <a title="#nfs" href="#nfs">NFS</a> wird FTP auch über das Internet und nicht nur im Lokalen-Netzwerk verwendet.</p>
-<h3 id="tftp">TFTP</h3>
-<p>Das <strong>T</strong>rivial <strong>F</strong>ile <strong>T</strong>ransfer <strong>P</strong>rotocol, hat viele ähnlich keiten mit <a title="#ftp" href="#ftp">FTP</a>. Der größte und entscheidende Unterschied ist, dass TFTP ein <strong>nicht</strong> verbindungsorientiertes Protokoll verwendet, also <a title="#udp" href="#udp">UDP</a>.</p>
-<h3 id="http">HTTP</h3>
-<p><strong>HTTP</strong> ist ein Protokoll zur Darstellung von Webseiten, es steht für <strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol. Dieses Protokoll wird standardmäßig von Browsern benutzt</p>
-<h3 id="https">HTTPS</h3>
-<p><strong>HTTPS</strong> ist das selbe wie <a title="#http" href="#http">HTTP</a>, nur das es noch zusätzlich mit SSL verschlüsselt ist. das “S” bei HTTPS steht für <strong>S</strong>ecure.</p>
-<h3 id="dns">DNS</h3>
-<p><strong>DNS</strong> ist ein <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem. Es ist für die Zuordnung der Domain-Namen zur <a href="/article/ip-adressen">IP-Adressen</a> zuständig.</p>
-<h3 id="sntp">SNTP</h3>
-<p>Das <strong>S</strong>imple <strong>N</strong>etwork <strong>T</strong>ime <strong>P</strong>rotocol (kurz <strong>SNTP</strong>) dient zur Synchronisation der Zeit.</p>
-<h3 id="snmp">SNMP</h3>
-<p><strong>SNMP</strong> (<strong>S</strong>imple <strong>N</strong>etwork <strong>M</strong>anagement <strong>P</strong>rotocol) dient zur zentralen Verwaltung und Überwachung von Netzwerkelementen (z. B. Server, Drucker, Switche, Computer, Router, …)</p>
-<h2 id="ports">Ports</h2>
-<p>In diesem Kapitel werden Ports mit den dazu gehörigen Protokollen/Diensten aufgelistet.</p>
-<h3 id="was-ist-ein-port">Was ist ein Port?</h3>
-<p>Ports kann man auch als Türen verstehen, welche zum richtigen Dienst führt.
-Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder DoD-Schicht</a> davor schon das richtige Protokoll gewählt wurde, meist <a title="#udp" href="#udp">UDP</a> oder <a title="#tcp" href="#tcp">TCP</a>.
-<img src="/_resources/7bebc735fdd94b1088acf12f75677305.png" /></p>
-<p>Eine <strong>besondere Stellung haben alle Ports von 0 bis 1024</strong>, da diese Offen Dokumentiert sind und jeder nachlesen kann, wie sie funktionieren.</p>
-<h3 id="port-liste">Port-Liste</h3>
-<table>
-<thead>
-<tr>
-<th>Vorheriges <br class="jop-noMdConv" /> Protokoll</th>
-<th>Port <br class="jop-noMdConv" /> Nummer</th>
-<th>Dienst</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TCP</td>
-<td>23</td>
-<td><a title="#telnet" href="#telnet">Telnet</a></td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>22</td>
-<td><a title="#ssh" href="#ssh">SSH</a></td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>445</td>
-<td><a title="#smb" href="#smb">SMB</a></td>
-</tr>
-<tr>
-<td>TCP/UDP</td>
-<td>2049</td>
-<td><a title="#nfs" href="#nfs">NFS</a>v3</td>
-</tr>
-<tr>
-<td>UDP</td>
-<td>2049</td>
-<td><a title="#nfs" href="#nfs">NFS</a>v4</td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>20</td>
-<td><a title="#ftp" href="#ftp">FTP</a>-Data</td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>21</td>
-<td><a title="#ftp" href="#ftp">FTP</a>-Control</td>
-</tr>
-<tr>
-<td>UDP</td>
-<td>69</td>
-<td><a title="#tftp" href="#tftp">TFTP</a></td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>80</td>
-<td><a title="#http" href="#http">HTTP</a></td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>443</td>
-<td><a title="#https" href="#https">HTTPS</a></td>
-</tr>
-<tr>
-<td>TCP/UDP</td>
-<td>53</td>
-<td><a title="#dns" href="#dns">DNS</a></td>
-</tr>
-<tr>
-<td>TCP/UDP</td>
-<td>123</td>
-<td><a title="#sntp" href="#sntp">SNTP</a></td>
-</tr>
-<tr>
-<td>UDP</td>
-<td>161</td>
-<td><a title="#snmp" href="#snmp">SNMP</a></td>
 </tr>
 </tbody>
 </table>
