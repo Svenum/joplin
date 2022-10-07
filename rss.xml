@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 05 Oct 2022 13:19:47 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Oct 2022 08:31:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -134,6 +134,8 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 <li><a title="#hybrid" href="#hybrid">Hybrid</a></li>
 </ol>
 </li>
+<li><a title="#digitale-signatur" href="#digitale-signatur">Digitale Signatur</a></li>
+<li><a title="#digitale-signatur-kombiniert-mit-verschl%C3%BCsselung" href="#digitale-signatur-kombiniert-mit-verschl%C3%BCsselung">Digitale Signatur kombiniert mit Verschlüsselung</a></li>
 </ol>
 <h2 id="was-ist-kryptografie">Was ist Kryptografie?</h2>
 <p>Kryptografie dient zur geheimen Kommunikation gegen unbefugte Entschlüsselung und die Informationsgewinnung aus verschlüsselten fremden Nachrichten. Dadurch sollen also Daten sicher versendet und Empfangen werden. Kryptografie schützt die Schutzziele:
@@ -141,6 +143,7 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 <strong>- Integrität</strong>
 <strong>- Authentizität</strong></p>
 <h2 id="verschlüsselungsverfahren">Verschlüsselungsverfahren</h2>
+<p><strong>Verschlüsselungsverfahren schützen NUR die Vertraulichkeit!</strong></p>
 <h3 id="symetrisch">Symetrisch</h3>
 <p><img src="/_resources/7defe7d07fe54badaacd298d2b4090bd.png" /></p>
 <table>
@@ -204,6 +207,11 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 </tbody>
 </table>
 <p><strong>Verfahren:</strong> SSH, HTTPS, SSL/TLS</p>
+<h2 id="digitale-signatur">Digitale Signatur</h2>
+<p><img src="/_resources/585965f53e4f4a7ba17589ea19b699b8.png" />
+<strong>Digitale Signatur schützt NUR die Integrität und Authentzität!</strong></p>
+<h2 id="digitale-signatur-kombiniert-mit-verschlüsselung">Digitale Signatur kombiniert mit Verschlüsselung</h2>
+<p><img src="/_resources/c42a0b0f66d74a3ba81bf3cf66d05294.png" /></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -229,8 +237,8 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 <h2 id="ziele">Ziele</h2>
 <p>Das Ziel der <strong>DSGVO</strong> (<strong>D</strong>aten<strong>S</strong>chutz<strong>G</strong>rund<strong>V</strong>er<strong>Ordnung</strong>) ist der schutz von natürlichen Personen bei der ganz oder teilweise <strong>automatisierten</strong> Verarbeitung derer persönlichen Daten und auf einem Dateisystem gespeichert werden.</p>
 <h2 id="geltungsbereich">Geltungsbereich</h2>
-<p>Die DSGVO tritt immer dann in kraft, wenn einer der folgenden personen sich in der Europäischen Union befindet.
-<strong>Verantwortlicher:</strong>
+<p>Die DSGVO tritt immer dann in kraft, wenn einer der folgenden Personen sich in der Europäischen Union befindet.</p>
+<p><strong>Verantwortlicher:</strong>
 Person oder Firma, welche über die Zwecke und Mittel der Verarbeitung entscheidet.</p>
 <p><strong>Auftragverarbeiter:</strong>
 Person oder Firma, welche die Daten im Auftrag des Verantwortlichen Verarbeitet.</p>
@@ -247,8 +255,8 @@ Es müssen so <strong>wenig</strong> Daten wie möglich verarbeitet werden.</p>
 <p><strong>Richtigkeit:</strong>
 Alle Daten die gespeichert werden, müssen Richtig sein.</p>
 <p><strong>Speicherbegrenzung:</strong>
-Die Dathen dürfen nur so lange gespeichert werden, wie sie benötigt werden.</p>
-<p><strong>Daten, die zur Diskriminierung verwednet werden können (z. B. sexualität, Religion, Hautfarbe, …) dürfen NICHT verarbeitet werden!</strong></p>
+Die Daten dürfen nur so lange gespeichert werden, wie sie benötigt werden.</p>
+<p><strong>Daten, die zur Diskriminierung verwendet werden können (z. B. sexualität, Religion, Hautfarbe, …) dürfen NICHT verarbeitet werden!</strong></p>
 <h2 id="wichtige-begriffe">Wichtige Begriffe</h2>
 <h3 id="personenbezogene-daten">Personenbezogene Daten</h3>
 <p>Daten, die eine natürliche Person identifizieren können. (z. B. Namen, Adresse, Geburtsdaten, …)</p>
@@ -261,7 +269,7 @@ Die Dathen dürfen nur so lange gespeichert werden, wie sie benötigt werden.</p
 <h3 id="anonymisierung">Anonymisierung</h3>
 <p>Daten so aufbewahren, das diese nicht zurück auf eine natürliche Person geführt werden können.</p>
 <h3 id="empfänger">Empfänger</h3>
-<p>Person oder Firma, der die personenbezogenen Daten offengelegt werden.strong text</p>
+<p>Person oder Firma, der die personenbezogenen Daten offengelegt werden.</p>
 ]]></content:encoded>
         </item>
         <item>
