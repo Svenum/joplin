@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 07 Oct 2022 08:31:50 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Oct 2022 06:35:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -31,20 +31,20 @@
 </li>
 </ol>
 <h2 id="merkmale-eines-projekts">Merkmale eines Projekts</h2>
-<p>Nicht jede aufgabe ist automatisch ein Projekt. Ein projekt hat folgende sechs Eigenschaften:</p>
+<p>Nicht jede Aufgabe ist automatisch ein Projekt. Ein Projekt hat folgende sechs Eigenschaften:</p>
 <ul>
 <li><strong>Einmaligkeit:</strong> das Vorhaben ist einmalig und kein Altagsgeschäft</li>
 <li><strong>Zielvorgabe:</strong> das Vorhaben hat ein genau Definiertes Ziel</li>
 <li><strong>Zeitliche Begrenzung:</strong> das Vorhaben hat einen genauen Start- und Endzeitpunkt</li>
-<li><strong>Begrenzte Ressourcen:</strong> das Vorhaben hat nur eine bestimmte menge an Mitarbeiter, Geld, …</li>
+<li><strong>Begrenzte Ressourcen:</strong> das Vorhaben hat nur eine bestimmte Menge an Mitarbeiter, Geld, …</li>
 <li><strong>Projektspezifische Organisation:</strong> inerhalb des Vorhabens gibt es eine eigene Organisation (z. B. Projektleiter, Projektteam)</li>
 <li><strong>Komplexität:</strong> das Vorhaben benötigt eine gewisse Komplexität/Schwierigkeit</li>
 </ul>
 <h2 id="magisches-dreieck">Magisches Dreieck</h2>
-<p>Beim Projektmanagement geht es darum, die drei Dimensionen (<strong>Kosten, Zeit, Leistung/Qualität</strong>) so ein zu teilen, das das Projekt ein erfolg wird. Das schwieriege daran ist, das diese Ziele <strong>miteinander konkurrieren</strong>.
-z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötige ich mir Mitarbeiter (<strong>Leistung</strong>) welche auch gehalt benötigen (<strong>Kosten</strong>).
+<p>Beim Projektmanagement geht es darum, die drei Dimensionen (<strong>Kosten, Zeit, Leistung/Qualität</strong>) so ein zu teilen, dass das Projekt ein Erfolg wird. Das schwieriege daran ist, das diese Ziele <strong>miteinander konkurrieren</strong>.
+Z. B.: Wenn ich die Zeit des Projektes verkürze (<strong>Zeit</strong>), benötige ich mehr Mitarbeiter (<strong>Leistung</strong>) welche auch Gehalt benötigen (<strong>Kosten</strong>).
 <img src="/_resources/e1a5c58a32e84669b92630e6c6940b1d.png" /></p>
-<p>Wichtig zu beachten ist, das es noch eine <strong>virte Dimension</strong> nämlich die <strong>Kundenzufriedenheit</strong> gibt, auf welche das Dreiekc angepasst werden muss.</p>
+<p>Wichtig zu beachten ist, dass es noch eine <strong>vierte Dimension</strong> nämlich die <strong>Kundenzufriedenheit</strong> gibt, auf welche das Dreieck angepasst werden muss.</p>
 <h2 id="projektablauf">Projektablauf</h2>
 <p>Ein Projekt wird häufig in <strong>vier Phasen</strong> aufgeteilt.</p>
 <table>
@@ -74,9 +74,9 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 </tbody>
 </table>
 <h3 id="lasten-pflichtenheft">Lasten-/Pflichtenheft</h3>
-<p>Bei diesen Phasen spielen das <strong>Lasten-</strong> und <strong>Pflichtenheft</strong> eine wichtige Rolle.
-<strong>Lastenheft:</strong> hier stehen die Wünsche der Kunden drin beschrieben. (Wunschzettel)
-<strong>Pflichtenheft:</strong> hier steht <strong>was, wie</strong> umgesetzt wird. (Was unter dem Weihnachtsbaum liegt)</p>
+<p>Bei diesen Phasen spielen das <strong>Lasten-</strong> und <strong>Pflichtenheft</strong> eine wichtige Rolle.</p>
+<p><strong>Lastenheft:</strong> hier stehen die Wünsche der Kunden drin beschrieben. (Wunschzettel)</p>
+<p><strong>Pflichtenheft:</strong> hier steht <strong>was, wie</strong> umgesetzt wird. (Was unter dem Weihnachtsbaum liegt)</p>
 <h3 id="projektziele">Projektziele</h3>
 <p>Projektziele sollten während der 1. Phase ausführlich beschrieben werden. Dabei sollten die Ziele mittels der <strong>S.M.A.R.T.-Formel</strong> formuliert werden.</p>
 <ul>
@@ -99,8 +99,8 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 <tbody>
 <tr>
 <td><img src="/_resources/0dfaf62b82e142eb913ca182e4c4f600.png" /><br class="jop-noMdConv" />Reine Projektorganisation</td>
-<td>- hohe identifikation der Projektmitarbeiter und dem Projekt <br class="jop-noMdConv" />- klare Struktur <br class="jop-noMdConv" />- Direkte Kommunikation</td>
-<td>- hoher aufwand der Wiedereingliederung in die Linienorganisation <br class="jop-noMdConv" />- oft schwieriger Wissensaustausch mit Fachabteilungen <br class="jop-noMdConv" />- Mitarbeiter fehlen für dauer des Projekts in den Abeilungen</td>
+<td>- hohe Identifikation der Projektmitarbeiter und dem Projekt <br class="jop-noMdConv" />- klare Struktur <br class="jop-noMdConv" />- Direkte Kommunikation</td>
+<td>- hoher Aufwand der Wiedereingliederung in die Linienorganisation <br class="jop-noMdConv" />- oft schwieriger Wissensaustausch mit Fachabteilungen <br class="jop-noMdConv" />- Mitarbeiter fehlen für Dauer des Projekts in den Abeilungen</td>
 </tr>
 <tr>
 <td><img src="/_resources/f6758d8299a0479d8a92fedd2aa7452f.png" /><br class="jop-noMdConv" />Stabsorganisation</td>
@@ -110,7 +110,7 @@ z. B.: Wenn ich die Zeit des Projektes erhöhe (<strong>Zeit</strong>), benötig
 <tr>
 <td><img src="/_resources/78eaa37c70c64b478d6f6df1c9ea0dfa.png" /><br class="jop-noMdConv" />Matrixorganisation</td>
 <td>- Mitarbeiter bleiben in den Abteilungen <br class="jop-noMdConv" />- Flexibler zugriff auf Ressoursen <br class="jop-noMdConv" />- Fachwissen der Abteilungen steht zur verfügung</td>
-<td>- konflikte zwischen Projektleiter und Abteilungsleiter <br class="jop-noMdConv" />- Probleme bei der Priorisierung zwischen Linien- und Projektarbeit</td>
+<td>- Konflikte zwischen Projektleiter und Abteilungsleiter <br class="jop-noMdConv" />- Probleme bei der Priorisierung zwischen Linien- und Projektarbeit</td>
 </tr>
 </tbody>
 </table>
