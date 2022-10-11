@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1641975672741"
-                  >2022-01-12 09:21</time
+                >Updated At：<time datetime="1665484685170"
+                  >2022-10-11 12:38</time
                 ></span
               >
             </div>
@@ -106,8 +106,8 @@
 |Vorteile|Nachteile|
 |-|-|
 |Fehlerkorrektur|langsam (bei heutiger Geschwindigkeit **fast** zu vernachlässigen)|
-|Flusskontrolle||
-|Übermittlung von Status Informationen||
+|Flusskontrolle| |
+|Übermittlung von Status Informationen| |
 <p>Auf Grund dieser Vor- und Nachteile wird TCP zur Übertragung von Daten hergenommen die <strong>unbedingt</strong> vollständig und richtig sein müssen.
 Beispiele:</p>
 <ul>
@@ -286,6 +286,11 @@ Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder 
 <td><a title="#https" href="#https">HTTPS</a></td>
 </tr>
 <tr>
+<td>TCP</td>
+<td>445</td>
+<td>SMB</td>
+</tr>
+<tr>
 <td>TCP/UDP</td>
 <td>53</td>
 <td><a title="#dns" href="#dns">DNS</a></td>
@@ -294,6 +299,21 @@ Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder 
 <td>TCP/UDP</td>
 <td>123</td>
 <td><a title="#sntp" href="#sntp">SNTP</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>25</td>
+<td><a title="#smtp" href="#smtp">SMTP</a></td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>110</td>
+<td>POP3</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>143</td>
+<td>IMAP</td>
 </tr>
 <tr>
 <td>UDP</td>
