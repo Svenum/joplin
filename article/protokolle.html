@@ -24,8 +24,8 @@
                 ></span
               >
               <span
-                >Updated At：<time datetime="1665484685170"
-                  >2022-10-11 12:38</time
+                >Updated At：<time datetime="1665484978411"
+                  >2022-10-11 12:42</time
                 ></span
               >
             </div>
@@ -100,14 +100,30 @@
 <h2 id="transport-ebene">Transport-Ebene</h2>
 <p>Nun wird genauer auf die Transport-Ebene im <a href="/article/osi-model">DoD-Modell</a> und dessen Protokolle eingegangen.</p>
 <h3 id="tcp">TCP</h3>
-<p><strong>TCP</strong> steht für  <strong>T</strong>ransmission <strong>C</strong>ontrol <strong>P</strong>rotocol und ist ein verbindungsorientiertes (=&gt; benötigt ein Verbindungsaufbau) und zuverlässiges Transportprotokoll.</p>
+<p><strong>TCP</strong> steht für <strong>T</strong>ransmission <strong>C</strong>ontrol <strong>P</strong>rotocol und ist ein verbindungsorientiertes (=&gt; benötigt ein Verbindungsaufbau) und zuverlässiges Transportprotokoll.</p>
 <h4 id="vor-und-nachteile">Vor- und Nachteile</h4>
-<div id="vun-tcp" class="jop-noMdConv"></div>
-|Vorteile|Nachteile|
-|-|-|
-|Fehlerkorrektur|langsam (bei heutiger Geschwindigkeit **fast** zu vernachlässigen)|
-|Flusskontrolle| |
-|Übermittlung von Status Informationen| |
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fehlerkorrektur</td>
+<td>langsam (bei heutiger Geschwindigkeit **fast** zu vernachlässigen)</td>
+</tr>
+<tr>
+<td>Flusskontrolle</td>
+<td></td>
+</tr>
+<tr>
+<td>Übermittlung von Status Informationen</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>Auf Grund dieser Vor- und Nachteile wird TCP zur Übertragung von Daten hergenommen die <strong>unbedingt</strong> vollständig und richtig sein müssen.
 Beispiele:</p>
 <ul>
@@ -171,7 +187,6 @@ Beispiele:</p>
 <h3 id="udp">UDP</h3>
 <p><strong>UDP</strong> steht für <strong>U</strong>ser <strong>D</strong>atagram <strong>P</strong>rotocol und ist im Gegensatz zu <a title="#tcp" href="#tcp">TCP</a> ein nicht verbindungsorientiertes Protokoll. (=&gt; benötigt keinen Verbindungsaufbau)</p>
 <h3 id="vor-und-nachteile-2">Vor- und Nachteile</h3>
-<div id="vun-udp" class="jop-noMdConv"></div>
 <table>
 <thead>
 <tr>
@@ -185,10 +200,12 @@ Beispiele:</p>
 <td>schnell</td>
 </tr>
 <tr>
-<td colspan="2">keine Flusskontrolle</td>
+<td>keine Flusskontrolle</td>
+<td></td>
 </tr>
 <tr>
-<td colspan="2">keine Übermittlung von Status Informationen</td>
+<td>keine Übermittlung von Status Informationen</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -229,8 +246,8 @@ Dabei ist aber entscheidend, das auf der <a href="/article/osi-model">OSI- oder 
 <table>
 <thead>
 <tr>
-<th>Vorheriges <br class="jop-noMdConv" /> Protokoll</th>
-<th>Port <br class="jop-noMdConv" /> Nummer</th>
+<th>Vorheriges<br class="jop-noMdConv" />Protokoll</th>
+<th>Port<br class="jop-noMdConv" />Nummer</th>
 <th>Dienst</th>
 </tr>
 </thead>
