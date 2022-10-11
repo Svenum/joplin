@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Speichersysteme - notes.holypenguin.net</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.net</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Speichersysteme</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1665467693562"
+                  >2022-10-11 07:54</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1665470321336"
+                  >2022-10-11 08:38</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">das</span>
+              
+              <span class="keyword">12.klasse</span>
+              
+              <span class="keyword">nas</span>
+              
+              <span class="keyword">san</span>
+              
+              <span class="keyword">speichersysteme</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="speichersysteme">Speichersysteme</h1>
+<ol>
+<li><a title="#speichersysteme-im-%C3%BCberblick" href="#speichersysteme-im-%C3%BCberblick">Speichersysteme im Überblick</a>
+<ol>
+<li><a title="#das" href="#das">DAS</a></li>
+<li><a title="#nas" href="#nas">NAS</a></li>
+<li><a title="#san" href="#san">SAN</a></li>
+</ol>
+</li>
+<li><a title="#technologien" href="#technologien">Technologien</a>
+<ol>
+<li><a title="#fibre-channel" href="#fibre-channel">Fibre Channel</a></li>
+<li><a title="#fibre-channel-over-ethernet" href="#fibre-channel-over-ethernet">Fibre Channel over Ethernet</a></li>
+<li><a title="#internet-scsi" href="#internet-scsi">Internet SCSI</a></li>
+</ol>
+</li>
+<li><a title="#wichtige-begriffe" href="#wichtige-begriffe">Wichtige Begriffe</a></li>
+</ol>
+<h2 id="speichersysteme-im-überblick">Speichersysteme im Überblick</h2>
+<h3 id="das">DAS</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/f2699d9310c1403b8a53ed65b3d3c9b6.png" /></td>
+<td>Das <strong>DAS</strong> (<strong>D</strong>irect <strong>A</strong>ttatched <strong>S</strong>torage)ist das üblichste Speichersystem, das in den meisten Computern verwendet wird. Dabei ist die Festplatte <strong>direkt</strong> mit dem Computer Verbunden.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Vorteile</td>
+<td>Nachteile</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>günstig</td>
+<td>keine flexibelität</td>
+</tr>
+<tr>
+<td>kein Remote zugriff</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nas">NAS</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/07b8e3869761411bbc64dd9b49748a83.png" /></td>
+<td>Beim <strong>NAS</strong> (<strong>N</strong>etwork <strong>A</strong>ttatched <strong>S</strong>torage) wrid ein Laufwerk über das Netzwerk mittels eines Protokolls wie z. B: <strong>SMB</strong>, <strong>WebDAV</strong>, <strong>FTP</strong> eingebunden. Die Daten werden dabei <strong>Dateiorientiert</strong> versendet, da die aufteilung auf die Blocks von dem Server erledigt wird (<strong>Dateisystem ist ebenfalls ausgelagert</strong>).</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Vorteile</td>
+<td>Nachteile</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>remoter zugriff</td>
+<td>abhängig von Netzwerkgeschwindigkeit</td>
+</tr>
+<tr>
+<td>belastet das Netzwerk</td>
+</tr>
+</tbody>
+</table>
+<h3 id="san">SAN</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/3e57e4819f6b4b12adce3e767f27dc12.png" /></td>
+<td>Hier werden die Daten ebenfalls auf einen Remoten Speicher abgelegt. Im gegensatz zur NAS, wird beim <strong>SAN</strong> (<strong>S</strong>torage <strong>A</strong>rea <strong>N</strong>etwork) das Dateisystem <strong>NICHT</strong> auf den Server ausgelagert. Die Datenübertragung ist hier <strong>Blockorientiert</strong>. Hier werden Technologien wie <a title="#fibre-channel" href="#fibre-channel"><strong>FC</strong></a> (<strong>F</strong>ibre <strong>C</strong>hannel), <a title="#fibre-channel-over-ethernet" href="#fibre-channel-over-ethernet"><strong>FCoE</strong></a> (<strong>F</strong>ibre <strong>C</strong>hannel <strong>o</strong>ver <strong>E</strong>thernet) oder <a title="#internet-scsi" href="#internet-scsi"><strong>iSCSI</strong></a> (<strong>I</strong>nternet <strong>SCSI</strong>)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Vorteile</td>
+<td>Nachteile</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>redundant</td>
+<td>teuer</td>
+</tr>
+<tr>
+<td>skalierbar</td>
+<td>kleinere Reichweite</td>
+</tr>
+<tr>
+<td colspan="2">höherer aufwand</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technologien">Technologien</h2>
+<h3 id="fibre-channel">Fibre Channel</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frame</strong></td>
+<td><img src="/_resources/009ea328139145029c6bd764478a690f.png" /></td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>- kleiner Frame -&gt; schnell</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>- teuer <br class="jop-noMdConv" />- benötigt spezielle Hardware <br class="jop-noMdConv" />- maximale reichweite von 1,2km</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fibre-channel-over-ethernet">Fibre Channel over Ethernet</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frame</strong></td>
+<td><img src="/_resources/f0e74be6a06f49cbac5bf0a3e5751161.png" /></td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>- es können normale (Ethernet-)Switche verwendet werden <br class="jop-noMdConv" />- günstiger als FC</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>- recht teuer <br class="jop-noMdConv" />- maximale reichweite von 1,2km</td>
+</tr>
+</tbody>
+</table>
+<h3 id="internet-scsi">Internet SCSI</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frame</strong></td>
+<td><img src="/_resources/98553a4eaa0f43ed862822d6bf148b4a.png" /></td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>- hohe Reichweite <br class="jop-noMdConv" />- normale Netzwerktechnik kann verwendet werden <br class="jop-noMdConv" />- günstig</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>- je anch Aufbau belastet restliches Netzwerk <br class="jop-noMdConv" />- langsam</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wichtige-begriffe">Wichtige Begriffe</h2>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LUN</td>
+<td><strong>Speichereinheiten</strong> in einem SAN (<strong>virtuelle</strong> Festplatten) <br class="jop-noMdConv" /> <img src="/_resources/820741948a424aa89533b4765d2d2a5c.png" /></td>
+</tr>
+<tr>
+<td>iSCASI-Target</td>
+<td>iSCSI-<strong>Server</strong></td>
+</tr>
+<tr>
+<td>iSCASI-Initiator</td>
+<td>iSCSI-<strong>Client</strong></td>
+</tr>
+<tr>
+<td>Volume Manager</td>
+<td>ein <strong>Volume Manager</strong> ermögicht das dynamische <strong>vergrößern</strong> und <strong>verkleinern</strong> während dem Betrieb.</td>
+</tr>
+</tbody>
+</table>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

@@ -4,9 +4,213 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 10 Oct 2022 06:36:07 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 11 Oct 2022 06:39:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[Speichersysteme]]></title>
+            <guid>840a8902b7c24a9b9a8e70a5f2e7d2fd</guid>
+            <pubDate>Tue, 11 Oct 2022 05:54:53 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="speichersysteme">Speichersysteme</h1>
+<ol>
+<li><a title="#speichersysteme-im-%C3%BCberblick" href="#speichersysteme-im-%C3%BCberblick">Speichersysteme im Überblick</a>
+<ol>
+<li><a title="#das" href="#das">DAS</a></li>
+<li><a title="#nas" href="#nas">NAS</a></li>
+<li><a title="#san" href="#san">SAN</a></li>
+</ol>
+</li>
+<li><a title="#technologien" href="#technologien">Technologien</a>
+<ol>
+<li><a title="#fibre-channel" href="#fibre-channel">Fibre Channel</a></li>
+<li><a title="#fibre-channel-over-ethernet" href="#fibre-channel-over-ethernet">Fibre Channel over Ethernet</a></li>
+<li><a title="#internet-scsi" href="#internet-scsi">Internet SCSI</a></li>
+</ol>
+</li>
+<li><a title="#wichtige-begriffe" href="#wichtige-begriffe">Wichtige Begriffe</a></li>
+</ol>
+<h2 id="speichersysteme-im-überblick">Speichersysteme im Überblick</h2>
+<h3 id="das">DAS</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/f2699d9310c1403b8a53ed65b3d3c9b6.png" /></td>
+<td>Das <strong>DAS</strong> (<strong>D</strong>irect <strong>A</strong>ttatched <strong>S</strong>torage)ist das üblichste Speichersystem, das in den meisten Computern verwendet wird. Dabei ist die Festplatte <strong>direkt</strong> mit dem Computer Verbunden.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Vorteile</td>
+<td>Nachteile</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>günstig</td>
+<td>keine flexibelität</td>
+</tr>
+<tr>
+<td>kein Remote zugriff</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nas">NAS</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/07b8e3869761411bbc64dd9b49748a83.png" /></td>
+<td>Beim <strong>NAS</strong> (<strong>N</strong>etwork <strong>A</strong>ttatched <strong>S</strong>torage) wrid ein Laufwerk über das Netzwerk mittels eines Protokolls wie z. B: <strong>SMB</strong>, <strong>WebDAV</strong>, <strong>FTP</strong> eingebunden. Die Daten werden dabei <strong>Dateiorientiert</strong> versendet, da die aufteilung auf die Blocks von dem Server erledigt wird (<strong>Dateisystem ist ebenfalls ausgelagert</strong>).</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Vorteile</td>
+<td>Nachteile</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>remoter zugriff</td>
+<td>abhängig von Netzwerkgeschwindigkeit</td>
+</tr>
+<tr>
+<td>belastet das Netzwerk</td>
+</tr>
+</tbody>
+</table>
+<h3 id="san">SAN</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/_resources/3e57e4819f6b4b12adce3e767f27dc12.png" /></td>
+<td>Hier werden die Daten ebenfalls auf einen Remoten Speicher abgelegt. Im gegensatz zur NAS, wird beim <strong>SAN</strong> (<strong>S</strong>torage <strong>A</strong>rea <strong>N</strong>etwork) das Dateisystem <strong>NICHT</strong> auf den Server ausgelagert. Die Datenübertragung ist hier <strong>Blockorientiert</strong>. Hier werden Technologien wie <a title="#fibre-channel" href="#fibre-channel"><strong>FC</strong></a> (<strong>F</strong>ibre <strong>C</strong>hannel), <a title="#fibre-channel-over-ethernet" href="#fibre-channel-over-ethernet"><strong>FCoE</strong></a> (<strong>F</strong>ibre <strong>C</strong>hannel <strong>o</strong>ver <strong>E</strong>thernet) oder <a title="#internet-scsi" href="#internet-scsi"><strong>iSCSI</strong></a> (<strong>I</strong>nternet <strong>SCSI</strong>)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Vorteile</td>
+<td>Nachteile</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>redundant</td>
+<td>teuer</td>
+</tr>
+<tr>
+<td>skalierbar</td>
+<td>kleinere Reichweite</td>
+</tr>
+<tr>
+<td colspan="2">höherer aufwand</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technologien">Technologien</h2>
+<h3 id="fibre-channel">Fibre Channel</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frame</strong></td>
+<td><img src="/_resources/009ea328139145029c6bd764478a690f.png" /></td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>- kleiner Frame -&gt; schnell</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>- teuer <br class="jop-noMdConv" />- benötigt spezielle Hardware <br class="jop-noMdConv" />- maximale reichweite von 1,2km</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fibre-channel-over-ethernet">Fibre Channel over Ethernet</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frame</strong></td>
+<td><img src="/_resources/f0e74be6a06f49cbac5bf0a3e5751161.png" /></td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>- es können normale (Ethernet-)Switche verwendet werden <br class="jop-noMdConv" />- günstiger als FC</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>- recht teuer <br class="jop-noMdConv" />- maximale reichweite von 1,2km</td>
+</tr>
+</tbody>
+</table>
+<h3 id="internet-scsi">Internet SCSI</h3>
+<table>
+<thead>
+<tr></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frame</strong></td>
+<td><img src="/_resources/98553a4eaa0f43ed862822d6bf148b4a.png" /></td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>- hohe Reichweite <br class="jop-noMdConv" />- normale Netzwerktechnik kann verwendet werden <br class="jop-noMdConv" />- günstig</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>- je anch Aufbau belastet restliches Netzwerk <br class="jop-noMdConv" />- langsam</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wichtige-begriffe">Wichtige Begriffe</h2>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LUN</td>
+<td><strong>Speichereinheiten</strong> in einem SAN (<strong>virtuelle</strong> Festplatten) <br class="jop-noMdConv" /> <img src="/_resources/820741948a424aa89533b4765d2d2a5c.png" /></td>
+</tr>
+<tr>
+<td>iSCASI-Target</td>
+<td>iSCSI-<strong>Server</strong></td>
+</tr>
+<tr>
+<td>iSCASI-Initiator</td>
+<td>iSCSI-<strong>Client</strong></td>
+</tr>
+<tr>
+<td>Volume Manager</td>
+<td>ein <strong>Volume Manager</strong> ermögicht das dynamische <strong>vergrößern</strong> und <strong>verkleinern</strong> während dem Betrieb.</td>
+</tr>
+</tbody>
+</table>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Klassisches Projektmanagement]]></title>
             <guid>076f341679e94a6bb2126ae140153572</guid>
@@ -842,275 +1046,6 @@ Programm-Beispiele sind:</p>
 Programm-Beispiele sind Docker-Container.
 <img src="/_resources/2b5f76311d334317986ab4dc1c3c6e8f.png" /></p>
 </div>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Kommunikation]]></title>
-            <guid>240b671f56e04048b41498ec2aef89e4</guid>
-            <pubDate>Wed, 26 Jan 2022 06:09:49 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="kommunikation">Kommunikation</h1>
-<ol>
-<li><a title="#konfliktgespr%C3%A4che-konstruktiv-f%C3%BChren" href="#konfliktgespr%C3%A4che-konstruktiv-f%C3%BChren">Konfliktgespräche</a>
-<ol>
-<li><a title="#wie-spreche-ich-ein-konflikt-an" href="#wie-spreche-ich-ein-konflikt-an">Wie spreche ich ein Konflikt an?</a></li>
-<li><a title="#tipps" href="#tipps">Tipps</a></li>
-<li><a title="#aufbau-eines-arguments" href="#aufbau-eines-arguments">Aufbau eines Arguments</a></li>
-</ol>
-</li>
-<li><a title="#killerphrasen" href="#killerphrasen">Killerphrasen</a>
-<ol>
-<li><a title="#abwehrm%C3%B6glichkeiten" href="#abwehrm%C3%B6glichkeiten">Abwehrmöglichkeiten</a></li>
-</ol>
-</li>
-<li><a title="#komponenten-der-kommunikation" href="#komponenten-der-kommunikation">Komponenten der Kommunikation</a></li>
-<li><a title="#sender-empf%C3%A4nger-modell" href="#sender-empf%C3%A4nger-modell">Sender-Empfänger-Modell</a>
-<ol>
-<li><a title="#beeinflussende-faktoren" href="#beeinflussende-faktoren">Beeinflussende Faktoren</a></li>
-</ol>
-</li>
-<li><a title="#f%C3%BCnf-axiome-nach-watzlawick" href="#f%C3%BCnf-axiome-nach-watzlawick">Fünf Axiome nach Watzlawick</a>
-<ol>
-<li><a title="#erstes-axiom" href="#erstes-axiom">Erstes Axiom</a></li>
-<li><a title="#zweites-axiom" href="#zweites-axiom">Zweites Axiom</a></li>
-<li><a title="#drittes-axiom" href="#drittes-axiom">Drittes Axiom</a></li>
-<li><a title="#viertes-axiom" href="#viertes-axiom">Viertes Axiom</a></li>
-<li><a title="#f%C3%BCnftes-axiom" href="#f%C3%BCnftes-axiom">Fünftes Axiom</a></li>
-</ol>
-</li>
-<li><a title="#vier-ohren-modell" href="#vier-ohren-modell">Vier Ohren Modell</a>
-<ol>
-<li><a title="#beispiel" href="#beispiel">Beispiel</a></li>
-</ol>
-</li>
-<li><a title="#feedback" href="#feedback">Feedback</a></li>
-</ol>
-<h2 id="konfliktgespräche">Konfliktgespräche</h2>
-<h3 id="wie-spreche-ich-ein-konflikt-an">Wie spreche ich ein Konflikt an?</h3>
-<p><strong>Schritt 1:</strong></p>
-<ul>
-<li>Nennen sie den konkreten <strong>Anlass</strong>
-<ul>
-<li>z. B.: <em>Ich würde gerne den gestrigen Vorfall mit Ihnen besprechen.</em></li>
-</ul>
-</li>
-</ul>
-<p><strong>Schritt 2:</strong></p>
-<ul>
-<li>Sprechen Sie die eigene <strong>Betroffenheit</strong> an
-<ul>
-<li>z. B.: <em>Die Sache hat mich sehr beschäftigt.</em></li>
-</ul>
-</li>
-</ul>
-<p><strong>Schritt 3:</strong></p>
-<ul>
-<li>Äußern Sie den <strong>Wunsch</strong>, die Situation in einem Gespräch bereden oder klären wollen.
-<ul>
-<li>z. B.: <em>Ich möchte die Angelegenheit gerne mit Ihnen besprechen. Wann wäre das möglich?</em></li>
-</ul>
-</li>
-</ul>
-<h3 id="tipps">Tipps</h3>
-<ol>
-<li>Argumente zurechtlegen</li>
-<li>andere ausreden lassen</li>
-<li>in Gedanken die Gespräche “durchspielen”</li>
-<li>Termin ausmachen
-<ul>
-<li>Nichts zwischen Tür und Angel machen</li>
-</ul>
-</li>
-<li>W-Fragen klären
-<ul>
-<li>Worum geht es in dem Konflikt?</li>
-<li>Wo liegt der Ursprung des Konflikts?</li>
-<li>Wer ist an diesem Konflikt beteiligt?</li>
-<li>Wie ist dieser Konflikt bisher verlaufen?</li>
-<li>Welchen Anteil habe ich an der Aufrechterhaltung bzw. Verstärkung des Konflikts</li>
-<li>Was will ich im Gespräch ansprechen und welches Ziel verfolge ich dabei?</li>
-</ul>
-</li>
-<li>sachlich und ruhig bleiben</li>
-<li>Aussagen erklären und begründen</li>
-<li>auf die Aussagen des andren eingehen</li>
-<li>Ziel im Auge behalten</li>
-<li>Blickkontakt</li>
-<li>nutze eigene Kritik und nicht Kritik “aus zweiter Hand”</li>
-<li>auf den Punkt kommen</li>
-<li>Ich-Botschaften</li>
-</ol>
-<h3 id="aufbau-eines-arguments">Aufbau eines Arguments</h3>
-<p><img src="/_resources/29a6650497c34f5d9b489b8d0f7d1d05.png" />
-<strong>Beispiel:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Beobachtung</th>
-<th>Gefühl</th>
-<th>Bedürfnis</th>
-<th>Wunsch</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Wenn Sie meine Ideen immer sofort ablehnen,</td>
-<td>dann fühle ich mich schlecht</td>
-<td>weil über meine Ideen nicht mal angehört werden.</td>
-<td>Daher möchte ich, das Sie sich meine Ideen in Zukunft anhören und kurz darüber nachdenken und mir Kritik geben, warum die Idee abgelehnt wird.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="killerphrasen">Killerphrasen</h2>
-<p>Killerphrasen sind pauschale und abwertende Angriffe in einer Diskussion (nicht Sachliche abwertende Aussagen). Vorstellungen und Ideen des anderen sollen mit ihnen als ungeeignet dargestellt werden ohne es direkt anzusprechen. Sie sollen zudem den anderen verunsichern, bloßstellen und mundtot machen.</p>
-<h3 id="abwehrmöglichkeiten">Abwehrmöglichkeiten</h3>
-<p>Wichtig ist, dass diese Killerphrasen in einer Diskussion schnell erkannt werden, damit man gut gegen sie vorgehen kann.
-<strong>Möglichkeiten sind:</strong></p>
-<ul>
-<li><strong>Antworten:</strong> Gespräche auf Sachebene zurückführen.</li>
-<li><strong>Rückfrage:</strong> Bitte um sachliche Präzisierung
-<ul>
-<li>Meist nicht Sachlich wiederleg-/begründbar</li>
-<li><em>Gefahr: der gegenüber bekommt oft zu viel Redezeit oder die Gelegenheit den Angriff auszubauen</em></li>
-</ul>
-</li>
-<li><strong>Metakommunikation:</strong> Thematisieren Sie die Killerphrasen.</li>
-</ul>
-<p>Antworten und Rückfragen haben den vorteil, das der Andere nicht verletzt wird.</p>
-<h2 id="komponenten-der-kommunikation">Komponenten der Kommunikation</h2>
-<p>Kommunikation besteht aus zwei Bestandteilen.
-<strong>Verbale Kommunikation:</strong> Sprache/Worte, Schrift (sprachlich vermittelt)</p>
-<p><strong>Nonverbale Kommunikation:</strong> das senden nicht sprachlicher Botschaften, die Auskunft über das Innere des Senders geben können.</p>
-<ul>
-<li>Sprechen/Verständigen ohne Worte.</li>
-</ul>
-<p><img src="/_resources/28debeeda317461f89e0789813e86210.png" /></p>
-<p>Schwierigkeiten entstehen, wenn verbale und nonverbale Elemente einer Nachricht unterschiedliche Aussagen präsentieren oder Wen nonverbale Signale mehrdeutig sind (Tränen: Trauer - Freude)</p>
-<h2 id="sender-empfänger-modell">Sender-Empfänger-Modell</h2>
-<p><img src="/_resources/0096b6bcf55e466994cf7fe31e8d6226.png" /></p>
-<h3 id="beeinflussende-faktoren">Beeinflussende Faktoren</h3>
-<ul>
-<li><strong>Sprachwissen:</strong>
-<ul>
-<li>Wortschatz und Grammatik</li>
-</ul>
-</li>
-<li><strong>Situation:</strong>
-<ul>
-<li>Ort</li>
-<li>Stimmung</li>
-</ul>
-</li>
-<li><strong>Sprachebene:</strong>
-<ul>
-<li>unterschiedliche Arten des Ausdrucks</li>
-<li>Dialekte</li>
-<li>Fachsprache</li>
-</ul>
-</li>
-</ul>
-<h2 id="fünf-axiome-nach-watzlawick">Fünf Axiome nach Watzlawick</h2>
-<p>Die fünf Axiome von Watzlawick sind Regeln, die bei Kommunikationen zutreffen.</p>
-<h3 id="erstes-axiom">Erstes Axiom</h3>
-<p><em>Es ist unmöglich, nicht zu kommunizieren!</em></p>
-<p>Es besagt, dass selbst wenn man nicht Spricht, sagt die Körpersprache immer noch viel über einen aus.</p>
-<h3 id="zweites-axiom">Zweites Axiom</h3>
-<p><em>Jede Kommunikation hat einen Inhalts- und einen Beziehungsaspekt!</em></p>
-<p>Dieses Axiom besagt, dass es eine Inhalts- (was gesagt wird) und eine Beziehungsebene (Wie stehen die kommunizierenden Personen zueinander).
-Die Beziehungsebene bemerkt man jedoch oft erst wenn diese gestört ist.
-z. B.:</p>
-<ul>
-<li>es wird dann oft etwas fehlinterpretiert</li>
-<li>man ist schnell ohne Grund genervt von dem anderen</li>
-</ul>
-<h3 id="drittes-axiom">Drittes Axiom</h3>
-<p><em>Jede Kommunikation enthält in der unterschiedlichen Sicht der verschiedenen Partner eine Struktur, die als Interpunktion einer Ereignisabfolge erscheint!</em></p>
-<p>Dieses Axiom besagt, das es keinen genau bestimmbaren Anfangszeitpunkt für eine Kommunikation (oder auch Streit) gibt, da es für jeden ein anderer ist.
-Dadurch erübrigt sich die Frage wer angefangen hat.</p>
-<h3 id="viertes-axiom">Viertes Axiom</h3>
-<p><em>Die menschliche Kommunikation kann in digitaler (= genau bezeichenbarer) und analoger (=ähnlicher) Weise erfolgen</em></p>
-<p>Die Kommunikation kann digital oder analog stattfinden.
-<strong>Digital:</strong></p>
-<ul>
-<li>eine eindeutige Kommunikation</li>
-<li>leichter zu interpretieren</li>
-<li>wird verwendet um Informationen zu übertragen</li>
-<li>Wenn jemand sagt er ist glücklich, weiß man es direkt</li>
-<li>Die Digitale Kommunikation kann mit Schrift, mit Sprache oder mit</li>
-<li>Informationstechnik (=Beispielsweise ein ping) stattfinden.</li>
-</ul>
-<p><strong>Analog:</strong></p>
-<ul>
-<li>kann nicht genau zugeordnet werden bzw. interpretiert werden</li>
-<li>ist in zwischenmenschlichen Beziehungen wichtig, bsp. lächeln oder berühren</li>
-<li>Wenn jemand grinst, denken wir er ist glücklich, man weiß es jedoch nicht sicher</li>
-</ul>
-<h3 id="fünftes-axiom">Fünftes Axiom</h3>
-<p><em>Zwischenmenschliche Kommunikationsabläufe sind entweder symmetrisch oder komplementär, je nachdem,
-ob die Beziehung zwischen den Partnern auf Gleichheit oder auf Unterschiedlichkeit beruht</em></p>
-<p>Im letzen Axiom wird beschrieben, das es zwei arten von Kommunikationsabläufen gibt.
-<strong>Symmetrisch:</strong></p>
-<ul>
-<li>die Gesprächspartner kommen gleich oft zu Wort</li>
-<li>sie kennen sich gleich mit dem Thema aus</li>
-<li>sie stehen auf einer Ebene</li>
-</ul>
-<p><strong>Komplementär:</strong></p>
-<ul>
-<li>einer spricht mehr als der andere</li>
-<li>einer steht über den anderen (Chef und Angestellter)</li>
-<li>einer ist Experte in einem Thema und der andere hört zu</li>
-</ul>
-<h2 id="vier-ohren-modell">Vier Ohren Modell</h2>
-<p>Das Vier-Ohren-Modell von Friedemann Schulz von Thun beschreibt warum Menschen etwas falsch verstehen können und wird dafür benutzt um Aussagen zu analysieren.
-<img src="/_resources/064e2a0f40504d69b25aceb14a302643.png" /></p>
-<h3 id="beispiel">Beispiel</h3>
-<p><img src="/_resources/1cb303159ed54bc9af0dc6edb106712e.png" /></p>
-<h2 id="feedback">Feedback</h2>
-<p>Feedback ist eine Mitteilung an eine andere Person darüber</p>
-<ul>
-<li>wie ich sie wahrnehme</li>
-<li>wie ich sie verstanden habe</li>
-<li>welche Gefühle, Gedanken und Ideen ihr Verhalten in mit auslöst</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Feedbackgeber</th>
-<th>Feedbacknehmer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>zeitnahe geben</td>
-<td>aufmerksam zuhören</td>
-</tr>
-<tr>
-<td>konkrete Beobachtung schildern</td>
-<td>nachfragen, wenn etwas unklar ist</td>
-</tr>
-<tr>
-<td>keine Verallgemeinerung verwenden</td>
-<td>nicht entschuldigen, erklären oder verteidigen</td>
-</tr>
-<tr>
-<td>Gefühle und Wahrnehmung beschreiben</td>
-<td>überprüfen und entscheiden ob es annehmbar ist</td>
-</tr>
-<tr>
-<td>Ich-Aussagen verwenden</td>
-<td>bei gutem d. h. qualifizierten Feedback danken</td>
-</tr>
-<tr>
-<td colspan="2">erst was gut war</td>
-</tr>
-<tr>
-<td colspan="2">dann kritische Gesichtspunkte nennen</td>
-</tr>
-<tr>
-<td colspan="2">konstruktive Vorschläge machen</td>
-</tr>
-</tbody>
-</table>
-]]></content:encoded>
         </item>
     </channel>
 </rss>
