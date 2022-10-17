@@ -4,9 +4,90 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 14 Oct 2022 09:48:13 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Oct 2022 12:02:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[VPN]]></title>
+            <guid>4dd6d0c8f1374748bd3f293c4753be1d</guid>
+            <pubDate>Mon, 17 Oct 2022 11:36:05 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="vpn">VPN</h1>
+<ol>
+<li><a title="#was-ist-vpn" href="#was-ist-vpn">Was ist VPN?</a></li>
+<li><a title="#arten" href="#arten">Arten</a></li>
+<li><a title="#protokolle" href="#protokolle">Protokolle</a>
+<ol>
+<li><a title="#ipsec" href="#ipsec">IPsec</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-vpn">Was ist VPN?</h2>
+<p>Ein <strong>VPN</strong> (<strong>V</strong>irtual <strong>P</strong>rivate <strong>N</strong>etwork) ist eine <strong>sichere Verbindung</strong> von Rechnern und Netzwerken über <strong>unsichere Netze</strong>. (z. B. das Internet)
+Die Verbindung wird mittels <a href="/article/kryptografie">Kryptografie</a> vor Abhören (<strong>Vertraulichkeit</strong>) und Manupulisation (<strong>Integrität</strong>). Zudem kann die <strong>Authentizität</strong> der Kommunikationspartner gewährleistet werden.</p>
+<p><img src="/_resources/9ab20a7a0ee94a5c96704ee6ccdabc6c.png" /></p>
+<h2 id="arten">Arten</h2>
+<table>
+<thead>
+<tr>
+<th>Art</th>
+<th>Beschreibung/Beispiel</th>
+<th>Modus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site-to-Site <br class="jop-noMdConv" /> <em>(Gateway-to-Gateway)</em></td>
+<td>Eine Verbindung von Zwei Firmennetzen</td>
+<td>Tunnel-Modus</td>
+</tr>
+<tr>
+<td>End-to-Site <br class="jop-noMdConv" /> <em>(Host-to-Gateway)</em></td>
+<td>Außendienstmitarbeiter greift auf das Firmennetz zu.</td>
+<td>Tunnel-Modus</td>
+</tr>
+<tr>
+<td>End-to-End <br class="jop-noMdConv" /> <em>(Host-to-Host)</em></td>
+<td>Ein PC soll genau auf einene Server Zugreifenkönnen</td>
+<td>Transport-Modus</td>
+</tr>
+</tbody>
+</table>
+<h2 id="protokolle">Protokolle</h2>
+<table>
+<thead>
+<tr>
+<th>OSI-Schicht</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4-7</td>
+<td>- Secure Socket Layer/Transport Layer Security (SSL/TLS) z. B. bei HTTPS <br class="jop-noMdConv" />- Micorosoft SSTP-VPN (Secure Socket Tunneling Protokol) <br class="jop-noMdConv" />- SSH <br class="jop-noMdConv" />- OpenVPN</td>
+</tr>
+<tr>
+<td>3</td>
+<td>- IP Security (<a title="#ipsec" href="#ipsec">IPSec</a>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>- Point-to-Point Tunneling Protocol (PPTP) <br class="jop-noMdConv" />- Layer 2 Tunneling Protocol (L2TP)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ipsec">IPSec</h3>
+<p><strong>IP Security</strong> (<strong>IP Sec</strong>urity) ist eine Sammlung von Protokollen zur Absicherung des <strong>IP-basiertem Netzverkehr</strong>:</p>
+<ul>
+<li><strong>Authentication Header (AH)</strong>:
+Sorgt für <strong>Authentizität</strong> und <strong>Integrität</strong> der übertragenen Daten. AH stellt dies über eine <strong><a href="/article/kryptografie">Digitale Signatur</a></strong> sicher. AH verschlüsselt <strong>NICHT!</strong>
+AH funktioniert oft mit NAT <strong>NICHT</strong> weil dort die IP-Adresse ändert und somit die Signatur nicht mehr stimmt.</li>
+<li><strong>Encapsulating Security Payload (ESP)</strong>:
+Sorgt für <strong>Vertraulichkeit</strong> der übertragenen Daten. (<strong><a href="/article/kryptografie">Verschlüsselung</a></strong>)</li>
+<li><strong>Internet Key Exchange (IKE)</strong>:
+Über dieses Protokoll werden die Schlüssel für AH bzw. ESP erzeugt, verwaltet und der Kommunikationsparter authentifiziert.</li>
+</ul>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Speichersysteme]]></title>
             <guid>840a8902b7c24a9b9a8e70a5f2e7d2fd</guid>
@@ -1386,58 +1467,6 @@ Zugriff auf:</p>
 <ul>
 <li>Office 365</li>
 </ul>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Betriebssysteme]]></title>
-            <guid>71c644b85ca246ffb4b0d1fb4d9c1a96</guid>
-            <pubDate>Fri, 11 Mar 2022 14:30:33 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="betriebssysteme">Betriebssysteme</h1>
-<ol>
-<li><a title="#was-ist-ein-betriebssystem" href="#was-ist-ein-betriebssystem">Was ist ein Betriebssystem?</a></li>
-<li><a title="#aufgaben-eines-betriebssystems" href="#aufgaben-eines-betriebssystems">Aufgaben eines Betriebssystems</a>
-<ol>
-<li><a title="#prozessverwaltung" href="#prozessverwaltung">Prozessverwaltung</a></li>
-<li><a title="#speicherverwaltung" href="#speicherverwaltung">Speicherverwaltung</a></li>
-<li><a title="#dateiverwaltung" href="#dateiverwaltung">Dateiverwaltung</a></li>
-<li><a title="#ger%C3%A4teverwaltung" href="#ger%C3%A4teverwaltung">Gerätzeverwaltung</a></li>
-</ol>
-</li>
-<li><a title="#eigenschaften-von-betriebssystemen" href="#eigenschaften-von-betriebssystemen">Eigenschaften von Betriebssystemen</a>
-<ol>
-<li><a title="#multitasking" href="#multitasking">Multitasking</a></li>
-<li><a title="#mehrprozessorbetrieb" href="#mehrprozessorbetrieb">Mehrprozessorbetrieb</a></li>
-<li><a title="#multithreading" href="#multithreading">Multi-Threading</a></li>
-</ol>
-</li>
-<li><a title="#cpu-ringe" href="#cpu-ringe">CPU-Ringe</a></li>
-</ol>
-<h2 id="was-ist-ein-betriebssystem">Was ist ein Betriebssystem</h2>
-<p>Das Betriebssystem ist das bindeglied zwischen Hardware und Software. Oft wird eine <strong>Summe</strong> von <strong>Betriebssystemkern (Kernel)</strong> und <strong>wichtige Systemprogrammen</strong> als Betriebssystem verstanden. Zudem stellt ein Betriebssystem <strong>Schnittstellen (APIs)</strong> zwischen Software und Hardware bereit. Die wichtigste Aufgabe eines Betriebssystems ist die <strong>Resourcenverwaltung</strong>.</p>
-<p><img src="/_resources/82719ef976ff42f2b74035d53b6a00a4.png" /></p>
-<h2 id="aufgaen-eines-betriebssystems">Aufgaen eines Betriebssystems</h2>
-<p><img src="/_resources/2a597475e2744f09b7bdd550952ff8a1.png" /></p>
-<h3 id="prozessverwaltung">Prozessverwaltung</h3>
-<p>Damit mehrere Benutzer gleichzeitig und/oder ein Benutzer gleichzeitig mehrere Aktionen durchführen kann ohne sich in dei Quere zu kommen müssen diese <strong>Prozesse</strong> verwaltet werden. Ein Prozess ist z. B. ein gestartetes Programm.</p>
-<h3 id="speicherverwaltung">Speicherverwaltung</h3>
-<p><strong>Zuteilen</strong> von <strong>Speicherbereichen</strong> an laufende Prozesse, <strong>Schutz</strong> der <strong>Speicherbereiche</strong> vor unbefugten Zugriffen, bei Speicherengpässen: <strong>Auslagern</strong> (swapping) von ganzen oder von Teilen (paging) von Prozessen auf die Platte in Dateien (swap file, page file) oder Partitionen (swap partition)</p>
-<h3 id="dateiverwaltung">Dateiverwaltung</h3>
-<p>Zuteilung von <strong>Plattenplatz</strong> für Programme, Benutzer und Systemdienste, <strong>Schreiben</strong>, <strong>Lesen</strong> und <strong>Strukturieren</strong> der <strong>Daten</strong> auf Massenspeichern. Dafür Stellt der Kernel eine API für die Entsprechenden <strong>Dateisysteme</strong> zur Verfügung.</p>
-<h3 id="gerätzeverwaltung">Gerätzeverwaltung</h3>
-<p>Der <strong>kontrollierte</strong> Zugriff auf <strong>Hardware</strong> wie z. B. Eingabe- und Ausgabe geräte der Anwender wird mittels <strong>Gerätetreiber</strong> ermöglicht.</p>
-<h2 id="eigenschaften-von-betriebssystemen">Eigenschaften von Betriebssystemen</h2>
-<h3 id="multitasking">Multitasking</h3>
-<p>Beim <strong>Multitasking</strong> werden <strong>NICHT</strong> mehrere Programme gleichzeitig ausgeführt, sondern den Programmen werden Ledeglich Zeitslots (<strong>Zeitscheiben</strong>) zu gewiesen in denen sie Arbeiten dürfen. Dies wird von einem <strong>Schedular</strong> verwaltet.
-<img src="/_resources/4460a78355fb45a7b2bab657112fd77c.png" /></p>
-<h3 id="mehrprozessorbetrieb">Mehrprozessorbetrieb</h3>
-<p>Moderne Betriebssysteme unterstützten mehrere Prozessorkerne auf einmal. Dadurch können in jedem Kerne jeweils <strong>EINE</strong> aufgabe <strong>pro Kern gleichzeitig</strong> durchgeführt werden.</p>
-<h3 id="multi-threading">Multi-Threading</h3>
-<p>Um ein Programm n och schneller laufen zu lassen besteht die möglichkeit des <strong>Multi-Threadings</strong>. Dabei werden Programm-Schnipsel <strong>Threads</strong> auf verschiedene Kerne <strong>gleichzeitig</strong> aufgeteilt. Dies muss aber von dem <strong>Betriebssystem</strong>, dem <strong>Programm</strong>, und der <strong>Hardware</strong> unterstützt sein.</p>
-<h2 id="cpu-ringe">CPU-Ringe</h2>
-<p>Ein Betriebssystem wird gerne in Ringen Dargestellt.
-<img src="/_resources/2bb1eb43a98f4ffe81fce908f4000294.png" />
-<em>Quelle: <a title="https://de.wikipedia.org/wiki/Ring_(CPU)" href="https://de.wikipedia.org/wiki/Ring_(CPU)">Wikipedia</a></em>
-<strong>Kernel-Mode</strong> oder auch <strong>Ring 0</strong> ist der Teil, der mit der Hardware direkt Kommuniziert. Er stellt APIs bereit, wodurch der User über den <strong>Ring 3</strong> (<strong>User-Mode</strong>) auf die Hardware zugreifen kann.</p>
 ]]></content:encoded>
         </item>
     </channel>

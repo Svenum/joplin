@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>VPN - notes.holypenguin.net</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.net</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">VPN</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1666006565360"
+                  >2022-10-17 13:36</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1666008122559"
+                  >2022-10-17 14:02</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">vpn</span>
+              
+              <span class="keyword">12.klasse</span>
+              
+              <span class="keyword">its</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="vpn">VPN</h1>
+<ol>
+<li><a title="#was-ist-vpn" href="#was-ist-vpn">Was ist VPN?</a></li>
+<li><a title="#arten" href="#arten">Arten</a></li>
+<li><a title="#protokolle" href="#protokolle">Protokolle</a>
+<ol>
+<li><a title="#ipsec" href="#ipsec">IPsec</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-vpn">Was ist VPN?</h2>
+<p>Ein <strong>VPN</strong> (<strong>V</strong>irtual <strong>P</strong>rivate <strong>N</strong>etwork) ist eine <strong>sichere Verbindung</strong> von Rechnern und Netzwerken über <strong>unsichere Netze</strong>. (z. B. das Internet)
+Die Verbindung wird mittels <a href="/article/kryptografie">Kryptografie</a> vor Abhören (<strong>Vertraulichkeit</strong>) und Manupulisation (<strong>Integrität</strong>). Zudem kann die <strong>Authentizität</strong> der Kommunikationspartner gewährleistet werden.</p>
+<p><img src="/_resources/9ab20a7a0ee94a5c96704ee6ccdabc6c.png" /></p>
+<h2 id="arten">Arten</h2>
+<table>
+<thead>
+<tr>
+<th>Art</th>
+<th>Beschreibung/Beispiel</th>
+<th>Modus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site-to-Site <br class="jop-noMdConv" /> <em>(Gateway-to-Gateway)</em></td>
+<td>Eine Verbindung von Zwei Firmennetzen</td>
+<td>Tunnel-Modus</td>
+</tr>
+<tr>
+<td>End-to-Site <br class="jop-noMdConv" /> <em>(Host-to-Gateway)</em></td>
+<td>Außendienstmitarbeiter greift auf das Firmennetz zu.</td>
+<td>Tunnel-Modus</td>
+</tr>
+<tr>
+<td>End-to-End <br class="jop-noMdConv" /> <em>(Host-to-Host)</em></td>
+<td>Ein PC soll genau auf einene Server Zugreifenkönnen</td>
+<td>Transport-Modus</td>
+</tr>
+</tbody>
+</table>
+<h2 id="protokolle">Protokolle</h2>
+<table>
+<thead>
+<tr>
+<th>OSI-Schicht</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4-7</td>
+<td>- Secure Socket Layer/Transport Layer Security (SSL/TLS) z. B. bei HTTPS <br class="jop-noMdConv" />- Micorosoft SSTP-VPN (Secure Socket Tunneling Protokol) <br class="jop-noMdConv" />- SSH <br class="jop-noMdConv" />- OpenVPN</td>
+</tr>
+<tr>
+<td>3</td>
+<td>- IP Security (<a title="#ipsec" href="#ipsec">IPSec</a>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>- Point-to-Point Tunneling Protocol (PPTP) <br class="jop-noMdConv" />- Layer 2 Tunneling Protocol (L2TP)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ipsec">IPSec</h3>
+<p><strong>IP Security</strong> (<strong>IP Sec</strong>urity) ist eine Sammlung von Protokollen zur Absicherung des <strong>IP-basiertem Netzverkehr</strong>:</p>
+<ul>
+<li><strong>Authentication Header (AH)</strong>:
+Sorgt für <strong>Authentizität</strong> und <strong>Integrität</strong> der übertragenen Daten. AH stellt dies über eine <strong><a href="/article/kryptografie">Digitale Signatur</a></strong> sicher. AH verschlüsselt <strong>NICHT!</strong>
+AH funktioniert oft mit NAT <strong>NICHT</strong> weil dort die IP-Adresse ändert und somit die Signatur nicht mehr stimmt.</li>
+<li><strong>Encapsulating Security Payload (ESP)</strong>:
+Sorgt für <strong>Vertraulichkeit</strong> der übertragenen Daten. (<strong><a href="/article/kryptografie">Verschlüsselung</a></strong>)</li>
+<li><strong>Internet Key Exchange (IKE)</strong>:
+Über dieses Protokoll werden die Schlüssel für AH bzw. ESP erzeugt, verwaltet und der Kommunikationsparter authentifiziert.</li>
+</ul>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
