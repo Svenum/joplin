@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Datensicherung - notes.holypenguin.net</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.net</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Datensicherung</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1666010849366"
+                  >2022-10-17 14:47</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1666013241012"
+                  >2022-10-17 15:27</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">12.klasse</span>
+              
+              <span class="keyword">backup</span>
+              
+              <span class="keyword">datensicherung</span>
+              
+              <span class="keyword">incrementel</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">differentiel</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="datensicherung">Datensicherung</h1>
+<ol>
+<li><a title="#was-ist-datensicherung" href="#was-ist-datensicherung">Was ist Datensicherung?</a></li>
+<li><a title="#3-2-1-regel" href="#3-2-1-regel">3-2-1 Regel</a></li>
+<li><a title="#speicherinfrastruktur" href="#speicherinfrastruktur">Speicherinfrastruktur</a>
+<ol>
+<li><a title="#auswahlkriterien" href="#auswahlkriterien">Auswahlkriterien</a></li>
+<li><a title="#moderne-speicherinfrastrukturen" href="#moderne-speicherinfrastrukturen">Moderne Speicherinfrastrukturen</a></li>
+</ol>
+</li>
+<li><a title="#sicherungsverfahren" href="#sicherungsverfahren">Sicherungsverfahren</a>
+<ol>
+<li><a title="#auswahl-kriterien" href="#auswahl-kriterien">Auswahl-Kriterien</a></li>
+<li><a title="#incrementell" href="#incrementell">Incrementel</a></li>
+<li><a title="#reverseincrementel" href="#reverseincrementel">Reverseincrementel</a></li>
+<li><a title="#differenziel" href="#differenziel">Differenziel</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="was-ist-datensicherung">Was ist Datensicherung?</h2>
+<p><strong>Datensicherung = Backup und/oder Archivierung</strong></p>
+<p><strong>Datensicherung</strong> ist das Kopieren von Daten auf ein anderes Speichermedium um dieses im Fall eines Datenverlusstes zurück zu kopieren. Diese gesicherten Daten nennt man <strong>Sicherheitskopie</strong> (eng. <strong>Backup</strong>). Die Wiederherrstellung der Originaldaten aus einer Sicherheiskopie bezeichnet man als <strong>Datenwiederherstellung</strong>, <strong>Datenrücksicherung</strong> oder <strong>Restore.</strong></p>
+<p><strong>Archivierung</strong> steht für die unveränderbarkeit, langzeitige Aufbewahrung von Informationen.</p>
+<h2 id="3-2-1-regel">3-2-1 Regel</h2>
+<p>Diese Regel bescheibt ein Optimales Backup Verfahren.
+<strong>3</strong> Kopien (mindestens)
+<strong>2</strong> Kopien auf unterschiedlichen Speichermedien
+<strong>1</strong> Kopie an einem entfernten Ort (remote)</p>
+<h2 id="speicherinfrastruktur">Speicherinfrastruktur</h2>
+<h3 id="auswahlkreterien">Auswahlkreterien</h3>
+<ul>
+<li>Schreib- und Lesegeschwindigkeit</li>
+<li>Zugrifsszeit</li>
+<li>Kapazität</li>
+<li>Aufbewahrungszeit</li>
+<li>Alterungsbeständigkeit</li>
+<li>Kosten</li>
+</ul>
+<h3 id="moderne-speicherinfrastrukturen">Moderne Speicherinfrastrukturen</h3>
+<p><img src="/_resources/7f293e7e919e4370b996658824f26e7e.png" /></p>
+<h2 id="sicherungsverfahren">Sicherungsverfahren</h2>
+<h3 id="auswahl-kriterien">Auswahl-Kriterien</h3>
+<p><strong>Recovery Point Objective (RPO):</strong></p>
+<ul>
+<li>Zu welchem Zeitpunkt vor dem Ausfall wurde eine Sicherung gemacht die benutzt werden kann?</li>
+<li>Maximal toleriebarer Datenverlust (Verlust von der Sicherung bis zum Unglück)</li>
+</ul>
+<p><strong>Recovery Time Objective (RTO):</strong></p>
+<ul>
+<li>Welche Zeit wird benötigt um das Backup wieder herzustellen?</li>
+<li>Maximal toleriebare Ausfallzeit (wie lange darf das System ausfallen/Downtime)</li>
+</ul>
+<p><img src="/_resources/01dea3d6d58543a6b9aa41b0d48d3f91.png" /></p>
+<h3 id="incrementel">Incrementel</h3>
+<ol>
+<li>Vollbackup</li>
+<li>Änderungen seit dem Vortag</li>
+</ol>
+<p><img src="/_resources/c2397ded5352475cbcfade8beaa554b4.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>benötigt wenig Speicherplatz</td>
+<td>benötigt viele Bänder zum Wiederherstellen (benötigt alle Bänder seit Vollbackup)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reverseincrementel">Reverseincrementel</h3>
+<ol>
+<li>Vollbackup</li>
+<li>Änderungen werden ins Vollbackup geschrieben</li>
+<li>Alte Versionen werden behalten</li>
+</ol>
+<p><img src="/_resources/23d6ef71df1b49ae8a9e76ba17d30855.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>es ist immer ein aktuelles Vollbackup da</td>
+<td>kompliziertere Umsetzung</td>
+</tr>
+<tr>
+<td>benötigt wenig Speicherplatz</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="differenziel">Differenziel</h3>
+<ol>
+<li>Vollbackup</li>
+<li>Änderungen abhängig von Vollbackup</li>
+</ol>
+<p><img src="/_resources/24f3a8663d9245c8b8d692021114cc9e.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Vorteile</th>
+<th>Nachteile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>es werden nur 2 Bänder zum Wiederherstellen benötigt</td>
+<td>verbraucht viel Speicherplatz</td>
+</tr>
+</tbody>
+</table>
+<h4 id="syntetisches-voll-backup">Syntetisches Voll-Backup</h4>
+<p>Hierbei handelt es sich um ein Backup-Server, der die differentiellen Backup (meist über Hardlinks) zu einem neuen Vollbackup zusammenfügt.
+<img src="/_resources/fbc8348456e54fdfa3658d8bd45ea4c2.png" /></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
