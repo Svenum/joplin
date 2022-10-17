@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 17 Oct 2022 12:02:29 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Oct 2022 12:07:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -23,7 +23,7 @@
 </ol>
 <h2 id="was-ist-vpn">Was ist VPN?</h2>
 <p>Ein <strong>VPN</strong> (<strong>V</strong>irtual <strong>P</strong>rivate <strong>N</strong>etwork) ist eine <strong>sichere Verbindung</strong> von Rechnern und Netzwerken über <strong>unsichere Netze</strong>. (z. B. das Internet)
-Die Verbindung wird mittels <a href="/article/kryptografie">Kryptografie</a> vor Abhören (<strong>Vertraulichkeit</strong>) und Manupulisation (<strong>Integrität</strong>). Zudem kann die <strong>Authentizität</strong> der Kommunikationspartner gewährleistet werden.</p>
+Die Verbindung wird mittels <a href="/article/kryptografie">Kryptografie</a> vor Abhören (<strong>Vertraulichkeit</strong>) und Manupulisation (<strong>Integrität</strong>) geschützt. Zudem kann die <strong>Authentizität</strong> der Kommunikationspartner gewährleistet werden.</p>
 <p><img src="/_resources/9ab20a7a0ee94a5c96704ee6ccdabc6c.png" /></p>
 <h2 id="arten">Arten</h2>
 <table>
@@ -37,7 +37,7 @@ Die Verbindung wird mittels <a href="/article/kryptografie">Kryptografie</a> vor
 <tbody>
 <tr>
 <td>Site-to-Site <br class="jop-noMdConv" /> <em>(Gateway-to-Gateway)</em></td>
-<td>Eine Verbindung von Zwei Firmennetzen</td>
+<td>Eine Verbindung von zwei Firmennetzen</td>
 <td>Tunnel-Modus</td>
 </tr>
 <tr>
@@ -47,7 +47,7 @@ Die Verbindung wird mittels <a href="/article/kryptografie">Kryptografie</a> vor
 </tr>
 <tr>
 <td>End-to-End <br class="jop-noMdConv" /> <em>(Host-to-Host)</em></td>
-<td>Ein PC soll genau auf einene Server Zugreifenkönnen</td>
+<td>Ein PC soll genau auf einene Server zugreifen können</td>
 <td>Transport-Modus</td>
 </tr>
 </tbody>
