@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 17 Oct 2022 13:33:58 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 18 Oct 2022 04:55:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -84,6 +84,9 @@
 </tr>
 </tbody>
 </table>
+<h4 id="syntetisches-voll-backup">Syntetisches Voll-Backup</h4>
+<p>Hierbei handelt es sich um ein Backup-Server, der die incrementellen Backups (meist über Hardlinks) zu einem neuen Vollbackup zusammenfügt.
+<img src="/_resources/fbc8348456e54fdfa3658d8bd45ea4c2.png" /></p>
 <h3 id="reverseincrementel">Reverseincrementel</h3>
 <ol>
 <li>Vollbackup</li>
@@ -129,9 +132,6 @@
 </tr>
 </tbody>
 </table>
-<h4 id="syntetisches-voll-backup">Syntetisches Voll-Backup</h4>
-<p>Hierbei handelt es sich um ein Backup-Server, der die differentiellen Backup (meist über Hardlinks) zu einem neuen Vollbackup zusammenfügt.
-<img src="/_resources/fbc8348456e54fdfa3658d8bd45ea4c2.png" /></p>
 ]]></content:encoded>
         </item>
         <item>
