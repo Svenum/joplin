@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 19 Oct 2022 06:13:27 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Oct 2022 06:15:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -31,8 +31,8 @@
 <li>Source/Destination MAC-Adresse</li>
 </ul>
 <h3 id="application-gateway">Application Gateway</h3>
-<p><strong>Application Gateways</strong> Inspizieren die Kompletten Pakete auf schadsoftware und unerwünschten Dateien. Ein bekanntes Beispiel ist ein <strong>Proxy</strong>.
-Der Benutzer/Server will auf eine Website gehen z. B. <a title="https://notes.holypenguin.net" href="https://notes.holypenguin.net">notes.holypenguin.net</a>. Der Rechner Verbindet sich mit dem Proxy und sagt ihm er soll die Verbindung zu <a title="https://notes.holypenguin.net" href="https://notes.holypenguin.net">notes.holypenguin.net</a> aufbauen. Also baut er für mich die Verbindung auf und leitet mir die Informationen weiter. Ungewollte Seiten und/oder Downloads werden dann vom Proxy nicht weiter geleitet.
+<p><strong>Application Gateways</strong> Inspizieren die Kompletten Pakete auf schadsoftware und unerwünschten Dateien. Ein bekanntes Beispiel ist ein <strong>Proxy</strong>.</p>
+<p>Der Benutzer/Server will auf eine Website gehen z. B. <a title="https://notes.holypenguin.net" href="https://notes.holypenguin.net">notes.holypenguin.net</a>. Der Rechner Verbindet sich mit dem Proxy und sagt ihm er soll die Verbindung zu <a title="https://notes.holypenguin.net" href="https://notes.holypenguin.net">notes.holypenguin.net</a> aufbauen. Also baut er für mich die Verbindung auf und leitet mir die Informationen weiter. Ungewollte Seiten und/oder Downloads werden dann vom Proxy nicht weiter geleitet.
 <img src="/_resources/2eaf8b5ce28a461f984226eaabf9bac5.png" /></p>
 <h3 id="nextgeneration-gateway">Nextgeneration Gateway</h3>
 <p>EIn <strong>Nextgeneration Gateway</strong> verbindet das Application Gateway mit dem Paket Filter und fügt noch eine <strong>Anomalieerkennung</strong> hinzu. Es kann erkennen wenn z. B.:</p>
