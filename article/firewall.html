@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Firewall - notes.holypenguin.net</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">notes.holypenguin.net</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Firewall</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1666159224259"
+                  >2022-10-19 08:00</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1666159970203"
+                  >2022-10-19 08:12</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">firewall</span>
+              
+              <span class="keyword">proxy</span>
+              
+              <span class="keyword">its</span>
+              
+              <span class="keyword">application gateway</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="firewall">Firewall</h1>
+<ol>
+<li><a title="#was-ist-eine-firewall" href="#was-ist-eine-firewall">Was ist eine Firewall?</a></li>
+<li><a title="#arten" href="#arten">Arten</a>
+<ol>
+<li><a title="#paket-filter" href="#paket-filter">Paket-Filter</a></li>
+<li><a title="#application-gateway" href="#application-gateway">Application Gateway</a></li>
+<li><a title="#nextgeneration-gateway" href="#nextgeneration-gateway">Nextgeneration Gateway</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="arten">Arten</h2>
+<h3 id="paket-filter">Paket-Filter</h3>
+<p>Eine <strong>Paket Filter</strong> Firewall filtert Header Informationen von den <a href="/article/osi-model">OSI-Schichten</a> <strong>2 - 4</strong>:</p>
+<ul>
+<li>Source/Destination IP-Adresse</li>
+<li>Source/Destintation Port</li>
+<li>Source/Destination MAC-Adresse</li>
+</ul>
+<h3 id="application-gateway">Application Gateway</h3>
+<p><strong>Application Gateways</strong> Inspizieren die Kompletten Pakete auf schadsoftware und unerwünschten Dateien. Ein bekanntes Beispiel ist ein <strong>Proxy</strong>.
+Der Benutzer/Server will auf eine Website gehen z. B. <a title="https://notes.holypenguin.net" href="https://notes.holypenguin.net">notes.holypenguin.net</a>. Der Rechner Verbindet sich mit dem Proxy und sagt ihm er soll die Verbindung zu <a title="https://notes.holypenguin.net" href="https://notes.holypenguin.net">notes.holypenguin.net</a> aufbauen. Also baut er für mich die Verbindung auf und leitet mir die Informationen weiter. Ungewollte Seiten und/oder Downloads werden dann vom Proxy nicht weiter geleitet.
+<img src="/_resources/2eaf8b5ce28a461f984226eaabf9bac5.png" /></p>
+<h3 id="nextgeneration-gateway">Nextgeneration Gateway</h3>
+<p>EIn <strong>Nextgeneration Gateway</strong> verbindet das Application Gateway mit dem Paket Filter und fügt noch eine <strong>Anomalieerkennung</strong> hinzu. Es kann erkennen wenn z. B.:</p>
+<ul>
+<li>ein Portscann gemacht wird</li>
+<li>Auf einmal viele Anfrgen auf einen Server kommen</li>
+<li>Auf einmal viele Verbindungen Abbreche</li>
+<li>…</li>
+</ul>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
