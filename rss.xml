@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 20 Oct 2022 12:18:47 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Oct 2022 12:20:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -114,15 +114,15 @@ Da viel im Team zusammen gearbeitet werden muss sind gemeinsame Arbeitszeiten vo
 <td>Selbstorganisiertes Team aus fünf bis neun Mitgleidern, die die (Teil-) Produkte entwickeln</td>
 </tr>
 </tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Ereignis</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
 <tbody>
-<tr>
-<td>Ereignis</td>
-<td>Beschreibung</td>
-</tr>
-<tr>
-<td>-</td>
-<td>-</td>
-</tr>
 <tr>
 <td>Sprint Review</td>
 <td>Am Ende vom Sprint präsentiert das Entwicklungsteam die Ergebnisse den Kunden, Vorgesetzten und/oder Kollegen</td>
@@ -140,15 +140,15 @@ Da viel im Team zusammen gearbeitet werden muss sind gemeinsame Arbeitszeiten vo
 <td>Zum Abschluss eines Sprints um die Prozesse zu verbesern, damit der nächste Sprint besser läuft.</td>
 </tr>
 </tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Artefakte</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
 <tbody>
-<tr>
-<td>Artefakte</td>
-<td>Beschreibung</td>
-</tr>
-<tr>
-<td>-</td>
-<td>-</td>
-</tr>
 <tr>
 <td>Sprint Backlog</td>
 <td>Übersicht der Aufgaben für den Aktuellen Sprint.</td>
